@@ -97,41 +97,67 @@ def save_long_features(formulas, feature_type, file_name):
     print(f"Data saved to {file_name_json}")
 
 
-def save_dataframes_to_excel(
+def save_dataframes(
     binary_df,
     ternary_df,
     universal_sorted_df,
     universal_unsorted_df,
     directory,
     base_name_no_ext,
+    file_format
 ):
-    # Get Excel output paths using a utility function
+    
+
     (
-        binary_excel_output_path,
-        ternary_excel_output_path,
-        universal_sorted_excel_output_path,
-        universal_unsorted_excel_output_path,
-    ) = feature_util.excel_output_paths(directory, base_name_no_ext)
+        binary_output_path,
+        ternary_output_path,
+        universal_sorted_output_path,
+        universal_unsorted_output_path,
+    ) = feature_util.get_output_paths(directory, base_name_no_ext, file_format)
 
     # Save binary DataFrame to Excel
-    if len(binary_df) > 1:
-        binary_df.to_excel(binary_excel_output_path, index=False)
-        print(f"{binary_excel_output_path} saved")
+    
+    if file_format == "xlsx":
+        if len(binary_df) > 1:
+            binary_df.to_excel(binary_output_path, index=False)
+            print(f"{binary_output_path} saved")
 
-    # Save ternary DataFrame to Excel
-    if len(ternary_df) > 1:
-        ternary_df.to_excel(ternary_excel_output_path, index=False)
-        print(f"{ternary_excel_output_path} saved")
+        # Save ternary DataFrame to Excel
+        if len(ternary_df) > 1:
+            ternary_df.to_excel(ternary_output_path, index=False)
+            print(f"{ternary_output_path} saved")
 
-    # Save universal sorted and unsorted DataFrames
-    if len(universal_sorted_df) > 1:
-        universal_sorted_df.to_excel(
-            universal_sorted_excel_output_path, index=False
-        )
-        print(f"{universal_sorted_excel_output_path} saved")
+        # Save universal sorted and unsorted DataFrames
+        if len(universal_sorted_df) > 1:
+            universal_sorted_df.to_excel(
+                universal_sorted_output_path, index=False
+            )
+            print(f"{universal_sorted_output_path} saved")
 
-    if len(universal_unsorted_df) > 1:
-        universal_unsorted_df.to_excel(
-            universal_unsorted_excel_output_path, index=False
-        )
-        print(f"{universal_unsorted_excel_output_path} saved")
+        if len(universal_unsorted_df) > 1:
+            universal_unsorted_df.to_excel(
+                universal_unsorted_output_path, index=False
+            )
+            print(f"{universal_unsorted_output_path} saved")
+    elif file_format == "csv":
+        if len(binary_df) > 1:
+            binary_df.to_csv(binary_output_path, index=False)
+            print(f"{binary_output_path} saved")
+
+        # Save ternary DataFrame to Excel
+        if len(ternary_df) > 1:
+            ternary_df.to_csv(ternary_output_path, index=False)
+            print(f"{ternary_output_path} saved")
+
+        # Save universal sorted and unsorted DataFrames
+        if len(universal_sorted_df) > 1:
+            universal_sorted_df.to_csv(
+                universal_sorted_output_path, index=False
+            )
+            print(f"{universal_sorted_output_path} saved")
+
+        if len(universal_unsorted_df) > 1:
+            universal_unsorted_df.to_csv(
+                universal_unsorted_output_path, index=False
+            )
+            print(f"{universal_unsorted_output_path} saved")

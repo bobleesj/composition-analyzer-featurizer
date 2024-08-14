@@ -46,29 +46,28 @@ def get_binary_ternary_formulas(formulas):
     return binary_formulas, ternary_formulas
 
 
-def excel_output_paths(directory, base_name_no_ext):
-    binary_excel_output_path = os.path.join(
-        directory, f"{base_name_no_ext}_features_binary.xlsx"
+def get_output_paths(directory, base_name_no_ext, file_format):
+    
+    binary_output_path = os.path.join(
+        directory, f"{base_name_no_ext}_features_binary.{file_format}"
     )
-    ternary_excel_output_path = os.path.join(
-        directory, f"{base_name_no_ext}_features_ternary.xlsx"
-    )
-
-    univeral_sorted_excel_output_path = os.path.join(
-        directory,
-        f"{base_name_no_ext}_features_universal_sorted.xlsx",
+    ternary_output_path = os.path.join(
+        directory, f"{base_name_no_ext}_features_ternary.{file_format}"
     )
 
-    univeral_unsorted_excel_output_path = os.path.join(
+    univeral_sorted_output_path = os.path.join(
         directory,
-        f"{base_name_no_ext}_features_universal_unsorted.xlsx",
-    )
+        f"{base_name_no_ext}_features_universal_sorted.{file_format}")
+
+    univeral_unsorted_output_path = os.path.join(
+        directory,
+        f"{base_name_no_ext}_features_universal_unsorted.{file_format}")
 
     return (
-        binary_excel_output_path,
-        ternary_excel_output_path,
-        univeral_sorted_excel_output_path,
-        univeral_unsorted_excel_output_path,
+        binary_output_path,
+        ternary_output_path,
+        univeral_sorted_output_path,
+        univeral_unsorted_output_path,
     )
 
 

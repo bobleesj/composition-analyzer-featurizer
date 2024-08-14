@@ -54,6 +54,12 @@ def run_feature_option(script_dir_path):
         default=False,
     )
 
+    is_csv_saved = click.confirm(
+        "\nDo you want to save the outputs as .csv files? If not, .xlsx is used. (Default is Y)",
+        default=True,
+    )
+
+    
     # Parse binary and ternary formulas
     (
         binary_formulas,
@@ -121,12 +127,19 @@ def run_feature_option(script_dir_path):
         universal_unsorted_df,
     ) = feature_util.round_dataframes(dfs)
 
+    if is_csv_saved:
+        file_format = "csv"
+    else:
+        file_format = "xlsx"
+
+    
     # Save Excel files
-    feature_handler.save_dataframes_to_excel(
+    feature_handler.save_dataframes(
         binary_df,
         ternary_df,
         universal_sorted_df,
         universal_unsorted_df,
         directory,
         base_name_no_ext,
+        file_format
     )
