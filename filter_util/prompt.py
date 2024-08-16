@@ -50,9 +50,10 @@ def sort_formulas_in_excel_or_folder(script_dir, available_files):
 
         if 1 <= choice <= len(cif_folders):
             folder_path = os.path.join(script_dir, cif_folders[choice - 1])
-            data = process_cif_folder(folder_path)
+            df = process_cif_folder(folder_path)
+            df.index = df.index + 1
             click.secho("Data processed from CIF folder:", fg="cyan")
-            click.echo(data)
+            click.echo(df)
 
             # Save raw data to Excel sheet if it is a CIF folder
             script_dir = os.path.dirname(os.path.abspath(__file__))
@@ -76,7 +77,7 @@ def sort_formulas_in_excel_or_folder(script_dir, available_files):
                 fg="cyan",
             )
 
-            data_copy = data.copy()
+            data_copy = df.copy()
 
             # Apply the function to each row in the DataFrame
             data_copy[["Elements", "Counts"]] = (
@@ -113,9 +114,9 @@ def sort_formulas_in_excel_or_folder(script_dir, available_files):
             sheet_idx = choice - len(cif_folders) - 1
             file_name = excel_sheets[sheet_idx]
             file_path = os.path.join(script_dir, file_name)
-            data = get_excel_df(file_path)
+            df = get_excel_df(file_path)
             click.secho("Data processed from Excel sheet:", fg="cyan")
-            click.echo(data)
+            click.echo(df)
 
             # Parse formulas and append elements and counts to DataFrame
             click.secho(
@@ -123,7 +124,7 @@ def sort_formulas_in_excel_or_folder(script_dir, available_files):
                 fg="cyan",
             )
 
-            data_copy = data.copy()
+            data_copy = df.copy()
 
             # Apply the function to each row in the DataFrame
             data_copy[["Elements", "Counts"]] = (
