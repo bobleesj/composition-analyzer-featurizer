@@ -71,18 +71,19 @@ def compile_element_counts(filtered, Output_folder, chosen_file):
                     element_counts.get(element, 0) + count
                 )
 
-    results = pd.DataFrame(
+    df = pd.DataFrame(
         list(element_counts.items()), columns=["Element", "# Element"]
     )
     file_path = os.path.join(
         Output_folder,
         f"{os.path.splitext(os.path.basename(chosen_file))[0]}_element_count.xlsx",
     )
-    results.to_excel(file_path, index=False)
+    df.to_excel(file_path, index=False)
     click.secho(f"Element counts saved to: {file_path}", fg="cyan")
     click.secho("Element counting is completed", fg="cyan")
 
     # Print the results to the terminal
-    click.echo(results)
+    df.index = df.index + 1
+    click.echo(df)
 
-    return results
+    return df

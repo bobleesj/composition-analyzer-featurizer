@@ -543,6 +543,4 @@ def generate_ternary_features(formulas):
     df = add_max_and_min(df, bulk_modulus_string, temp_df)
     df = add_avg_RMX(df, bulk_modulus_string, temp_df)
 
-    # prompt.print_column_names_from_df(df)
-    # print(df.head())
     return df
