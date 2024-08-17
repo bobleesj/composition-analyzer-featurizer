@@ -31,7 +31,9 @@ def sort_formulas_in_excel_or_folder(script_dir, available_files):
         return
 
     choice = click.prompt(
-        "Do you want to filter an Excel sheet/CIFs [1] or do you have a filtered sheet ready [2]? Enter the number corresponding to your choice",
+        "Do you want to filter an Excel sheet/CIFs [1] or"
+        " do you have a filtered sheet ready [2]? Enter the number"
+        " corresponding to your choice",
         type=int,
     )
 

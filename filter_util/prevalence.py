@@ -1,3 +1,4 @@
+import numpy as np
 import pandas as pd
 import os
 import matplotlib.pyplot as plt
@@ -168,5 +169,5 @@ def element_prevalence(
         plt.savefig(fig_name, format="png", bbox_inches="tight", dpi=600)
 
         plt.draw()
-        plt.pause(0.001)
+        # plt.pause(0.001)
         plt.close()
