@@ -32,10 +32,9 @@ def run_feature_option(script_dir_path):
     # list Excel files containing excel files and starts with "formula"
     directory, base_name = os.path.split(formula_excel_path)
     base_name_no_ext = os.path.splitext(base_name)[0]
-    df = pd.read_excel(formula_excel_path, usecols=[0])
-    df.columns = ["Formula"]
+    df = pd.read_excel(formula_excel_path)
     formulas = df["Formula"]
-
+    
     # User select whether to add normalized compositional one-hot encoding
     is_encoding_added = click.confirm(
         "\nDo you want to include normalized composition vector? (Default is N)",
