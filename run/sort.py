@@ -99,6 +99,7 @@ def run_sort_option(script_dir_path):
 
     # If Option 4 (parse), save and exit early
     if sort_method == 4:
+        sorted_formulas_df.index = sorted_formulas_df.index + 1
         print(sorted_formulas_df.head(20))
         sorted_formulas_df.to_excel(sorted_output_path, index=False)
         print(f"Finished. Data saved to {sorted_output_path}")
@@ -107,6 +108,7 @@ def run_sort_option(script_dir_path):
     # If Option 1-3 and the user wants simple output with "Formula"
     if not is_formula_parsed_columns_added:
         sorted_formulas_df = sorted_formulas_df[["Formula"]]
+        sorted_formulas_df.index = sorted_formulas_df.index + 1
         print(sorted_formulas_df.head(20))
         sorted_formulas_df.to_excel(sorted_output_path, index=False)
 
@@ -117,6 +119,9 @@ def run_sort_option(script_dir_path):
         )
         sorted_formulas_df_with_parsed_formula.to_excel(
             sorted_output_path, index=False
+        )
+        sorted_formulas_df_with_parsed_formula.index = (
+            sorted_formulas_df_with_parsed_formula.index + 1
         )
         print(sorted_formulas_df_with_parsed_formula.head(20))
 

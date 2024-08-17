@@ -65,6 +65,7 @@ def merge_excel_data(
     merged_df = pd.merge(featurized_df, database_df, on="Entry", how="inner")
 
     # Print the first 20 rows of the merged dataframe to inspect it
+    merged_df.index = merged_df.index + 1
     print(merged_df.head(20))
 
     # Generate the merged output file name

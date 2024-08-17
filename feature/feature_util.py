@@ -47,7 +47,6 @@ def get_binary_ternary_formulas(formulas):
 
 
 def get_output_paths(directory, base_name_no_ext, file_format):
-    
     binary_output_path = os.path.join(
         directory, f"{base_name_no_ext}_features_binary.{file_format}"
     )
@@ -57,11 +56,13 @@ def get_output_paths(directory, base_name_no_ext, file_format):
 
     univeral_sorted_output_path = os.path.join(
         directory,
-        f"{base_name_no_ext}_features_universal_sorted.{file_format}")
+        f"{base_name_no_ext}_features_universal_sorted.{file_format}",
+    )
 
     univeral_unsorted_output_path = os.path.join(
         directory,
-        f"{base_name_no_ext}_features_universal_unsorted.{file_format}")
+        f"{base_name_no_ext}_features_universal_unsorted.{file_format}",
+    )
 
     return (
         binary_output_path,

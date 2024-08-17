@@ -98,7 +98,6 @@ def sort_formulas_in_excel_or_folder(script_dir, available_files):
                 "Elements and counts appended to DataFrame:",
                 fg="cyan",
             )
-            data_copy.index = data_copy.index + 1
             click.echo(data_copy)
 
             # Save DataFrame to Output folder

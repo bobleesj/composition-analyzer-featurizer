@@ -81,6 +81,7 @@ def save_long_features(formulas, feature_type, file_name):
     )
 
     # Print the DataFrame to see its structure
+    df.index = df.index + 1
     print(df.head())
 
     filtered_df = clean_dataframe_columns(df)
@@ -104,10 +105,8 @@ def save_dataframes(
     universal_unsorted_df,
     directory,
     base_name_no_ext,
-    file_format
+    file_format,
 ):
-    
-
     (
         binary_output_path,
         ternary_output_path,
@@ -116,7 +115,7 @@ def save_dataframes(
     ) = feature_util.get_output_paths(directory, base_name_no_ext, file_format)
 
     # Save binary DataFrame to Excel
-    
+
     if file_format == "xlsx":
         if len(binary_df) > 1:
             binary_df.to_excel(binary_output_path, index=False)

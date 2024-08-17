@@ -59,7 +59,6 @@ def run_feature_option(script_dir_path):
         default=True,
     )
 
-    
     # Parse binary and ternary formulas
     (
         binary_formulas,
@@ -132,7 +131,6 @@ def run_feature_option(script_dir_path):
     else:
         file_format = "xlsx"
 
-    
     # Save Excel files
     feature_handler.save_dataframes(
         binary_df,
@@ -141,5 +139,5 @@ def run_feature_option(script_dir_path):
         universal_unsorted_df,
         directory,
         base_name_no_ext,
-        file_format
+        file_format,
     )
