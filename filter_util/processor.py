@@ -3,6 +3,29 @@ import pandas as pd
 import click
 
 
+def get_formula_from_cif(file_path):
+    """
+    Simply parse the formula from a CIF file
+    Remove "'", empty space
+    Order alphabetically
+
+    """
+
+    target_line_start = "_chemical_formula_sum"
+
+    with open(file_path, "r") as file:
+        for line in file:
+            if line.strip().startswith(target_line_start):
+                # Extract the formula part, assuming it's after the key
+                formula = (
+                    line.split(target_line_start)[-1].strip().replace("'", "")
+                )
+                formula = formula.replace(" ", "")
+
+                return formula
+    return "Formula not found"
+
+
 def get_excel_df(file_path):
     """
     Process data from an Excel sheet
@@ -12,41 +35,22 @@ def get_excel_df(file_path):
     return data
 
 
-def process_cif_folder(folder_path):
+def parse_entry_formula(folder_path):
     entries = []
     formulas = []
 
     # Loop through the directory and its subdirectories
-    for root, dirs, files in os.walk(folder_path):
-        for filename in files:
-            if filename.endswith(".cif"):
-                # Extract the filename without extension
-                entry = os.path.splitext(filename)[0]
-                file_path = os.path.join(root, filename)
-
-                # Read the file and extract the desired information
-                with open(file_path, "r") as file:
-                    # Keep track of which line we're processing
-                    line_count = 0
-                    for line in file:
-                        line_count += 1
-                        if line_count == 3:  # Check if it's the third line
-                            # Split the line by '#'
-                            parts = line.split("#")
-                            if len(parts) > 2:
-                                # Extract the second part, and remove leading/trailing whitespace
-                                formula = parts[2].strip()
-                                # Break the formula at the first space
-                                formula = formula.split(" ")[0]
-                                # Append the extracted data to the lists
-                                entries.append(entry)
-                                formulas.append(formula)
-                            else:
-                                click.secho(
-                                    f"Warning: Line '{line}' in file '{filename}' does not contain enough '#' characters.",
-                                    fg="yellow",
-                                )
-                            break  # Break the loop after finding the formula
+    for root, _, files in os.walk(folder_path):
+        for file in files:
+            # Check if the file is a CIF file
+            if file.endswith(".cif"):
+                # Get the full path of the CIF file
+                file_path = os.path.join(root, file)
+                # Get the formula from the CIF file
+                formula = get_formula_from_cif(file_path)
+                # Append the entry and formula to the lists
+                entries.append(file)
+                formulas.append(formula)
 
     data = pd.DataFrame({"Entry": entries, "Formula": formulas})
     return data

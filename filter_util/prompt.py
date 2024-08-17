@@ -2,7 +2,7 @@ import os
 import click
 import pandas as pd
 from filter_util.parser import parse_formula1
-from filter_util.processor import process_cif_folder, get_excel_df
+from filter_util.processor import parse_entry_formula, get_excel_df
 
 
 def sort_formulas_in_excel_or_folder(script_dir, available_files):
@@ -49,27 +49,18 @@ def sort_formulas_in_excel_or_folder(script_dir, available_files):
         )
 
         if 1 <= choice <= len(cif_folders):
-            folder_path = os.path.join(script_dir, cif_folders[choice - 1])
-            df = process_cif_folder(folder_path)
+            cif_dir_path = os.path.join(script_dir, cif_folders[choice - 1])
+            df = parse_entry_formula(cif_dir_path)
             df.index = df.index + 1
             click.secho("Data processed from CIF folder:", fg="cyan")
-            click.echo(df)
+            print(df.head(5))
+            print(df.tail(5))
 
             # Save raw data to Excel sheet if it is a CIF folder
-            script_dir = os.path.dirname(os.path.abspath(__file__))
             parent_dir = os.path.dirname(script_dir)
-            file_name = os.path.basename(folder_path)
+            file_name = os.path.basename(cif_dir_path)
             output_folder = parent_dir
             os.makedirs(output_folder, exist_ok=True)
-
-            # raw_output_file_name = f"{file_name}_raw_data.xlsx"
-            # raw_output_file_path = os.path.join(
-            #     output_folder, raw_output_file_name
-            # )
-            # data.to_excel(raw_output_file_path, index=False)
-            # click.secho(
-            #     f"Raw data saved to: {raw_output_file_path}", fg="cyan"
-            # )
 
             # Parse formulas and append elements and counts to DataFrame
             click.secho(
@@ -77,33 +68,34 @@ def sort_formulas_in_excel_or_folder(script_dir, available_files):
                 fg="cyan",
             )
 
-            data_copy = df.copy()
+            df_copy = df.copy()
 
             # Apply the function to each row in the DataFrame
-            data_copy[["Elements", "Counts"]] = (
-                data_copy["Formula"].apply(parse_formula1).apply(pd.Series)
+            df_copy[["Elements", "Counts"]] = (
+                df_copy["Formula"].apply(parse_formula1).apply(pd.Series)
             )
 
             # Split the lists into separate columns
-            for i in range(max(map(len, data_copy["Elements"]))):
-                data_copy[f"Element {i+1}"] = data_copy["Elements"].str[i]
-                data_copy[f"# Element {i+1}"] = data_copy["Counts"].apply(
+            for i in range(max(map(len, df_copy["Elements"]))):
+                df_copy[f"Element {i+1}"] = df_copy["Elements"].str[i]
+                df_copy[f"# Element {i+1}"] = df_copy["Counts"].apply(
                     lambda x: x[i] if len(x) > i else None
                 )
 
             # Drop temporary columns
-            data_copy.drop(["Elements", "Counts"], axis=1, inplace=True)
+            df_copy.drop(["Elements", "Counts"], axis=1, inplace=True)
 
             click.secho(
                 "Elements and counts appended to DataFrame:",
                 fg="cyan",
             )
-            click.echo(data_copy)
+            print(df_copy.head(5))
+            print(df_copy.tail(5))
 
             # Save DataFrame to Output folder
             output_file_name = f"{file_name}_elements_sorted.xlsx"
             output_file_path = os.path.join(output_folder, output_file_name)
-            data_copy.to_excel(output_file_path, index=False)
+            df_copy.to_excel(output_file_path, index=False)
             click.secho(
                 f"Appended DataFrame saved to: {output_file_path}",
                 fg="cyan",
@@ -123,28 +115,28 @@ def sort_formulas_in_excel_or_folder(script_dir, available_files):
                 fg="cyan",
             )
 
-            data_copy = df.copy()
+            df_copy = df.copy()
 
             # Apply the function to each row in the DataFrame
-            data_copy[["Elements", "Counts"]] = (
-                data_copy["Formula"].apply(parse_formula1).apply(pd.Series)
+            df_copy[["Elements", "Counts"]] = (
+                df_copy["Formula"].apply(parse_formula1).apply(pd.Series)
             )
 
             # Split the lists into separate columns
-            for i in range(max(map(len, data_copy["Elements"]))):
-                data_copy[f"Element {i+1}"] = data_copy["Elements"].str[i]
-                data_copy[f"# Element {i+1}"] = data_copy["Counts"].apply(
+            for i in range(max(map(len, df_copy["Elements"]))):
+                df_copy[f"Element {i+1}"] = df_copy["Elements"].str[i]
+                df_copy[f"# Element {i+1}"] = df_copy["Counts"].apply(
                     lambda x: x[i] if len(x) > i else None
                 )
 
             # Drop temporary columns
-            data_copy.drop(["Elements", "Counts"], axis=1, inplace=True)
-            data_copy.index = data_copy.index + 1
+            df_copy.drop(["Elements", "Counts"], axis=1, inplace=True)
+            df_copy.index = df_copy.index + 1
             click.secho(
                 "Elements and counts appended to DataFrame:",
                 fg="cyan",
             )
-            click.echo(data_copy)
+            click.echo(df_copy)
 
             # Save DataFrame to the same directory as the input Excel sheet
             output_folder = os.path.dirname(file_path)
@@ -154,7 +146,7 @@ def sort_formulas_in_excel_or_folder(script_dir, available_files):
                 f"{os.path.splitext(file_name)[0]}_elements_sorted.xlsx"
             )
             output_file_path = os.path.join(output_folder, output_file_name)
-            data_copy.to_excel(output_file_path, index=False)
+            df_copy.to_excel(output_file_path, index=False)
             click.secho(
                 f"Appended DataFrame saved to: {output_file_path}",
                 fg="cyan",
