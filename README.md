@@ -15,6 +15,14 @@ of compounds. Both experimentalists and novices can use this tool to generate
 their own data with a basic understanding of Python. The codebase is designed
 for easy customization by beginners
 
+## Scope
+
+Formulas containing the following elements are currently supported:
+
+`Si`, `Sc`, `Fe`, `Co`, `Ni`, `Ga`, `Ge`, `Y` , `Ru`, `Rh`, `Pd`, `In`, `Sn`,
+`Sb`, `La`, `Ce`, `Pr`, `Nd`, `Sm`, `Eu`, `Gd`, `Tb`, `Dy`, `Ho`, `Er`, `Tm`,
+`Yb`, `Lu`, `Os`, `Ir`, `Pt`, `Th`, `U`.
+
 ## Getting started
 
 To begin using `CAF`, follow these steps in your command-line interface:
