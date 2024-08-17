@@ -9,3 +9,4 @@ keywords = ["cif", "solid-state", "high-throughput", "crystallography", "composi
 
 [tool.ruff]
 line-length = 79
+exclude = ["main.py"]
