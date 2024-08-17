@@ -61,9 +61,8 @@ def sort_formulas_in_excel_or_folder(script_dir, available_files):
             print(df.tail(5))
 
             # Save raw data to Excel sheet if it is a CIF folder
-            parent_dir = os.path.dirname(script_dir)
             file_name = os.path.basename(cif_dir_path)
-            output_folder = parent_dir
+            output_folder = os.path.join(script_dir)
             os.makedirs(output_folder, exist_ok=True)
 
             # Parse formulas and append elements and counts to DataFrame

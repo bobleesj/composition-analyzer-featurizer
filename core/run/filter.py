@@ -14,13 +14,13 @@ from core.filter_util import (
 )
 
 
-def run_filter_option(script_dir):
-    prompt.sort_formulas_in_excel_or_folder(script_dir, os.listdir(script_dir))
+def run_filter_option(script_path):
+    prompt.sort_formulas_in_excel_or_folder(script_path, os.listdir(script_path))
 
     # Display .cif files and .xlsx files in the script's directory
     available_files = [
         file
-        for file in os.listdir(script_dir)
+        for file in os.listdir(script_path)
         if file.endswith(".xlsx") and not file.endswith("_errors.xlsx")
     ]
     available_files.sort()
@@ -42,16 +42,16 @@ def run_filter_option(script_dir):
         "Enter the number corresponding to your choice", type=int
     )
     if 1 <= file_choice <= len(available_files):
-        chosen_file = os.path.join(
-            script_dir, available_files[file_choice - 1]
+        excel_file_path = os.path.join(
+            script_path, available_files[file_choice - 1]
         )
-        click.secho(f"Summarizing file: {chosen_file}", fg="cyan")
+        click.secho(f"Summarizing file: {excel_file_path}", fg="cyan")
 
     # Define a list of symbols that are not elements
     elements = data.get_element_list()
 
     # Define a DataFrame with invalid formulas
-    invalid_formulas = pd.read_excel(chosen_file)
+    invalid_formulas = pd.read_excel(excel_file_path)
 
     # Apply the function to each row in the DataFrame
     parsed_data = (
@@ -66,7 +66,7 @@ def run_filter_option(script_dir):
     if view_errors == "y":
         # Filter the DataFrame for rows where the Error column is not None
         errors_df = invalid_formulas[invalid_formulas["Error"].notna()]
-        handler.handle_errors(errors_df, chosen_file, script_dir)
+        handler.handle_errors(errors_df, excel_file_path, script_path)
 
     # Classification of formulas
     invalid_formulas_copy = composition.numerical_classification(
@@ -74,8 +74,8 @@ def run_filter_option(script_dir):
     )
 
     summary_file_path = os.path.join(
-        script_dir,
-        f"{os.path.splitext(os.path.basename(chosen_file))[0]}_summary.xlsx",
+        script_path,
+        f"{os.path.splitext(os.path.basename(excel_file_path))[0]}_summary.xlsx",
     )
     invalid_formulas_copy.to_excel(summary_file_path, index=False)
     click.secho(f"Summary saved to: {summary_file_path}", fg="cyan")
@@ -85,14 +85,14 @@ def run_filter_option(script_dir):
 
     # Save the filtered DataFrame to an Excel file with '_filtered' suffix
     filtered_file_path = os.path.join(
-        script_dir,
-        f"{os.path.splitext(os.path.basename(chosen_file))[0]}_filtered.xlsx",
+        script_path,
+        f"{os.path.splitext(os.path.basename(excel_file_path))[0]}_filtered.xlsx",
     )
     filtered.to_excel(filtered_file_path, index=False)
 
     # Compile element counts
     results = processor.compile_element_counts(
-        filtered, script_dir, chosen_file
+        filtered, script_path, excel_file_path
     )
 
     data_dict = prompt.dataframe_to_dict(results, elements)
@@ -100,11 +100,10 @@ def run_filter_option(script_dir):
     # Call the function with the list of elements and the relative path to the parent directory
     prevalence.element_prevalence(
         pd.Series(data_dict),
-        sheet_path=chosen_file,
-        log_scale=False,
-    )
+        excel_file_path,
+        script_path
+        )
 
-    click.secho("Periodic table created successfully", fg="cyan")
 
     # Call numerical_and_elemental_filtering function
     composition.numerical_and_elemental_filtering(

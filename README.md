@@ -52,17 +52,6 @@ Here is an overview of the 5 options:
 
 <img width="839" alt="CAF-flowchart" src="https://github.com/bobleesj/composition-analyzer-featurizer/assets/14892262/7a66abae-54d2-4cc4-85af-44b34440f3b6">
 
-## Scope
-
-Formulas containing the following elements are currently supported:
-
-`Si`, `Sc`, `Fe`, `Co`, `Ni`, `Ga`, `Ge`, `Y` , `Ru`, `Rh`, `Pd`, `In`, `Sn`,
-`Sb`, `La`, `Ce`, `Pr`, `Nd`, `Sm`, `Eu`, `Gd`, `Tb`, `Dy`, `Ho`, `Er`, `Tm`,
-`Yb`, `Lu`, `Os`, `Ir`, `Pt`, `Th`, `U`.
-
-> If you need to generate features for formulas with elements not listed above,
-> please feel free to contact us!
-
 ## Options
 
 CAF provides 5 interactive options detailed below.

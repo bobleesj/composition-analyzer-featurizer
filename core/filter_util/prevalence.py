@@ -1,5 +1,5 @@
 import os
-
+import click
 import matplotlib.patches as patches
 import matplotlib.pyplot as plt
 import numpy as np
@@ -10,13 +10,13 @@ from matplotlib.colors import Normalize
 
 def element_prevalence(
     elem_tracker,
-    sheet_path,
+    excel_file_path,
+    script_path,
     log_scale=False,
     ptable_fig=True,
 ):
-    current_dir = os.path.dirname(os.path.abspath(__file__))
-    cif_filter_dir = os.path.dirname(current_dir)
-    ptable_path = os.path.join(cif_filter_dir, "ptable.csv")
+    
+    ptable_path = os.path.join(script_path, "ptable.csv")
 
     ptable = pd.read_csv(ptable_path)
     ptable.index = ptable["symbol"].values
@@ -160,14 +160,15 @@ def element_prevalence(
         ax.axis("off")
 
         # Save the figure
-        base_name = os.path.basename(os.path.normpath(sheet_path))
+        base_name = os.path.basename(os.path.normpath(excel_file_path))
         file_name = (
             f"{base_name}_ptable.png"
             if not base_name.endswith("_ptable")
             else f"{base_name}.png"
         )
-        fig_name = os.path.join(os.path.dirname(sheet_path), file_name)
+        fig_name = os.path.join(script_path, file_name)
         plt.savefig(fig_name, format="png", bbox_inches="tight", dpi=600)
+        click.secho(f"Periodic table created successfully in {fig_name}", fg="cyan")
 
         plt.draw()
         # plt.pause(0.001)
