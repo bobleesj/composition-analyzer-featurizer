@@ -15,7 +15,6 @@ def element_prevalence(
     log_scale=False,
     ptable_fig=True,
 ):
-    
     ptable_path = os.path.join(script_path, "ptable.csv")
 
     ptable = pd.read_csv(ptable_path)
@@ -168,7 +167,9 @@ def element_prevalence(
         )
         fig_name = os.path.join(script_path, file_name)
         plt.savefig(fig_name, format="png", bbox_inches="tight", dpi=600)
-        click.secho(f"Periodic table created successfully in {fig_name}", fg="cyan")
+        click.secho(
+            f"Periodic table created successfully in {fig_name}", fg="cyan"
+        )
 
         plt.draw()
         # plt.pause(0.001)

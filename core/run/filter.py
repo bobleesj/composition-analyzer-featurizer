@@ -15,7 +15,9 @@ from core.filter_util import (
 
 
 def run_filter_option(script_path):
-    prompt.sort_formulas_in_excel_or_folder(script_path, os.listdir(script_path))
+    prompt.sort_formulas_in_excel_or_folder(
+        script_path, os.listdir(script_path)
+    )
 
     # Display .cif files and .xlsx files in the script's directory
     available_files = [
@@ -81,29 +83,30 @@ def run_filter_option(script_path):
     click.secho(f"Summary saved to: {summary_file_path}", fg="cyan")
 
     click.secho("Filtering errors out of your dataframe", fg="cyan")
-    filtered = invalid_formulas_copy[invalid_formulas_copy["Error"].isnull()]
+    filtered_df = invalid_formulas_copy[
+        invalid_formulas_copy["Error"].isnull()
+    ]
 
     # Save the filtered DataFrame to an Excel file with '_filtered' suffix
     filtered_file_path = os.path.join(
         script_path,
         f"{os.path.splitext(os.path.basename(excel_file_path))[0]}_filtered.xlsx",
     )
-    filtered.to_excel(filtered_file_path, index=False)
+    filtered_df.to_excel(filtered_file_path, index=False)
 
     # Compile element counts
-    results = processor.compile_element_counts(
-        filtered, script_path, excel_file_path
+    element_count_df = processor.compile_element_counts(
+        filtered_df, script_path, excel_file_path
     )
 
-    data_dict = prompt.dataframe_to_dict(results, elements)
+    element_count_data_dict = prompt.dataframe_to_dict(
+        element_count_df, elements
+    )
 
     # Call the function with the list of elements and the relative path to the parent directory
     prevalence.element_prevalence(
-        pd.Series(data_dict),
-        excel_file_path,
-        script_path
-        )
-
+        pd.Series(element_count_data_dict), excel_file_path, script_path
+    )
 
     # Call numerical_and_elemental_filtering function
     composition.numerical_and_elemental_filtering(

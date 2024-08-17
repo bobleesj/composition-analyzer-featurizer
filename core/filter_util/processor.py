@@ -57,38 +57,35 @@ def parse_entry_formula(folder_path):
     return data
 
 
-def compile_element_counts(filtered, Output_folder, chosen_file):
+def compile_element_counts(df, output_dir_path, excel_file_path):
     """Compile the total number of elements in the DataFrame."""
     element_counts = {}
-    for i in range(1, (len(filtered.columns) // 2) + 1):
+    for i in range(1, (len(df.columns) // 2) + 1):
         element_col = f"Element {i}"
         count_col = f"# Element {i}"
-        if (
-            element_col not in filtered.columns
-            or count_col not in filtered.columns
-        ):
+        if element_col not in df.columns or count_col not in df.columns:
             continue
-        for index, row in filtered.iterrows():
+        for _, row in df.iterrows():
             element = row[element_col]
             count = row[count_col]
             if pd.notnull(element) and pd.notnull(count):
-                element_counts[element] = (
-                    element_counts.get(element, 0) + count
-                )
+                element_counts[element] = element_counts.get(element, 0) + 1
 
     df = pd.DataFrame(
         list(element_counts.items()), columns=["Element", "# Element"]
     )
     file_path = os.path.join(
-        Output_folder,
-        f"{os.path.splitext(os.path.basename(chosen_file))[0]}_element_count.xlsx",
+        output_dir_path,
+        f"{os.path.splitext(os.path.basename(excel_file_path))[0]}_element_count.xlsx",
     )
+
+    df = df.sort_values(by="# Element", ascending=False)
     df.to_excel(file_path, index=False)
     click.secho(f"Element counts saved to: {file_path}", fg="cyan")
     click.secho("Element counting is completed", fg="cyan")
 
     # Print the results to the terminal
     df.index = df.index + 1
-    click.echo(df)
+    print(df.head(10).to_string(index=False))
 
     return df
