@@ -29,13 +29,13 @@ def list_xlsx_files_with_formula(script_directory):
             print(f"Error reading {file_path}: {e}")
 
     if not excel_files_with_paths:
-        print("No Excel files found with 'Formula' in the first column.")
+        print("No Excel files were found with 'Formula' column.")
         return None
 
     # Sorting the files by their base filename alphabetically
     excel_files_with_paths.sort(key=lambda x: os.path.basename(x).lower())
 
-    print("\nAvailable Excel files with 'Formula' in the first column:")
+    print("\nAvailable Excel files with 'Formula' column:")
     for idx, file_path in enumerate(excel_files_with_paths, start=1):
         print(
             f"{idx}. {os.path.basename(file_path)}"

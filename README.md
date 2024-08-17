@@ -145,7 +145,7 @@ Options:
   5: Merge two Excel files based on id/entry.
 Please enter the number of the option you want to run: 3
 
-Available Excel files with 'Formula' in the first column:
+Available Excel files with a 'Formula' column:
 1. A-B database.xlsx
 2. A-B features.xlsx
 3. binary M-X.xlsx
