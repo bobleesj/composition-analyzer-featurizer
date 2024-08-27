@@ -91,14 +91,14 @@ def gather_cif_ids_from_files(folder_info):
         if file.endswith(".cif")
     ]
 
-    cif_ids_in_files = set()
+    cif_ids = set()
     for file_path in files_lst:
-        CIF_id_string = parser.read_third_line(file_path)
+        cif_id = parser.get_cif_entry_id(file_path)
         try:
-            CIF_id = int(CIF_id_string)
-            cif_ids_in_files.add(CIF_id)
+            cid_id = int(cif_id)
+            cif_ids.add(cid_id)
         except ValueError:
             print(f"Error: Invalid CIF ID in {os.path.basename(file_path)}")
             continue
 
-    return cif_ids_in_files, len(files_lst)
+    return cif_ids, len(files_lst)

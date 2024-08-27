@@ -187,14 +187,6 @@ def get_is_same_element_label(parsed_formula_set, num_elements):
     return False
 
 
-def read_third_line(file_path):
-    """Reads and returns the third line from a file."""
-    with open(file_path, "r") as file:
-        for _ in range(2):
-            file.readline()
-        return extract_tag_from_line(file.readline())
-
-
 def extract_tag_from_line(line):
     """Extracts a tag from a line based on the format provided."""
     # Remove any empty parts
@@ -224,14 +216,15 @@ def get_formula_from_cif(file_path):
                 return formula
     return "Formula not found"
 
+
 def get_cif_entry_id(cif_file_path: str) -> str:
     database_code = None
 
     with open(cif_file_path, "r") as file:
         for line in file:
             line = line.strip()
-            if line.startswith("#_database_code_PCD ") or line.startswith(
-                "_database_code_ICSD"
+            if line.startswith("#_database_code") or line.startswith(
+                "_database_code"
             ):
                 # Split the line by whitespace to get the key and value
                 parts = line.split()
@@ -240,5 +233,3 @@ def get_cif_entry_id(cif_file_path: str) -> str:
                     break
 
     return database_code
-
-

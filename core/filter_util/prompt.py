@@ -104,7 +104,7 @@ def sort_formulas_in_excel_or_folder(script_dir, available_files):
             sheet_idx = choice - len(cif_folders) - 1
             file_name = excel_sheets[sheet_idx]
             file_path = os.path.join(script_dir, file_name)
-            df = get_excel_df(file_path)
+            df = pd.read_excel(file_path)
             click.secho("Data processed from Excel sheet:", fg="cyan")
             click.echo(df)
 

@@ -4,9 +4,17 @@ import warnings
 import click
 import pandas as pd
 
-from core.feature import (binary, binary_long, encoding, feature_handler,
-                          feature_util, ternary, ternary_long, universal,
-                          universal_long)
+from core.feature import (
+    binary,
+    binary_long,
+    encoding,
+    feature_handler,
+    feature_util,
+    ternary,
+    ternary_long,
+    universal,
+    universal_long,
+)
 from core.util import folder
 
 """
