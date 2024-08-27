@@ -223,9 +223,7 @@ def get_cif_entry_id(cif_file_path: str) -> str:
     with open(cif_file_path, "r") as file:
         for line in file:
             line = line.strip()
-            if line.startswith("#_database_code") or line.startswith(
-                "_database_code"
-            ):
+            if line.startswith("#_database_code") or line.startswith("_database_code"):
                 # Split the line by whitespace to get the key and value
                 parts = line.split()
                 if len(parts) == 2:

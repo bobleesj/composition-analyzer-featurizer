@@ -23,8 +23,12 @@ def run_sort_option(script_dir_path):
     # list Excel files containing excel files and starts with "formula"
     directory, base_name = os.path.split(formula_excel_path)
     base_name_no_ext = os.path.splitext(base_name)[0]
-    df = pd.read_excel(formula_excel_path, usecols=[0])
-    df.columns = ["Formula"]
+    df = pd.read_excel(formula_excel_path)
+
+    if "Formula" not in df.columns:
+        raise ValueError("The Excel file does not contain a 'Formula' column.")
+    # Drop all except "Formual" column
+    df = df[["Formula"]]
 
     # Sort by label
     if sort_method == 1:
