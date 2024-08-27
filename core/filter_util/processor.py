@@ -3,26 +3,7 @@ import os
 import click
 import pandas as pd
 
-
-def get_formula_from_cif(file_path):
-    """
-    Simply parse the formula from a CIF file
-    Remove "'", empty space
-    Order alphabetically
-
-    """
-
-    target_line_start = "_chemical_formula_sum"
-
-    with open(file_path, "r") as file:
-        for line in file:
-            if line.strip().startswith(target_line_start):
-                # Extract the formula part, assuming it's after the key
-                formula = line.split(target_line_start)[-1].strip().replace("'", "")
-                formula = formula.replace(" ", "")
-
-                return formula
-    return "Formula not found"
+from core.util import parser
 
 
 def get_excel_df(file_path):
@@ -46,9 +27,9 @@ def parse_entry_formula(folder_path):
                 # Get the full path of the CIF file
                 file_path = os.path.join(root, file)
                 # Get the formula from the CIF file
-                formula = get_formula_from_cif(file_path)
-                # Append the entry and formula to the lists
-                entries.append(file)
+                formula = parser.get_formula_from_cif(file_path)
+                entry = parser.get_cif_entry_id(file_path)
+                entries.append(entry)
                 formulas.append(formula)
 
     data = pd.DataFrame({"Entry": entries, "Formula": formulas})

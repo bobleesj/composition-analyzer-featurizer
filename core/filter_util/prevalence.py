@@ -1,4 +1,5 @@
 import os
+
 import click
 import matplotlib.patches as patches
 import matplotlib.pyplot as plt

@@ -3,15 +3,8 @@ import os
 import click
 import pandas as pd
 
-from core.filter_util import (
-    composition,
-    data,
-    handler,
-    parser,
-    prevalence,
-    processor,
-    prompt,
-)
+from core.filter_util import (composition, data, handler, parser, prevalence,
+                              processor, prompt)
 
 
 def run_filter_option(script_path):
