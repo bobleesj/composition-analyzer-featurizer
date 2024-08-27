@@ -16,9 +16,7 @@ def run_sort_option(script_dir_path):
     is_formula_parsed_columns_added = True
 
     if sort_method in [1, 2, 3, 4]:
-        formula_excel_path = folder.list_xlsx_files_with_formula(
-            script_dir_path
-        )
+        formula_excel_path = folder.list_xlsx_files_with_formula(script_dir_path)
         if formula_excel_path:
             print(f"Selected Excel file: {formula_excel_path}")
 
@@ -30,9 +28,7 @@ def run_sort_option(script_dir_path):
 
     # Sort by label
     if sort_method == 1:
-        is_formula_parsed_columns_added = (
-            prompt.get_is_formula_parsed_columns_added()
-        )
+        is_formula_parsed_columns_added = prompt.get_is_formula_parsed_columns_added()
         sorted_formulas_df = sort_df_handler.get_sorted_formula_df_by_label(df)
         suffix = "by_label"
         A_list, B_list = data.get_element_label_lists(2)
@@ -63,9 +59,7 @@ def run_sort_option(script_dir_path):
         is_indices_as_fractions = prompt.get_is_indices_as_fractions()
 
         # Ask whether to include parsed columns
-        is_formula_parsed_columns_added = (
-            prompt.get_is_formula_parsed_columns_added()
-        )
+        is_formula_parsed_columns_added = prompt.get_is_formula_parsed_columns_added()
         # Sort
         sorted_formulas_df = sort_df_handler.get_sorted_formula_df_by_index(
             df, is_ascending_order, is_indices_as_fractions
@@ -78,9 +72,7 @@ def run_sort_option(script_dir_path):
     if sort_method == 3:
         element_col_num = prompt.get_element_col_num_after_printing()
         is_ascending_order = prompt.get_is_ascending_order()
-        is_formula_parsed_columns_added = (
-            prompt.get_is_formula_parsed_columns_added()
-        )
+        is_formula_parsed_columns_added = prompt.get_is_formula_parsed_columns_added()
         sorted_formulas_df = sort_df_handler.get_sorted_formula_df_by_property(
             df, is_ascending_order, element_col_num
         )
@@ -90,14 +82,10 @@ def run_sort_option(script_dir_path):
     if sort_method == 4:
         suffix = "parsed"
         is_parse_option = True
-        sorted_formulas_df = sort_df_handler.get_parsed_formula_df(
-            df, is_parse_option
-        )
+        sorted_formulas_df = sort_df_handler.get_parsed_formula_df(df, is_parse_option)
 
     # Save the sorted DataFrame to a new Excel file
-    sorted_output_path = os.path.join(
-        directory, f"{base_name_no_ext}_{suffix}.xlsx"
-    )
+    sorted_output_path = os.path.join(directory, f"{base_name_no_ext}_{suffix}.xlsx")
 
     # If Option 4 (parse), save and exit early
     if sort_method == 4:
@@ -116,12 +104,10 @@ def run_sort_option(script_dir_path):
 
     # If Option 1-3 and the user wants verbose output
     else:
-        sorted_formulas_df_with_parsed_formula = (
-            sort_df_handler.get_parsed_formula_df(sorted_formulas_df)
+        sorted_formulas_df_with_parsed_formula = sort_df_handler.get_parsed_formula_df(
+            sorted_formulas_df
         )
-        sorted_formulas_df_with_parsed_formula.to_excel(
-            sorted_output_path, index=False
-        )
+        sorted_formulas_df_with_parsed_formula.to_excel(sorted_output_path, index=False)
         sorted_formulas_df_with_parsed_formula.index = (
             sorted_formulas_df_with_parsed_formula.index + 1
         )

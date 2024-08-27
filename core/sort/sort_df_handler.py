@@ -66,9 +66,7 @@ def get_sorted_formula_df_by_index(
     if not is_indices_as_fractions:
         for formula in formulas_df["Formula"]:
             num_elements = parser.get_num_element(formula)
-            sorted_formula = index.sort_formula_by_index(
-                formula, is_ascending_order
-            )
+            sorted_formula = index.sort_formula_by_index(formula, is_ascending_order)
             sorted_formulas.append(
                 {
                     "Formula": sorted_formula,
@@ -81,9 +79,7 @@ def get_sorted_formula_df_by_index(
     return pd.DataFrame(sorted_formulas)
 
 
-def get_sorted_formula_df_by_property(
-    formulas_df, is_ascending_order, element_col_num
-):
+def get_sorted_formula_df_by_property(formulas_df, is_ascending_order, element_col_num):
     sorted_formulas = []
     for formula in formulas_df["Formula"]:
         num_elements = parser.get_num_element(formula)
@@ -167,9 +163,7 @@ def get_parsed_formula_df(df, is_parse_option=False):
 
         # Create a new DataFrame to store all the data
         new_data = []
-        for formula, (parsed, num_elements) in zip(
-            df["Formula"], parsed_formulas
-        ):
+        for formula, (parsed, num_elements) in zip(df["Formula"], parsed_formulas):
             # Start with the formula data and the number of elements
             row = [
                 formula,

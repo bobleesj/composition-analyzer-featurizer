@@ -20,9 +20,7 @@ def sort_formulas_in_excel_or_folder(script_dir, available_files):
 
     excel_sheets = [f for f in available_files if f.endswith(".xlsx")]
     cif_folders = [
-        f
-        for f in available_folders
-        if os.path.isdir(os.path.join(script_dir, f))
+        f for f in available_folders if os.path.isdir(os.path.join(script_dir, f))
     ]
 
     if not excel_sheets and not cif_folders:
@@ -48,9 +46,7 @@ def sort_formulas_in_excel_or_folder(script_dir, available_files):
         for idx, sheet in enumerate(excel_sheets, start=len(cif_folders) + 1):
             click.echo(f"{idx}. {sheet}")
 
-        choice = click.prompt(
-            "Enter the number corresponding to your choice", type=int
-        )
+        choice = click.prompt("Enter the number corresponding to your choice", type=int)
 
         if 1 <= choice <= len(cif_folders):
             cif_dir_path = os.path.join(script_dir, cif_folders[choice - 1])
@@ -145,9 +141,7 @@ def sort_formulas_in_excel_or_folder(script_dir, available_files):
             output_folder = os.path.dirname(file_path)
             os.makedirs(output_folder, exist_ok=True)
 
-            output_file_name = (
-                f"{os.path.splitext(file_name)[0]}_elements_sorted.xlsx"
-            )
+            output_file_name = f"{os.path.splitext(file_name)[0]}_elements_sorted.xlsx"
             output_file_path = os.path.join(output_folder, output_file_name)
             df_copy.to_excel(output_file_path, index=False)
             click.secho(

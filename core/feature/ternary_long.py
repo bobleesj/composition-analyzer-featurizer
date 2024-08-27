@@ -48,15 +48,9 @@ def calculate_stats(value_list, index_list, normalized_index_list):
         "M/X": M_value / X_value if X_value != 0 else float("inf"),
         "R/X": R_value / X_value if X_value != 0 else float("inf"),
         # Weighted /
-        "R/M_weighted": R_weighted / M_weighted
-        if M_weighted != 0
-        else float("inf"),
-        "M/X_weighted": M_weighted / X_weighted
-        if X_weighted != 0
-        else float("inf"),
-        "R/X_weighted": R_weighted / X_weighted
-        if X_weighted != 0
-        else float("inf"),
+        "R/M_weighted": R_weighted / M_weighted if M_weighted != 0 else float("inf"),
+        "M/X_weighted": M_weighted / X_weighted if X_weighted != 0 else float("inf"),
+        "R/X_weighted": R_weighted / X_weighted if X_weighted != 0 else float("inf"),
         # avg
         "avg_RMX": avg_value,
         "avg_RM": np.mean([R_value, M_value]),

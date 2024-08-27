@@ -90,9 +90,7 @@ def sort_by_mendeleev(formula, mendeleev_numbers):
     mendeleev_numbers = data.get_mendeleev_numbers(
         "data/element_Mendeleev_numbers.xlsx"
     )
-    parsed_formulas_set = [
-        list(item) for item in parser.get_parsed_formula(formula)
-    ]
+    parsed_formulas_set = [list(item) for item in parser.get_parsed_formula(formula)]
 
     sorted_formulas_set = sorted(
         parsed_formulas_set,

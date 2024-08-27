@@ -18,9 +18,7 @@ def get_formula_from_cif(file_path):
         for line in file:
             if line.strip().startswith(target_line_start):
                 # Extract the formula part, assuming it's after the key
-                formula = (
-                    line.split(target_line_start)[-1].strip().replace("'", "")
-                )
+                formula = line.split(target_line_start)[-1].strip().replace("'", "")
                 formula = formula.replace(" ", "")
 
                 return formula
@@ -71,9 +69,7 @@ def compile_element_counts(df, output_dir_path, excel_file_path):
             if pd.notnull(element) and pd.notnull(count):
                 element_counts[element] = element_counts.get(element, 0) + 1
 
-    df = pd.DataFrame(
-        list(element_counts.items()), columns=["Element", "# Element"]
-    )
+    df = pd.DataFrame(list(element_counts.items()), columns=["Element", "# Element"])
     file_path = os.path.join(
         output_dir_path,
         f"{os.path.splitext(os.path.basename(excel_file_path))[0]}_element_count.xlsx",

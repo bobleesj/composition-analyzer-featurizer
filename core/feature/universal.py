@@ -55,9 +55,7 @@ def get_universal_feature_entry_values(
         f"{property}_max": round(max, precision),
         f"{property}_min": round(min, precision),
         f"{property}_max_by_min": round(max_by_min, precision),
-        f"{property}_first_element_value": round(
-            first_element_value, precision
-        ),
+        f"{property}_first_element_value": round(first_element_value, precision),
         f"{property}_last_element_value": round(last_element_value, precision),
     }
     return value_dict
@@ -68,9 +66,7 @@ def get_universal_featurized_df(property_df, formulas, property_data):
     # Loop through each formula and calculate features
     for formula in formulas:
         normalized_formula = parser.get_normalized_formula(formula)
-        parsed_normalized_formula = parser.get_parsed_formula(
-            normalized_formula
-        )
+        parsed_normalized_formula = parser.get_parsed_formula(normalized_formula)
         normalized_index_list = np.array(
             [float(x[1]) for x in parsed_normalized_formula]
         )

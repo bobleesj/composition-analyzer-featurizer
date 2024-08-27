@@ -4,9 +4,7 @@ import pandas as pd
 def get_element_label_lists(num_elements):
     # Define the appropriate lists of elements based on the structure type
     if num_elements == 2:
-        df = pd.read_excel(
-            "data/label.xlsx", sheet_name="Binary", engine="openpyxl"
-        )
+        df = pd.read_excel("data/label.xlsx", sheet_name="Binary", engine="openpyxl")
 
         # Assuming the first column is 'Element_A' and the second is 'Element_B'
         A_list = df["Element_A"].dropna().tolist()
@@ -15,9 +13,7 @@ def get_element_label_lists(num_elements):
         return A_list, B_list
 
     if num_elements == 3:
-        df = pd.read_excel(
-            "data/label.xlsx", sheet_name="Ternary", engine="openpyxl"
-        )
+        df = pd.read_excel("data/label.xlsx", sheet_name="Ternary", engine="openpyxl")
 
         R_list = df["Element_R"].dropna().tolist()
         M_list = df["Element_M"].dropna().tolist()

@@ -26,9 +26,7 @@ def calculate_stats(value_list, index_list, normalized_index_list):
         "A*B": A_value * B_value,
         "A*B_weighted": A_weighted * B_weighted,
         "A/B": A_value / B_value if B_value != 0 else float("inf"),
-        "A/B_weighted": A_weighted / B_weighted
-        if B_weighted != 0
-        else float("inf"),
+        "A/B_weighted": A_weighted / B_weighted if B_weighted != 0 else float("inf"),
         "avg": avg_value,
         "max": max_value,
         "min": min_value,

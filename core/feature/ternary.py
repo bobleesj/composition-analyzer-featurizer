@@ -32,9 +32,7 @@ def add_R_by_X(df, property, temp_df):
 
 
 def add_weighted_sum_RMX(df, property, temp_df):
-    df[f"{property}_weighted_RMX"] = (
-        temp_df[f"{property}_R"] * temp_df["Index_M"]
-    )
+    df[f"{property}_weighted_RMX"] = temp_df[f"{property}_R"] * temp_df["Index_M"]
     +temp_df[f"{property}_M"] * temp_df["Index_M"]
     +temp_df[f"{property}_X"] * temp_df["Index_X"]
     return df
@@ -63,23 +61,17 @@ def add_avg_RMX(df, property, temp_df):
 
 
 def add_avg_RM(df, property, temp_df):
-    df[f"{property}_avg_RM"] = temp_df[
-        [f"{property}_R", f"{property}_M"]
-    ].mean(axis=1)
+    df[f"{property}_avg_RM"] = temp_df[[f"{property}_R", f"{property}_M"]].mean(axis=1)
     return df
 
 
 def add_avg_MX(df, property, temp_df):
-    df[f"{property}_avg_MX"] = temp_df[
-        [f"{property}_M", f"{property}_X"]
-    ].mean(axis=1)
+    df[f"{property}_avg_MX"] = temp_df[[f"{property}_M", f"{property}_X"]].mean(axis=1)
     return df
 
 
 def add_avg_RX(df, property, temp_df):
-    df[f"{property}_avg_RX"] = temp_df[
-        [f"{property}_R", f"{property}_X"]
-    ].mean(axis=1)
+    df[f"{property}_avg_RX"] = temp_df[[f"{property}_R", f"{property}_X"]].mean(axis=1)
     return df
 
 
@@ -198,28 +190,16 @@ def add_R_exp_and_M_exp_and_X_exp(df, property, temp_df):
 
 
 def add_R_exp_neg_and_M_exp_neg_and_X_exp_neg(df, property, temp_df):
-    df[f"{property}_R_exp_neg"] = temp_df[f"{property}_R"].apply(
-        lambda x: np.exp(-x)
-    )
-    df[f"{property}_M_exp_neg"] = temp_df[f"{property}_M"].apply(
-        lambda x: np.exp(-x)
-    )
-    df[f"{property}_X_exp_neg"] = temp_df[f"{property}_X"].apply(
-        lambda x: np.exp(-x)
-    )
+    df[f"{property}_R_exp_neg"] = temp_df[f"{property}_R"].apply(lambda x: np.exp(-x))
+    df[f"{property}_M_exp_neg"] = temp_df[f"{property}_M"].apply(lambda x: np.exp(-x))
+    df[f"{property}_X_exp_neg"] = temp_df[f"{property}_X"].apply(lambda x: np.exp(-x))
     return df
 
 
 def add_R_inverse_and_M_inverse_and_X_inverse(df, property, temp_df):
-    df[f"{property}_R_inverse"] = temp_df[f"{property}_R"].apply(
-        lambda x: 1 / x
-    )
-    df[f"{property}_M_inverse"] = temp_df[f"{property}_M"].apply(
-        lambda x: 1 / x
-    )
-    df[f"{property}_X_inverse"] = temp_df[f"{property}_X"].apply(
-        lambda x: 1 / x
-    )
+    df[f"{property}_R_inverse"] = temp_df[f"{property}_R"].apply(lambda x: 1 / x)
+    df[f"{property}_M_inverse"] = temp_df[f"{property}_M"].apply(lambda x: 1 / x)
+    df[f"{property}_X_inverse"] = temp_df[f"{property}_X"].apply(lambda x: 1 / x)
     return df
 
 
@@ -346,15 +326,9 @@ def generate_ternary_features(formulas):
     df["normalized_index_R"] = temp_df["Normalized_Index_R"]
     df["normalized_index_M"] = temp_df["Normalized_Index_M"]
     df["normalized_index_X"] = temp_df["Normalized_Index_X"]
-    df["largest_index"] = temp_df[["Index_R", "Index_M", "Index_X"]].max(
-        axis=1
-    )
-    df["smallest_index"] = temp_df[["Index_R", "Index_M", "Index_X"]].min(
-        axis=1
-    )
-    df["avg_index"] = (
-        temp_df["Index_R"] + temp_df["Index_M"] + temp_df["Index_X"]
-    ) / 3
+    df["largest_index"] = temp_df[["Index_R", "Index_M", "Index_X"]].max(axis=1)
+    df["smallest_index"] = temp_df[["Index_R", "Index_M", "Index_X"]].min(axis=1)
+    df["avg_index"] = (temp_df["Index_R"] + temp_df["Index_M"] + temp_df["Index_X"]) / 3
 
     # atomic_weight
     df = add_weighted_sum_RMX(df, atomic_weight_string, temp_df)

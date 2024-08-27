@@ -23,9 +23,7 @@ def sort_formula_by_label(formula):
 
 
 def sort_binary_formula_by_label(formula, element_label_lists, num_elements):
-    parsed_formulas_set = [
-        list(item) for item in parser.get_parsed_formula(formula)
-    ]
+    parsed_formulas_set = [list(item) for item in parser.get_parsed_formula(formula)]
     A_list, B_list = element_label_lists
     sorted_formulas = ""
 
@@ -37,14 +35,10 @@ def sort_binary_formula_by_label(formula, element_label_lists, num_elements):
         elif parsed_element in B_list:
             formula.append("B")
         else:
-            formula.append(
-                "None"
-            )  # To handle elements not in A_list or B_list
+            formula.append("None")  # To handle elements not in A_list or B_list
 
     # Get "None" count
-    none_element_label_count = parser.get_none_element_label_count(
-        parsed_formulas_set
-    )
+    none_element_label_count = parser.get_none_element_label_count(parsed_formulas_set)
 
     # Check whether they are the same
     is_same_element_label = parser.get_is_same_element_label(
@@ -134,9 +128,7 @@ def sort_ternary_formula_by_label(
         else:
             formula.append("None")  # Handle elements not in any specified list
     # Sort the list by the appended labels using a defined order map
-    none_element_label_count = parser.get_none_element_label_count(
-        parsed_formulas_set
-    )
+    none_element_label_count = parser.get_none_element_label_count(parsed_formulas_set)
 
     order_map = {
         "R": 0,

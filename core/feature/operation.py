@@ -56,17 +56,13 @@ def get_feature_entry_values(formula, property_data, property_name, function):
         ]
     )
 
-    stats = function.calculate_stats(
-        value_list, index_list, normalized_index_list
-    )
+    stats = function.calculate_stats(value_list, index_list, normalized_index_list)
 
     value_dict = {}
 
     # Apply transforamtion
     for stat_name, stat_value in stats.items():
-        value_dict[f"{property_name}_{stat_name}"] = round(
-            stat_value, precision
-        )
+        value_dict[f"{property_name}_{stat_name}"] = round(stat_value, precision)
         value_dict.update(
             operation.apply_operation(
                 stat_value, f"{property_name}_{stat_name}", precision

@@ -21,9 +21,7 @@ def add_encoding_to_df(df, formulas, is_all_element_displayed):
     # Process each formula in the DataFrame
     for formula in formulas:
         normalized_formula = parser.get_normalized_formula(formula)
-        normalized_parsed_formula = parser.get_parsed_formula(
-            normalized_formula
-        )
+        normalized_parsed_formula = parser.get_parsed_formula(normalized_formula)
 
         # Create an encoding vector initialized with zeros
         encoding = {element: 0 for element in element_list}

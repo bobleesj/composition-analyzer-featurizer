@@ -30,9 +30,7 @@ def clean_dataframe_columns(df):
             df.drop(col, inplace=True, axis=1)
 
     # Determine columns to keep: all numeric columns plus 'Formula' if it exists
-    numeric_cols = df.select_dtypes(
-        include=["float64", "int64"]
-    ).columns.tolist()
+    numeric_cols = df.select_dtypes(include=["float64", "int64"]).columns.tolist()
     columns_to_keep = (
         ["Formula"] + numeric_cols if "Formula" in df.columns else numeric_cols
     )
@@ -43,9 +41,7 @@ def clean_dataframe_columns(df):
     # Ensure 'Formula' column is first, if it exists
     if "Formula" in df.columns:
         # Reorder columns to make 'Formula' the first column
-        columns_order = ["Formula"] + [
-            col for col in df.columns if col != "Formula"
-        ]
+        columns_order = ["Formula"] + [col for col in df.columns if col != "Formula"]
         df = df[columns_order]
 
     return df
@@ -127,15 +123,11 @@ def save_dataframes(
 
         # Save universal sorted and unsorted DataFrames
         if len(universal_sorted_df) > 1:
-            universal_sorted_df.to_excel(
-                universal_sorted_output_path, index=False
-            )
+            universal_sorted_df.to_excel(universal_sorted_output_path, index=False)
             print(f"{universal_sorted_output_path} saved")
 
         if len(universal_unsorted_df) > 1:
-            universal_unsorted_df.to_excel(
-                universal_unsorted_output_path, index=False
-            )
+            universal_unsorted_df.to_excel(universal_unsorted_output_path, index=False)
             print(f"{universal_unsorted_output_path} saved")
     elif file_format == "csv":
         if len(binary_df) > 1:
@@ -149,13 +141,9 @@ def save_dataframes(
 
         # Save universal sorted and unsorted DataFrames
         if len(universal_sorted_df) > 1:
-            universal_sorted_df.to_csv(
-                universal_sorted_output_path, index=False
-            )
+            universal_sorted_df.to_csv(universal_sorted_output_path, index=False)
             print(f"{universal_sorted_output_path} saved")
 
         if len(universal_unsorted_df) > 1:
-            universal_unsorted_df.to_csv(
-                universal_unsorted_output_path, index=False
-            )
+            universal_unsorted_df.to_csv(universal_unsorted_output_path, index=False)
             print(f"{universal_unsorted_output_path} saved")

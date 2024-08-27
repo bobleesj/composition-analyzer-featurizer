@@ -55,9 +55,7 @@ def merge_excel_data(
     featurized_df = pd.read_excel(
         featurized_excel_path, sheet_name=featurized_sheet_name
     )
-    database_df = pd.read_excel(
-        database_excel_path, sheet_name=database_sheet_name
-    )
+    database_df = pd.read_excel(database_excel_path, sheet_name=database_sheet_name)
 
     # Filter DataFrames to include only rows with common CIF IDs
     featurized_df = featurized_df[featurized_df["Entry"].isin(common_cif_ids)]
@@ -71,15 +69,9 @@ def merge_excel_data(
     print(merged_df.head(20))
 
     # Generate the merged output file name
-    featurized_basename = os.path.splitext(
-        os.path.basename(featurized_excel_path)
-    )[0]
-    database_basename = os.path.splitext(
-        os.path.basename(database_excel_path)
-    )[0]
-    merged_output_filename = (
-        f"{featurized_basename}_{database_basename}_merged.xlsx"
-    )
+    featurized_basename = os.path.splitext(os.path.basename(featurized_excel_path))[0]
+    database_basename = os.path.splitext(os.path.basename(database_excel_path))[0]
+    merged_output_filename = f"{featurized_basename}_{database_basename}_merged.xlsx"
 
     # Output the merged DataFrame to an Excel file
     merged_df.to_excel(merged_output_filename, index=False)
