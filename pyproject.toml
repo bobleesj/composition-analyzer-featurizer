@@ -1,0 +1,12 @@
+[project]
+name = "CAF"
+description = "An interactive Python script that generates chemical compositional features and provides tools for filtering, sorting, and merging data."
+authors = [{name = "Sangjoon Lee", email = "bobleesj@gmail.com"}]
+readme = "README.md"
+license = {file = "LICENSE"}
+keywords = ["cif", "solid-state", "high-throughput", "crystallography", "composition-data", "materials-infomatics"]
+
+
+[tool.ruff]
+line-length = 79
+exclude = ["main.py"]
