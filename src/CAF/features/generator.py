@@ -43,7 +43,7 @@ def get_composition_features(
         The tuple containing two lists of supported and unsupported formulas.
     """
     print(
-        "Getting the Oliynyk compositional database... (DOI: https://doi.org/10.1016/j.dib.2024.110178)"
+        "Getting the Oliynyk compositional database...(DOI: https://doi.org/10.1016/j.dib.2024.110178)"
     )
     db = Oliynyk().db
     # Ensure the formulas are supported by the Oliynyk database

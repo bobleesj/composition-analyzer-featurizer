@@ -178,7 +178,7 @@ def CD_avg(C, D, prop_name, db):
     return (db[C][prop_name] + db[D][prop_name]) / 2
 
 
-# Substraction
+# Subtraction
 def A_minus_B(A, B, prop_name, db):
     return db[A][prop_name] - db[B][prop_name]
 

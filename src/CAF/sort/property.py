@@ -2,7 +2,7 @@ from bobleesj.utils.parsers.formula import Formula
 from bobleesj.utils.sources.oliynyk import Oliynyk, Property
 
 
-def sort_by_CAF_property(
+def sort(
     formula: str,
     property: Property,
     oliynyk: Oliynyk,
@@ -18,7 +18,7 @@ def sort_by_CAF_property(
         The chemical formula to be sorted.
     property : Property
         The CAF property name to sort by (e.g., electronegativity, atomic radius).
-    db : dict
+    oliynyk : Oliynyk
         The CAF oliynyk dataset.
     ascending : bool, optional
         Whether to sort in ascending order. Defaults to True.
@@ -32,7 +32,7 @@ def sort_by_CAF_property(
 
     Examples
     --------
-    >>> sort_by_CAF_property("Cu2Al", Property.ATOMIC_NUMBER, db)
+    >>> sort("Cu2Al", Property.ATOMIC_NUMBER, db)
     "AlCu2"
     """
     formula_obj = Formula(formula)

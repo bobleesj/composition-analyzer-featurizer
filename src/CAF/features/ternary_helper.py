@@ -77,7 +77,7 @@ def RX_sum_weighted_norm(R, X, indices_norm, property_name, db):
     ) / (index_R_norm + index_X_norm)
 
 
-# Divison
+# Division
 def R_by_M(R, M, property_name, db):
     return db[R][property_name] / db[M][property_name]
 
@@ -90,7 +90,7 @@ def R_by_X(R, X, property_name, db):
     return db[R][property_name] / db[X][property_name]
 
 
-# Substraction
+# Subtraction
 def R_minus_M(R, M, property_name, db):
     return db[R][property_name] - db[M][property_name]
 

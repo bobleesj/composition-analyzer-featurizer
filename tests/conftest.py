@@ -24,30 +24,26 @@ def cif_PCD_file():
 
 
 @pytest.fixture
-def custom_sort_labels():
-    return {
-        2: {
-            "A": ["Li", "Er"],
-            "B": ["B", "In"],
-        },
-        3: {
-            "R": ["Er"],
-            "M": ["Co"],
-            "X": ["In"],
-        },
-        4: {
-            "A": ["Er"],
-            "B": ["Co"],
-            "C": ["In"],
-            "D": ["U"],
-        },
-    }
+def custom_label_excel_path():
+    return "tests/data/sort/test-custom-labels.xlsx"
 
 
 @pytest.fixture
-def custom_sort_element_order_map():
+def custom_labels_from_excel():
     return {
-        2: {"Li": 0, "Er": 0, "B": 1, "In": 1},
-        3: {"Er": 0, "Co": 1, "In": 2},
-        4: {"Er": 0, "Co": 1, "In": 2, "U": 3},
+        2: {"A": ["Fe", "Co", "Ni"], "B": ["Si", "Ga", "Ge"]},
+        3: {
+            "R": ["Sc", "Y", "La"],
+            "M": ["Fe", "Co", "Ni"],
+            "X": ["Si", "Ga", "Ge"],
+        },
+        4: {
+            "A": ["Sc", "Y", "La"],
+            "B": ["Fe", "Co", "Ni"],
+            "C": ["Si", "Ga", "Ge"],
+            "D": ["Gd", "Tb", "Dy"],
+        },
     }
+
+
+#

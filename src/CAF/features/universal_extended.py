@@ -28,7 +28,7 @@ def generate_features(formula, db):
 
 
 def _transform_features_for_single_prop(prop, prop_values, indices):
-    # Get normalized indices for univeral features only.
+    # Get normalized indices for universal features only.
     normalized_indices = [index / sum(indices) for index in indices]
     stats = numbers.calculate_basic_stats(prop_values)
     max_value = stats["max"]
