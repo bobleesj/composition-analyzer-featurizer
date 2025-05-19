@@ -1,22 +1,29 @@
+from bobleesj.utils import numbers
+from bobleesj.utils.sources.oliynyk import Property as P
+from numpy import mean
+
 from CAF.features import ternary_helper as ter_helper
 from CAF.features import transform
-from bobleesj.utils.sources.oliynyk import Property as P
-from bobleesj.utils import numbers
-from numpy import mean
 
 
 def generate_features(formula, db):
     data = {}
     data["formula"] = formula
-    R, M, X, index_R, index_M, index_X, _, _, _ = ter_helper.prepare_ternary_formula(formula)
+    R, M, X, index_R, index_M, index_X, _, _, _ = (
+        ter_helper.prepare_ternary_formula(formula)
+    )
     indices = (index_R, index_M, index_X)
     for prop in P:
         prop = prop.value
         # Generate features for each property, like A+B, A-B, A*B, etc.
         prop_values = (db[R][prop], db[M][prop], db[X][prop])
-        features = _transform_features_for_single_prop(prop, prop_values, indices)
+        features = _transform_features_for_single_prop(
+            prop, prop_values, indices
+        )
         # For each feature, apply transformation
-        transformed_features = transform.apply_transformations_to_features(features)
+        transformed_features = transform.apply_transformations_to_features(
+            features
+        )
         data.update(transformed_features)
     return data
 
@@ -47,12 +54,24 @@ def _transform_features_for_single_prop(prop, prop_values, indices):
         f"{prop}_R-M_weighted": R_weighted - M_weighted,
         f"{prop}_M-X_weighted": M_weighted - X_weighted,
         f"{prop}_R-X_weighted": R_weighted - X_weighted,
-        f"{prop}_R/M": R_prop_value / M_prop_value if M_prop_value != 0 else float("inf"),
-        f"{prop}_M/X": M_prop_value / X_prop_value if X_prop_value != 0 else float("inf"),
-        f"{prop}_R/X": R_prop_value / X_prop_value if X_prop_value != 0 else float("inf"),
-        f"{prop}_R/M_weighted": R_weighted / M_weighted if M_weighted != 0 else float("inf"),
-        f"{prop}_M/X_weighted": M_weighted / X_weighted if X_weighted != 0 else float("inf"),
-        f"{prop}_R/X_weighted": R_weighted / X_weighted if X_weighted != 0 else float("inf"),
+        f"{prop}_R/M": (
+            R_prop_value / M_prop_value if M_prop_value != 0 else float("inf")
+        ),
+        f"{prop}_M/X": (
+            M_prop_value / X_prop_value if X_prop_value != 0 else float("inf")
+        ),
+        f"{prop}_R/X": (
+            R_prop_value / X_prop_value if X_prop_value != 0 else float("inf")
+        ),
+        f"{prop}_R/M_weighted": (
+            R_weighted / M_weighted if M_weighted != 0 else float("inf")
+        ),
+        f"{prop}_M/X_weighted": (
+            M_weighted / X_weighted if X_weighted != 0 else float("inf")
+        ),
+        f"{prop}_R/X_weighted": (
+            R_weighted / X_weighted if X_weighted != 0 else float("inf")
+        ),
         f"{prop}_RMX_avg": stats["avg"],
         f"{prop}_RM_avg": float(mean([R_prop_value, M_prop_value])),
         f"{prop}_MX_avg": float(mean([M_prop_value, X_prop_value])),

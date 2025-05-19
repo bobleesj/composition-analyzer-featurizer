@@ -1,9 +1,13 @@
 def avg_weighted_norm(parsed_formula, property_name, db):
-    return sum([i[1] * db[i[0]][property_name] for i in parsed_formula]) / sum([i[1] for i in parsed_formula])
+    return sum([i[1] * db[i[0]][property_name] for i in parsed_formula]) / sum(
+        [i[1] for i in parsed_formula]
+    )
 
 
 def avg_value(parsed_formula, property_name, db):
-    return sum([db[i[0]][property_name] for i in parsed_formula]) / len(parsed_formula)
+    return sum([db[i[0]][property_name] for i in parsed_formula]) / len(
+        parsed_formula
+    )
 
 
 def max_value(parsed_formula, property_name, db):
@@ -15,7 +19,9 @@ def min_value(parsed_formula, property_name, db):
 
 
 def max_by_min_value(parsed_formula, property_name, db):
-    return max_value(parsed_formula, property_name, db) / min_value(parsed_formula, property_name, db)
+    return max_value(parsed_formula, property_name, db) / min_value(
+        parsed_formula, property_name, db
+    )
 
 
 def first_element_value(parsed_formula, property_name, db):

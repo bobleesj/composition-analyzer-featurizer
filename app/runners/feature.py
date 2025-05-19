@@ -2,7 +2,7 @@ import os
 import warnings
 import click
 import pandas as pd
-from core.util import folder
+from app.util import folder
 from CAF.features import generator
 
 """
@@ -15,9 +15,12 @@ def run_feature_option(script_dir_path):
     formula_excel_path = folder.list_xlsx_files_with_formula(script_dir_path)
     if formula_excel_path:
         print(f"Selected Excel file: {formula_excel_path}")
+    else:
+        print("No Excel file was found. Exiting.")
+        return
 
-    # list Excel files containing excel files and starts with "formula"
-    directory, base_name = os.path.split(formula_excel_path)
+    # list Excel files containing with "formula" columns
+    _, base_name = os.path.split(formula_excel_path)
     base_name_no_ext = os.path.splitext(base_name)[0]
     df = pd.read_excel(formula_excel_path)
     formulas = df["Formula"]

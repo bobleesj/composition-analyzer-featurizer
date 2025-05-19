@@ -1,8 +1,14 @@
-from bobleesj.utils.sources.oliynyk import Property, Oliynyk
 from bobleesj.utils.parsers.formula import Formula
+from bobleesj.utils.sources.oliynyk import Oliynyk, Property
 
 
-def sort_by_CAF_property(formula: str, property: Property, oliynyk: Oliynyk, ascending=True, normalize=False) -> str:
+def sort_by_CAF_property(
+    formula: str,
+    property: Property,
+    oliynyk: Oliynyk,
+    ascending=True,
+    normalize=False,
+) -> str:
     """Sort the elements in a chemical formula based on a specified CAF
     property.
 
@@ -30,7 +36,11 @@ def sort_by_CAF_property(formula: str, property: Property, oliynyk: Oliynyk, asc
     "AlCu2"
     """
     formula_obj = Formula(formula)
-    formula_parsed = formula_obj.get_normalized_parsed_formula() if normalize else formula_obj.parsed_formula
+    formula_parsed = (
+        formula_obj.get_normalized_parsed_formula()
+        if normalize
+        else formula_obj.parsed_formula
+    )
     property_data = oliynyk.get_property_data_for_formula(formula, property)
     formula_sorted = sorted(
         formula_parsed,

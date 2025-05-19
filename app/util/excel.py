@@ -2,7 +2,7 @@ import os
 
 import pandas as pd
 
-from core.util import parser
+from app.util import parser
 
 
 def select_directory_and_file(script_directory):

@@ -1,5 +1,5 @@
 from bobleesj.utils.parsers.formula import Formula
-from bobleesj.utils.sources.oliynyk import Property, Oliynyk
+from bobleesj.utils.sources.oliynyk import Oliynyk, Property
 
 
 def sort_by_composition(
@@ -36,8 +36,14 @@ def sort_by_composition(
     "LiBNa2"
     """
     formula_obj = Formula(formula)
-    formula_parsed = formula_obj.get_normalized_parsed_formula() if normalize else formula_obj.parsed_formula
-    mend_numbers = oliynyk.get_property_data_for_formula(formula, Property.MEND_NUM)
+    formula_parsed = (
+        formula_obj.get_normalized_parsed_formula()
+        if normalize
+        else formula_obj.parsed_formula
+    )
+    mend_numbers = oliynyk.get_property_data_for_formula(
+        formula, Property.MEND_NUM
+    )
     reverse = not ascending
     formula_sorted = sorted(
         formula_parsed,

@@ -1,5 +1,9 @@
 from deepdiff import DeepDiff
-from CAF.features.universal_extended import generate_features, _transform_features_for_single_prop
+
+from CAF.features.universal_extended import (
+    _transform_features_for_single_prop,
+    generate_features,
+)
 
 
 def test_generate_features(oliynyk_db):
@@ -13,7 +17,9 @@ def test_generate_features(oliynyk_db):
 def test_generate_universal_features_for_single_prop():
     prop_values = (5.0, 10.0, 15.0)
     indices_normalized = (0.2, 0.4, 0.6)
-    actual_features = _transform_features_for_single_prop("test", prop_values, indices_normalized)
+    actual_features = _transform_features_for_single_prop(
+        "test", prop_values, indices_normalized
+    )
     expected_features = {
         "test_avg": 10.0,
         "test_avg_weighted_norm": 11.666666666666664,

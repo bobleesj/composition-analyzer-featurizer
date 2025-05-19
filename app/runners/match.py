@@ -1,5 +1,5 @@
-from core.compare import match_entry
-from core.util import folder
+from app.compare import match_entry
+from app.util import folder
 
 
 def run_match_option(script_dir_path):

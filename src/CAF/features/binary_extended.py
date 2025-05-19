@@ -1,7 +1,8 @@
+from bobleesj.utils import numbers
+from bobleesj.utils.sources.oliynyk import Property as P
+
 from CAF.features import binary_helper as bi_helper
 from CAF.features import transform
-from bobleesj.utils.sources.oliynyk import Property as P
-from bobleesj.utils import numbers
 
 
 def generate_features(formula, db):
@@ -13,9 +14,13 @@ def generate_features(formula, db):
         prop = prop.value
         # Generate features for each property, like A+B, A-B, A*B, etc.
         prop_values = (db[A][prop], db[B][prop])
-        features = _transform_features_for_single_prop(prop, prop_values, indices)
+        features = _transform_features_for_single_prop(
+            prop, prop_values, indices
+        )
         # For each feature, apply transformation
-        transformed_features = transform.apply_transformations_to_features(features)
+        transformed_features = transform.apply_transformations_to_features(
+            features
+        )
         data.update(transformed_features)
     return data
 
@@ -36,8 +41,12 @@ def _transform_features_for_single_prop(prop, prop_values, indices):
         f"{prop}_A-B_weighted": A_weighted - B_weighted,
         f"{prop}_A*B": A_prop_value * B_prop_value,
         f"{prop}_A*B_weighted": A_weighted * B_weighted,
-        f"{prop}_A/B": A_prop_value / B_prop_value if B_prop_value != 0 else float("inf"),
-        f"{prop}_A/B_weighted": A_weighted / B_weighted if B_weighted != 0 else float("inf"),
+        f"{prop}_A/B": (
+            A_prop_value / B_prop_value if B_prop_value != 0 else float("inf")
+        ),
+        f"{prop}_A/B_weighted": (
+            A_weighted / B_weighted if B_weighted != 0 else float("inf")
+        ),
         f"{prop}_avg": stats["avg"],
         f"{prop}_max": stats["max"],
         f"{prop}_min": stats["min"],

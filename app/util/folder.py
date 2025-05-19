@@ -16,6 +16,10 @@ def list_xlsx_files_with_formula(script_dir_path):
     excel_files = [
         file for file in os.listdir(script_dir_path) if file.endswith(".xlsx")
     ]
+
+    if not excel_files:
+        return None
+    
     for file in excel_files:
         file_path = os.path.join(script_dir_path, file)
         try:
@@ -25,11 +29,6 @@ def list_xlsx_files_with_formula(script_dir_path):
                 excel_files_with_paths.append(file_path)
         except Exception as e:
             print(f"Error reading {file_path}: {e}")
-
-    if not excel_files_with_paths:
-        print("No Excel files were found with 'Formula' column.")
-        return None
-
     # Sorting the files by their base filename alphabetically
     excel_files_with_paths.sort(key=lambda x: os.path.basename(x).lower())
 

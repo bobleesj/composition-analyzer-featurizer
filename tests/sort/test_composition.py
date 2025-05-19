@@ -1,5 +1,6 @@
-from CAF.sort.composition import sort_by_composition
 import pytest
+
+from CAF.sort.composition import sort_by_composition
 
 
 @pytest.mark.parametrize(

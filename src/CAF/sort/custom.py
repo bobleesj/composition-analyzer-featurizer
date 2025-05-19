@@ -1,3 +1,4 @@
+import pandas as pd
 from bobleesj.utils.parsers.formula import Formula
 
 
@@ -24,8 +25,14 @@ def sort(
         The sorted formula string.
     """
     formula_obj = Formula(formula)
-    formula_parsed = formula_obj.get_normalized_parsed_formula() if normalize else formula_obj.parsed_formula
-    formula_sorted = sorted(formula_parsed, key=lambda x: element_order.get(x[0], float("inf")))
+    formula_parsed = (
+        formula_obj.get_normalized_parsed_formula()
+        if normalize
+        else formula_obj.parsed_formula
+    )
+    formula_sorted = sorted(
+        formula_parsed, key=lambda x: element_order.get(x[0], float("inf"))
+    )
     return Formula.build_formula_from_parsed(formula_sorted)
 
 
@@ -78,3 +85,34 @@ def convert_custom_labels_to_order_map(custom_labels: dict) -> dict:
                 order_map[element] = idx
         element_order[element_count] = order_map
     return element_order
+
+
+def get_custom_labels_from_excel(excel_path: str) -> dict:
+    sheet_map = {
+        2: ("Binary", ["Element_A", "Element_B"]),
+        3: ("Ternary", ["Element_R", "Element_M", "Element_X"]),
+        4: (
+            "Quaternary",
+            ["Element_A", "Element_B", "Element_C", "Element_D"],
+        ),
+    }
+
+    label_keys_map = {
+        2: ["A", "B"],
+        3: ["R", "M", "X"],
+        4: ["A", "B", "C", "D"],
+    }
+
+    custom_labels = {}
+
+    for num_elements, (sheet, columns) in sheet_map.items():
+        df = pd.read_excel(excel_path, sheet_name=sheet, engine="openpyxl")
+        element_lists = [df[col].dropna().tolist() for col in columns]
+        label_keys = label_keys_map[num_elements]
+        custom_labels[num_elements] = {
+            label: elements
+            for label, elements in zip(label_keys, element_lists)
+        }
+    print(custom_labels)
+
+    return custom_labels

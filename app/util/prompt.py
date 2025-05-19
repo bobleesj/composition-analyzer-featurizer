@@ -1,11 +1,8 @@
 import textwrap
-
 import click
 
-from core.sort import property
 
-
-def print_sort_option():
+def choose_sort_method():
     click.echo("\nWelcome to the chemical formula sorting tool!")
     click.echo("This tool allows you to sort chemical formulas from an Excel file.")
 
@@ -19,8 +16,12 @@ def print_sort_option():
     click.echo("\nSorting methods available:")
     for index, method in enumerate(sorting_methods, start=1):
         click.echo(f"  {index}. {method}")
-
-    click.echo()
+        
+    sort_method = click.prompt(
+        "Choose one of the sorting methods above by entering the corresponding number",
+        type=int,
+    )
+    return sort_method
 
 
 def print_match_option():
@@ -41,16 +42,7 @@ def print_match_option():
 
     print(introductory_paragraph)
 
-
-def choose_sort_method():
-    sort_method = click.prompt(
-        "Choose one of the sorting methods above by entering the corresponding number",
-        type=int,
-    )
-    return sort_method
-
-
-def get_is_ascending_order():
+def ascend_order():
     is_ascending_order = click.confirm(
         "\nWould you like to sort the indices in ascending order? (Default is Y)",
         default=True,
@@ -58,25 +50,12 @@ def get_is_ascending_order():
     return is_ascending_order
 
 
-def get_is_indices_as_fractions():
+def normalize_formula():
     is_indices_as_fractions = click.confirm(
         "\nWould you like to convert indices into fractions? (Default is N)",
         default=False,
     )
     return is_indices_as_fractions
-
-
-def get_element_col_num_after_printing():
-    print(
-        "\nGood! You've chosen to sort by the property from data/element_properties_for_ML.xlsx."
-    )
-    property.display_available_properties()
-
-    element_col_num = click.prompt(
-        "\nEnter a number associated with the property to sort formulas",
-        type=int,
-    )
-    return element_col_num
 
 
 def get_is_formula_parsed_columns_added():
@@ -85,15 +64,6 @@ def get_is_formula_parsed_columns_added():
         default=False,
     )
     return is_formula_parsed_columns_added
-
-
-def print_column_names_from_df(df):
-    column_names = [col for col in df.columns]
-
-    for i, column_name in enumerate(column_names, 1):
-        print(f"{i}.{column_name}")
-    print()
-
 
 def print_json_pretty(data, name):
     """
@@ -106,3 +76,4 @@ def print_json_pretty(data, name):
         else:
             print(f"- {key}: {value}")
     print()
+

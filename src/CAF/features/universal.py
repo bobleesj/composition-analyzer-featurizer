@@ -1,13 +1,14 @@
-from bobleesj.utils.sources.oliynyk import Property as P
 from bobleesj.utils.parsers.formula import Formula
+from bobleesj.utils.sources.oliynyk import Property as P
+
 from CAF.features.universal_helper import (
-    avg_weighted_norm,
     avg_value,
-    max_value,
-    min_value,
-    max_by_min_value,
+    avg_weighted_norm,
     first_element_value,
     last_element_value,
+    max_by_min_value,
+    max_value,
+    min_value,
 )
 
 
@@ -53,13 +54,21 @@ def generate_features(formula: str, db: dict) -> dict:
         prop = prop.value
         features.update(
             {
-                f"{prop}_avg_weighted_norm": avg_weighted_norm(norm_parsed_formula, prop, db),
+                f"{prop}_avg_weighted_norm": avg_weighted_norm(
+                    norm_parsed_formula, prop, db
+                ),
                 f"{prop}_avg": avg_value(norm_parsed_formula, prop, db),
                 f"{prop}_max": max_value(norm_parsed_formula, prop, db),
                 f"{prop}_min": min_value(norm_parsed_formula, prop, db),
-                f"{prop}_max_by_min": max_by_min_value(norm_parsed_formula, prop, db),
-                f"{prop}_first_element": first_element_value(norm_parsed_formula, prop, db),
-                f"{prop}_last_element": last_element_value(norm_parsed_formula, prop, db),
+                f"{prop}_max_by_min": max_by_min_value(
+                    norm_parsed_formula, prop, db
+                ),
+                f"{prop}_first_element": first_element_value(
+                    norm_parsed_formula, prop, db
+                ),
+                f"{prop}_last_element": last_element_value(
+                    norm_parsed_formula, prop, db
+                ),
             }
         )
     return features
