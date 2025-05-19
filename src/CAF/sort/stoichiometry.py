@@ -1,8 +1,8 @@
 from bobleesj.utils.parsers.formula import Formula
-from bobleesj.utils.sources.oliynyk import Property, Oliynyk
+from bobleesj.utils.sources.oliynyk import Oliynyk, Property
 
 
-def sort_by_composition(
+def sort(
     formula: str,
     oliynyk: Oliynyk,
     ascending=True,
@@ -11,8 +11,8 @@ def sort_by_composition(
     """Sort the elements in the chemical formula based on their composition.
 
     When there are more than one element with the same compsition, the
-    Mendeleev number is used to break the tie. During the tie, the Mendeleev number is always
-    sorted in ascending order.
+    Mendeleev number is used to break the tie. During the tie, the Mendeleev
+    number is always sorted in ascending order.
 
     Parameters
     ----------
@@ -28,16 +28,23 @@ def sort_by_composition(
     Returns
     -------
     str
-        The formula string with elements sorted according to the specified property.
+        The formula string with elements sorted according to the specified
+        property.
 
     Examples
     --------
-    >>> sort_by_composition("LiNa2B", db)
+    >>> sort("LiNa2B", db)
     "LiBNa2"
     """
     formula_obj = Formula(formula)
-    formula_parsed = formula_obj.get_normalized_parsed_formula() if normalize else formula_obj.parsed_formula
-    mend_numbers = oliynyk.get_property_data_for_formula(formula, Property.MEND_NUM)
+    formula_parsed = (
+        formula_obj.get_normalized_parsed_formula()
+        if normalize
+        else formula_obj.parsed_formula
+    )
+    mend_numbers = oliynyk.get_property_data_for_formula(
+        formula, Property.MEND_NUM
+    )
     reverse = not ascending
     formula_sorted = sorted(
         formula_parsed,

@@ -1,5 +1,6 @@
-from CAF.sort.composition import sort_by_composition
 import pytest
+
+from CAF.sort.stoichiometry import sort
 
 
 @pytest.mark.parametrize(
@@ -31,7 +32,7 @@ import pytest
     ],
 )
 def test_sort_by_composition_ascending(formula, oliynyk_obj, expected_output):
-    result = sort_by_composition(formula, oliynyk_obj)
+    result = sort(formula, oliynyk_obj)
     assert result == expected_output
 
 
@@ -54,5 +55,5 @@ def test_sort_by_composition_ascending(formula, oliynyk_obj, expected_output):
     ],
 )
 def test_sort_by_composition_descending(formula, expected_output, oliynyk_obj):
-    result = sort_by_composition(formula, oliynyk_obj, ascending=False)
+    result = sort(formula, oliynyk_obj, ascending=False)
     assert result == expected_output

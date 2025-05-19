@@ -25,7 +25,9 @@ def A_plus_B_weighted(formula, property_name, db):
 
 def A_plus_B_weighted_norm(formula, prop_name, db):
     A, B, _, _, index_A_norm, index_B_norm = prepare_binary_formula(formula)
-    return (db[A][prop_name] * index_A_norm) + (db[B][prop_name] * index_B_norm)
+    return (db[A][prop_name] * index_A_norm) + (
+        db[B][prop_name] * index_B_norm
+    )
 
 
 def A_minus_B(A, B, property_name, db):

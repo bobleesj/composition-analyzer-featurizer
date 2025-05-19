@@ -1,9 +1,18 @@
-from CAF.features import binary, ternary, quaternary, universal
-from CAF.features import binary_extended, ternary_extended, universal_extended
+import os
+
+import pandas as pd
 from bobleesj.utils.parsers.formula import Formula
 from bobleesj.utils.sources.oliynyk import Oliynyk
-import pandas as pd
-import os
+
+from CAF.features import (
+    binary,
+    binary_extended,
+    quaternary,
+    ternary,
+    ternary_extended,
+    universal,
+    universal_extended,
+)
 
 
 def get_composition_features(
@@ -33,11 +42,17 @@ def get_composition_features(
     (supported_formulas, unsupported_formulas) : tuple(list[str], list[str])
         The tuple containing two lists of supported and unsupported formulas.
     """
-    print("Getting the Oliynyk compositional database... (DOI: https://doi.org/10.1016/j.dib.2024.110178)")
+    print(
+        "Getting the Oliynyk compositional database...(DOI: https://doi.org/10.1016/j.dib.2024.110178)"
+    )
     db = Oliynyk().db
     # Ensure the formulas are supported by the Oliynyk database
-    print("Filtering formulas with elements provided in the Oliynyk elemental property dataset...")
-    formulas, formulas_unsupported = Oliynyk().filter_supported_formulas(formulas)
+    print(
+        "Filtering formulas with elements provided in the Oliynyk elemental property dataset..."
+    )
+    formulas, formulas_unsupported = Oliynyk().filter_supported_formulas(
+        formulas
+    )
     print("Sorting formulas into binary, ternary, quaternary...")
     sorted_formula_dict = Formula.sort_formulas_by_composition(formulas)
     # Sort into binary, ternary, quaternary

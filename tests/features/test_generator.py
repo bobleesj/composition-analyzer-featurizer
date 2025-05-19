@@ -1,7 +1,9 @@
-from CAF.features import generator
-import pytest
+from os.path import isfile, join
+
 import pandas as pd
-from os.path import join, isfile
+import pytest
+
+from CAF.features import generator
 
 
 @pytest.mark.parametrize(
@@ -12,12 +14,17 @@ from os.path import join, isfile
         (True, ["binary_only_binary_ext.csv", "binary_only_binary.csv"]),
     ],
 )
-def test_get_composition_with_binary(tmpdir, add_extended_features, expected_files):
+def test_get_composition_with_binary(
+    tmpdir, add_extended_features, expected_files
+):
     file_prefix = "binary_only"
     formulas = ["NdSi2", "ThOs"]
     save_path = str(tmpdir)
     generator.get_composition_features(
-        formulas, save_dir=save_path, extended_features=add_extended_features, file_prefix=file_prefix
+        formulas,
+        save_dir=save_path,
+        extended_features=add_extended_features,
+        file_prefix=file_prefix,
     )
     for filename in expected_files:
         filepath = join(save_path, filename)
@@ -48,12 +55,17 @@ def test_get_composition_with_binary(tmpdir, add_extended_features, expected_fil
         ),
     ],
 )
-def test_get_composition_with_extended_features(tmpdir, formulas, expected_files):
+def test_get_composition_with_extended_features(
+    tmpdir, formulas, expected_files
+):
     file_prefix = "expect_all_features"
     save_path = str(tmpdir)
 
     generator.get_composition_features(
-        formulas=formulas, save_dir=save_path, extended_features=True, file_prefix=file_prefix
+        formulas=formulas,
+        save_dir=save_path,
+        extended_features=True,
+        file_prefix=file_prefix,
     )
 
     for filename in expected_files:

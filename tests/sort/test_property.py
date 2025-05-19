@@ -1,6 +1,7 @@
 import pytest
-from CAF.sort.property import sort_by_CAF_property
 from bobleesj.utils.sources.oliynyk import Property
+
+from CAF.sort.property import sort
 
 
 @pytest.mark.parametrize(
@@ -20,8 +21,10 @@ from bobleesj.utils.sources.oliynyk import Property
         ("Cu2Al", False, True, "Cu0.666667Al0.333333"),
     ],
 )
-def test_sort_by_CAF_property(formula, ascending, normalize, expected_output, oliynyk_obj):
+def test_sort_by_CAF_property(
+    formula, ascending, normalize, expected_output, oliynyk_obj
+):
 
     property = Property.ATOMIC_NUMBER
-    result = sort_by_CAF_property(formula, property, oliynyk_obj, ascending, normalize)
+    result = sort(formula, property, oliynyk_obj, ascending, normalize)
     assert result == expected_output

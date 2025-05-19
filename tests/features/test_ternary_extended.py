@@ -1,5 +1,9 @@
-from CAF.features.ternary_extended import _transform_features_for_single_prop, generate_features
 from deepdiff import DeepDiff
+
+from CAF.features.ternary_extended import (
+    _transform_features_for_single_prop,
+    generate_features,
+)
 
 
 def test_generate_features(oliynyk_db):
@@ -14,7 +18,9 @@ def test_generate_features(oliynyk_db):
 def test_transform_features_for_single_prop():
     RMX_prop_values = (5.0, 10.0, 15.0)
     RMX_indices = (1, 2, 3)
-    actual_features = _transform_features_for_single_prop("test", RMX_prop_values, RMX_indices)
+    actual_features = _transform_features_for_single_prop(
+        "test", RMX_prop_values, RMX_indices
+    )
 
     expected_features = {
         "test_R": 5.0,

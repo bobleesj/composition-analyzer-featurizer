@@ -1,5 +1,6 @@
-from bobleesj.utils.sources.oliynyk import Property as P
 from bobleesj.utils.parsers.formula import Formula
+from bobleesj.utils.sources.oliynyk import Property as P
+
 from CAF.features import quaternary_helper as helper
 
 
@@ -25,7 +26,9 @@ def generate_features(formula: str, db: dict) -> dict:
         "index_min": index_min,
         "index_avg": index_avg,
         # atomic weight - 7
-        "atomic_weight_ABCD_sum_weighted": helper.ABCD_sum_weighted(ABCD, indices, P.AW, db),
+        "atomic_weight_ABCD_sum_weighted": helper.ABCD_sum_weighted(
+            ABCD, indices, P.AW, db
+        ),
         "atomic_weight_A/B": helper.A_by_B(A, B, P.AW, db),
         "atomic_weight_A/C": helper.A_by_C(A, C, P.AW, db),
         "atomic_weight_A/D": helper.A_by_D(A, D, P.AW, db),
@@ -40,7 +43,9 @@ def generate_features(formula: str, db: dict) -> dict:
         "atomic_number_B-D": helper.B_minus_D(B, D, P.ATOMIC_NUMBER, db),
         "atomic_number_C-D": helper.C_minus_D(C, D, P.ATOMIC_NUMBER, db),
         "atomic_number_ABCD_avg": helper.ABCD_avg(ABCD, P.ATOMIC_NUMBER, db),
-        "atomic_number_ABCD_avg_weighted": helper.ABCD_avg_weighted(ABCD, indices, P.ATOMIC_NUMBER, db),
+        "atomic_number_ABCD_avg_weighted": helper.ABCD_avg_weighted(
+            ABCD, indices, P.ATOMIC_NUMBER, db
+        ),
         "atomic_number_AB_avg": helper.AB_avg(A, B, P.ATOMIC_NUMBER, db),
         "atomic_number_AC_avg": helper.AC_avg(A, C, P.ATOMIC_NUMBER, db),
         "atomic_number_AD_avg": helper.AD_avg(A, D, P.ATOMIC_NUMBER, db),
@@ -52,13 +57,27 @@ def generate_features(formula: str, db: dict) -> dict:
         "period_B": db[B][P.PERIOD],
         "period_C": db[C][P.PERIOD],
         "period_D": db[D][P.PERIOD],
-        "period_ABCD_sum_weighted_norm": helper.ABCD_sum_weighted_norm(ABCD, indices_norm, P.PERIOD, db),
-        "period_AB_sum_weighted_norm": helper.AB_sum_weighted_norm(A, B, index_A_norm, index_B_norm, P.PERIOD, db),
-        "period_AC_sum_weighted_norm": helper.AC_sum_weighted_norm(A, C, index_A_norm, index_C_norm, P.PERIOD, db),
-        "period_AD_sum_weighted_norm": helper.AD_sum_weighted_norm(A, D, index_A_norm, index_D_norm, P.PERIOD, db),
-        "period_BC_sum_weighted_norm": helper.BC_sum_weighted_norm(B, C, index_B_norm, index_C_norm, P.PERIOD, db),
-        "period_BD_sum_weighted_norm": helper.BD_sum_weighted_norm(B, D, index_B_norm, index_D_norm, P.PERIOD, db),
-        "period_CD_sum_weighted_norm": helper.CD_sum_weighted_norm(C, D, index_C_norm, index_D_norm, P.PERIOD, db),
+        "period_ABCD_sum_weighted_norm": helper.ABCD_sum_weighted_norm(
+            ABCD, indices_norm, P.PERIOD, db
+        ),
+        "period_AB_sum_weighted_norm": helper.AB_sum_weighted_norm(
+            A, B, index_A_norm, index_B_norm, P.PERIOD, db
+        ),
+        "period_AC_sum_weighted_norm": helper.AC_sum_weighted_norm(
+            A, C, index_A_norm, index_C_norm, P.PERIOD, db
+        ),
+        "period_AD_sum_weighted_norm": helper.AD_sum_weighted_norm(
+            A, D, index_A_norm, index_D_norm, P.PERIOD, db
+        ),
+        "period_BC_sum_weighted_norm": helper.BC_sum_weighted_norm(
+            B, C, index_B_norm, index_C_norm, P.PERIOD, db
+        ),
+        "period_BD_sum_weighted_norm": helper.BD_sum_weighted_norm(
+            B, D, index_B_norm, index_D_norm, P.PERIOD, db
+        ),
+        "period_CD_sum_weighted_norm": helper.CD_sum_weighted_norm(
+            C, D, index_C_norm, index_D_norm, P.PERIOD, db
+        ),
         # group - 17
         "group_A": db[A][P.GROUP],
         "group_B": db[B][P.GROUP],
@@ -70,13 +89,27 @@ def generate_features(formula: str, db: dict) -> dict:
         "group_B-C": helper.B_minus_C(B, C, P.GROUP, db),
         "group_B-D": helper.B_minus_D(B, D, P.GROUP, db),
         "group_C-D": helper.C_minus_D(C, D, P.GROUP, db),
-        "group_ABCD_sum_weighted_norm": helper.ABCD_sum_weighted_norm(ABCD, indices_norm, P.GROUP, db),
-        "group_AB_sum_weighted_norm": helper.AB_sum_weighted_norm(A, B, index_A_norm, index_B_norm, P.GROUP, db),
-        "group_AC_sum_weighted_norm": helper.AC_sum_weighted_norm(A, C, index_A_norm, index_C_norm, P.GROUP, db),
-        "group_AD_sum_weighted_norm": helper.AD_sum_weighted_norm(A, D, index_A_norm, index_D_norm, P.GROUP, db),
-        "group_BC_sum_weighted_norm": helper.BC_sum_weighted_norm(B, C, index_B_norm, index_C_norm, P.GROUP, db),
-        "group_BD_sum_weighted_norm": helper.BD_sum_weighted_norm(B, D, index_B_norm, index_D_norm, P.GROUP, db),
-        "group_CD_sum_weighted_norm": helper.CD_sum_weighted_norm(C, D, index_C_norm, index_D_norm, P.GROUP, db),
+        "group_ABCD_sum_weighted_norm": helper.ABCD_sum_weighted_norm(
+            ABCD, indices_norm, P.GROUP, db
+        ),
+        "group_AB_sum_weighted_norm": helper.AB_sum_weighted_norm(
+            A, B, index_A_norm, index_B_norm, P.GROUP, db
+        ),
+        "group_AC_sum_weighted_norm": helper.AC_sum_weighted_norm(
+            A, C, index_A_norm, index_C_norm, P.GROUP, db
+        ),
+        "group_AD_sum_weighted_norm": helper.AD_sum_weighted_norm(
+            A, D, index_A_norm, index_D_norm, P.GROUP, db
+        ),
+        "group_BC_sum_weighted_norm": helper.BC_sum_weighted_norm(
+            B, C, index_B_norm, index_C_norm, P.GROUP, db
+        ),
+        "group_BD_sum_weighted_norm": helper.BD_sum_weighted_norm(
+            B, D, index_B_norm, index_D_norm, P.GROUP, db
+        ),
+        "group_CD_sum_weighted_norm": helper.CD_sum_weighted_norm(
+            C, D, index_C_norm, index_D_norm, P.GROUP, db
+        ),
         # Mendeleeve_number - 24
         "Mendeleev_number_A": db[A][P.MEND_NUM],
         "Mendeleev_number_B": db[B][P.MEND_NUM],
@@ -89,7 +122,9 @@ def generate_features(formula: str, db: dict) -> dict:
         "Mendeleev_number_B-D": helper.B_minus_D(B, D, P.MEND_NUM, db),
         "Mendeleev_number_C-D": helper.C_minus_D(C, D, P.MEND_NUM, db),
         "Mendeleev_number_ABCD_avg": helper.ABCD_avg(ABCD, P.MEND_NUM, db),
-        "Mendeleev_number_ABCD_avg_weighted": helper.ABCD_avg_weighted(ABCD, indices, P.MEND_NUM, db),
+        "Mendeleev_number_ABCD_avg_weighted": helper.ABCD_avg_weighted(
+            ABCD, indices, P.MEND_NUM, db
+        ),
         "Mendeleev_number_AB_avg": helper.AB_avg(A, B, P.MEND_NUM, db),
         "Mendeleev_number_AC_avg": helper.AC_avg(A, C, P.MEND_NUM, db),
         "Mendeleev_number_AD_avg": helper.AD_avg(A, D, P.MEND_NUM, db),
@@ -132,14 +167,30 @@ def generate_features(formula: str, db: dict) -> dict:
                 f"{prop}_C": db[C][prop],
                 f"{prop}_D": db[D][prop],
                 f"{prop}_ABCD_sum": helper.ABCD_sum(ABCD, prop, db),
-                f"{prop}_ABCD_sum_weighted": helper.ABCD_sum_weighted(ABCD, indices, prop, db),
-                f"{prop}_ABCD_sum_weighted_norm": helper.ABCD_sum_weighted_norm(ABCD, indices_norm, prop, db),
-                f"{prop}_AB_sum_weighted_norm": helper.AB_sum_weighted_norm(A, B, index_A_norm, index_B_norm, prop, db),
-                f"{prop}_AC_sum_weighted_norm": helper.AC_sum_weighted_norm(A, C, index_A_norm, index_C_norm, prop, db),
-                f"{prop}_AD_sum_weighted_norm": helper.AD_sum_weighted_norm(A, D, index_A_norm, index_D_norm, prop, db),
-                f"{prop}_BC_sum_weighted_norm": helper.BC_sum_weighted_norm(B, C, index_B_norm, index_C_norm, prop, db),
-                f"{prop}_BD_sum_weighted_norm": helper.BD_sum_weighted_norm(B, D, index_B_norm, index_D_norm, prop, db),
-                f"{prop}_CD_sum_weighted_norm": helper.CD_sum_weighted_norm(C, D, index_C_norm, index_D_norm, prop, db),
+                f"{prop}_ABCD_sum_weighted": helper.ABCD_sum_weighted(
+                    ABCD, indices, prop, db
+                ),
+                f"{prop}_ABCD_sum_weighted_norm": helper.ABCD_sum_weighted_norm(
+                    ABCD, indices_norm, prop, db
+                ),
+                f"{prop}_AB_sum_weighted_norm": helper.AB_sum_weighted_norm(
+                    A, B, index_A_norm, index_B_norm, prop, db
+                ),
+                f"{prop}_AC_sum_weighted_norm": helper.AC_sum_weighted_norm(
+                    A, C, index_A_norm, index_C_norm, prop, db
+                ),
+                f"{prop}_AD_sum_weighted_norm": helper.AD_sum_weighted_norm(
+                    A, D, index_A_norm, index_D_norm, prop, db
+                ),
+                f"{prop}_BC_sum_weighted_norm": helper.BC_sum_weighted_norm(
+                    B, C, index_B_norm, index_C_norm, prop, db
+                ),
+                f"{prop}_BD_sum_weighted_norm": helper.BD_sum_weighted_norm(
+                    B, D, index_B_norm, index_D_norm, prop, db
+                ),
+                f"{prop}_CD_sum_weighted_norm": helper.CD_sum_weighted_norm(
+                    C, D, index_C_norm, index_D_norm, prop, db
+                ),
             }
         )
     # Other 13 features
