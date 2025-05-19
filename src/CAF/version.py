@@ -12,12 +12,14 @@
 # See LICENSE.rst for license information.
 #
 ##############################################################################
-"""Python package for generating compositional features for binary, ternary, and quaternary formulas with Oliynyk elemental properties."""
+"""Definition of __version__."""
 
-# package version
-# from CAF.version import __version__
+#  We do not use the other three variables, but can be added back if needed.
+#  __all__ = ["__date__", "__git_commit__", "__timestamp__", "__version__"]
 
-# silence the pyflakes syntax checker
-# assert __version__ or True
+# obtain version information
+from importlib.metadata import version
+
+__version__ = version("composition-analyzer-featurizer")
 
 # End of file
