@@ -4,7 +4,7 @@
 
 The current version supports the processing of **binary**, **ternary** and **quaternary** compounds containing the following elements:
 
-![alt text](assets/img/periodic_table.png)
+![CAF-supported-elements.png](assets/img/elements-supported-in-periodic-table.png)
 
 ---
 
