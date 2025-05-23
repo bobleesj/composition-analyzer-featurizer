@@ -1,5 +1,13 @@
 # composition-analyzer-featurizer
 
+## Scope
+
+The current version supports the processing of **binary**, **ternary** and **quaternary** compounds containing the following elements:
+
+![CAF-supported-elements.png](assets/img/elements-supported-in-periodic-table.png)
+
+---
+
 Here is a quick tutorial on how to locally install the package.
 
 ## How to install `composition-analyzer-featurizer` locally
