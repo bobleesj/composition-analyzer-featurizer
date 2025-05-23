@@ -7,6 +7,7 @@ The current version supports the processing of **binary**, **ternary** and **qua
 ![alt text](assets/img/periodic_table.png)
 
 ---
+
 Here is a quick tutorial on how to locally install the package.
 
 ## How to install `composition-analyzer-featurizer` locally
