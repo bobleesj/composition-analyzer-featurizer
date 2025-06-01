@@ -1,9 +1,6 @@
 # Composition Analyzer Featurizer (CAF)
 
-[![PyPI](https://img.shields.io/pypi/v/composition-analyzer-featurizer)](https://pypi.org/project/composition-analyzer-featurizer/)
-[![PythonVersion](https://img.shields.io/pypi/pyversions/composition-analyzer-featurizer)](https://pypi.org/project/composition-analyzer-featurizer/)
 ![PR](https://img.shields.io/badge/PR-Welcome-29ab47ff)
-[![CI](https://github.com/bobleesj/composition-analyzer-featurizer/actions/workflows/matrix-and-codecov-on-merge-to-main.yml/badge.svg)](https://github.com/bobleesj/composition-analyzer-featurizer/actions/workflows/matrix-and-codecov-on-merge-to-main.yml)
 [![Codecov](https://codecov.io/gh/bobleesj/composition-analyzer-featurizer/branch/main/graph/badge.svg)](https://codecov.io/gh/bobleesj/composition-analyzer-featurizer)
 [![Black](https://img.shields.io/badge/code_style-black-black)](https://github.com/psf/black)
 [![Tracking](https://img.shields.io/badge/issue_tracking-github-blue)](https://github.com/bobleesj/composition-analyzer-featurizer/issues)
