@@ -50,11 +50,11 @@ def get_composition_features(
     print(
         "Filtering formulas with elements provided in the Oliynyk elemental property dataset..."
     )
-    formulas, formulas_unsupported = Oliynyk().filter_supported_formulas(
+    formulas, formulas_unsupported = Oliynyk().get_supported_formulas(
         formulas
     )
     print("Sorting formulas into binary, ternary, quaternary...")
-    sorted_formula_dict = Formula.sort_formulas_by_composition(formulas)
+    sorted_formula_dict = Formula.filter_by_composition(formulas)
     # Sort into binary, ternary, quaternary
     bi_formulas = sorted_formula_dict.get(2, [])
     ter_formulas = sorted_formula_dict.get(3, [])
