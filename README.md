@@ -104,6 +104,7 @@ based on 3 options.
    M: Fe, Co, Ni, Ru, Rh, Pd, Os, Ir, Pt
    X: Si, Ga, Ge, In, Sn, Sb
    ```
+
 2. **By index** - sorts compounds by stoichiometric ratio in either increasing
    or decreasing order. If the index is the same, the formulas are sorted based
    on the Mendeleev number.
@@ -183,9 +184,8 @@ Selected Excel file: /Users/imac/Downloads/CAF/formulas.xlsx
 Here is an example of the first few columns of `feature_binary.xlsx` for 3
 binary formulas provided.
 
-
 | Formula | index_A | index_B | normalized_index_A | normalized_index_B | largest_index | smallest_index | avg_index | atomic_weight_weighted_A+B |
-| --------- | --------- | --------- | -------------------- | -------------------- | --------------- | ---------------- | ----------- | ---------------------------- |
+| ------- | ------- | ------- | ------------------ | ------------------ | ------------- | -------------- | --------- | -------------------------- |
 | NdSi2   | 1       | 2       | 0.333              | 0.667              | 2             | 1              | 1.5       | 144.242                    |
 | Th2Os   | 2       | 1       | 0.667              | 0.333              | 2             | 1              | 1.5       | 464.076                    |
 | Sn5Co2  | 5       | 2       | 0.714              | 0.286              | 5             | 2              | 3.5       | 593.55                     |
