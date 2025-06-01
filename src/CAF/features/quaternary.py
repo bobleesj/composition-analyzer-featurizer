@@ -158,38 +158,38 @@ def generate_features(formula: str, db: dict) -> dict:
         P.GILMAN,
     ]
 
-    for prop in rest_properties_one:
-        prop = prop.value
+    for p in rest_properties_one:
+        p = p.value
         features.update(
             {
-                f"{prop}_A": db[A][prop],
-                f"{prop}_B": db[B][prop],
-                f"{prop}_C": db[C][prop],
-                f"{prop}_D": db[D][prop],
-                f"{prop}_ABCD_sum": helper.ABCD_sum(ABCD, prop, db),
-                f"{prop}_ABCD_sum_weighted": helper.ABCD_sum_weighted(
-                    ABCD, indices, prop, db
+                f"{p}_A": db[A][p],
+                f"{p}_B": db[B][p],
+                f"{p}_C": db[C][p],
+                f"{p}_D": db[D][p],
+                f"{p}_ABCD_sum": helper.ABCD_sum(ABCD, p, db),
+                f"{p}_ABCD_sum_weighted": helper.ABCD_sum_weighted(
+                    ABCD, indices, p, db
                 ),
-                f"{prop}_ABCD_sum_weighted_norm": helper.ABCD_sum_weighted_norm(
-                    ABCD, indices_norm, prop, db
+                f"{p}_ABCD_sum_weighted_norm": helper.ABCD_sum_weighted_norm(
+                    ABCD, indices_norm, p, db
                 ),
-                f"{prop}_AB_sum_weighted_norm": helper.AB_sum_weighted_norm(
-                    A, B, index_A_norm, index_B_norm, prop, db
+                f"{p}_AB_sum_weighted_norm": helper.AB_sum_weighted_norm(
+                    A, B, index_A_norm, index_B_norm, p, db
                 ),
-                f"{prop}_AC_sum_weighted_norm": helper.AC_sum_weighted_norm(
-                    A, C, index_A_norm, index_C_norm, prop, db
+                f"{p}_AC_sum_weighted_norm": helper.AC_sum_weighted_norm(
+                    A, C, index_A_norm, index_C_norm, p, db
                 ),
-                f"{prop}_AD_sum_weighted_norm": helper.AD_sum_weighted_norm(
-                    A, D, index_A_norm, index_D_norm, prop, db
+                f"{p}_AD_sum_weighted_norm": helper.AD_sum_weighted_norm(
+                    A, D, index_A_norm, index_D_norm, p, db
                 ),
-                f"{prop}_BC_sum_weighted_norm": helper.BC_sum_weighted_norm(
-                    B, C, index_B_norm, index_C_norm, prop, db
+                f"{p}_BC_sum_weighted_norm": helper.BC_sum_weighted_norm(
+                    B, C, index_B_norm, index_C_norm, p, db
                 ),
-                f"{prop}_BD_sum_weighted_norm": helper.BD_sum_weighted_norm(
-                    B, D, index_B_norm, index_D_norm, prop, db
+                f"{p}_BD_sum_weighted_norm": helper.BD_sum_weighted_norm(
+                    B, D, index_B_norm, index_D_norm, p, db
                 ),
-                f"{prop}_CD_sum_weighted_norm": helper.CD_sum_weighted_norm(
-                    C, D, index_C_norm, index_D_norm, prop, db
+                f"{p}_CD_sum_weighted_norm": helper.CD_sum_weighted_norm(
+                    C, D, index_C_norm, index_D_norm, p, db
                 ),
             }
         )
@@ -211,23 +211,23 @@ def generate_features(formula: str, db: dict) -> dict:
         P.BULK_MODULUS,
     ]
 
-    for prop in rest_properties_two:
-        prop = prop.value
+    for p in rest_properties_two:
+        p = p.value
         features.update(
             {
-                f"{prop}_A": db[A][prop],
-                f"{prop}_B": db[B][prop],
-                f"{prop}_C": db[C][prop],
-                f"{prop}_D": db[D][prop],
-                f"{prop}_A/B": helper.A_by_B(A, B, prop, db),
-                f"{prop}_A/C": helper.A_by_C(A, C, prop, db),
-                f"{prop}_A/D": helper.A_by_D(A, D, prop, db),
-                f"{prop}_B/C": helper.B_by_C(B, C, prop, db),
-                f"{prop}_B/D": helper.B_by_D(B, D, prop, db),
-                f"{prop}_C/D": helper.C_by_D(C, D, prop, db),
-                f"{prop}_ABCD_max": helper.ABCD_max(ABCD, prop, db),
-                f"{prop}_ABCD_min": helper.ABCD_min(ABCD, prop, db),
-                f"{prop}_ABCD_avg": helper.ABCD_avg(ABCD, prop, db),
+                f"{p}_A": db[A][p],
+                f"{p}_B": db[B][p],
+                f"{p}_C": db[C][p],
+                f"{p}_D": db[D][p],
+                f"{p}_A/B": helper.A_by_B(A, B, p, db),
+                f"{p}_A/C": helper.A_by_C(A, C, p, db),
+                f"{p}_A/D": helper.A_by_D(A, D, p, db),
+                f"{p}_B/C": helper.B_by_C(B, C, p, db),
+                f"{p}_B/D": helper.B_by_D(B, D, p, db),
+                f"{p}_C/D": helper.C_by_D(C, D, p, db),
+                f"{p}_ABCD_max": helper.ABCD_max(ABCD, p, db),
+                f"{p}_ABCD_min": helper.ABCD_min(ABCD, p, db),
+                f"{p}_ABCD_avg": helper.ABCD_avg(ABCD, p, db),
             }
         )
     return features

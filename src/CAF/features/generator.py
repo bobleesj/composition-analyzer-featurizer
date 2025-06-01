@@ -21,20 +21,23 @@ def get_composition_features(
     """Generate composition-based features for a list of chemical formulas
     using the Oliynyk elemental property dataset.
 
-    This function processes the provided chemical formulas, filters out unsupported ones,
-    and computes core and optional extended features for binary, ternary, quaternary, and universal
-    compositions. Optionally, the generated features can be saved as CSV files
-    in the specified directory.
+    This function processes the provided chemical formulas, filters out
+    unsupported ones, and computes core and optional extended features for
+    binary, ternary, quaternary, and universal compositions. Optionally,
+    the generated features can be saved as CSV files in the specified
+    directory.
 
     Parameters
     ----------
     formulas : list of str
         The List of chemical formulas to process.
-    extended_features : bool, optional
-        Whether to compute and save extended features in addition to the core features (default is False).
-    save_dir : str, optional
-        The path where the generated feature CSV files are saved (default is the working directory).
-    file_prefix : str, optional
+    extended_features : bool=False
+        Whether to compute and save extended features in addition
+        to the core features (default is False).
+    save_dir : str="./"
+        The path where the generated feature CSV files are saved
+        (default is the working directory).
+    file_prefix : str="features"
         The prefix for the saved CSV filenames (default is "features").
 
     Returns
@@ -43,16 +46,16 @@ def get_composition_features(
         The tuple containing two lists of supported and unsupported formulas.
     """
     print(
-        "Getting the Oliynyk compositional database...(DOI: https://doi.org/10.1016/j.dib.2024.110178)"
+        "Getting the Oliynyk compositional database...\n"
+        "(DOI: https://doi.org/10.1016/j.dib.2024.110178)"
     )
     db = Oliynyk().db
     # Ensure the formulas are supported by the Oliynyk database
     print(
-        "Filtering formulas with elements provided in the Oliynyk elemental property dataset..."
+        "Filtering formulas with elements provided\n"
+        " in the Oliynyk elemental property dataset..."
     )
-    formulas, formulas_unsupported = Oliynyk().get_supported_formulas(
-        formulas
-    )
+    formulas, formulas_unsupported = Oliynyk().get_supported_formulas(formulas)
     print("Sorting formulas into binary, ternary, quaternary...")
     sorted_formula_dict = Formula.filter_by_composition(formulas)
     # Sort into binary, ternary, quaternary

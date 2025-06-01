@@ -1,5 +1,4 @@
 import pytest
-from bobleesj.utils.parsers.formula import Formula
 
 from CAF.sort.custom import (
     _convert_custom_labels_to_order_map,

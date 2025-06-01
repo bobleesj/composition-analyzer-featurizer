@@ -17,18 +17,19 @@ def sort(
     formula : str
         The chemical formula to be sorted.
     property : Property
-        The CAF property name to sort by (e.g., electronegativity, atomic radius).
+        The CAF property name to sort by (e.g., atomic radius).
     oliynyk : Oliynyk
         The CAF oliynyk dataset.
-    ascending : bool, optional
+    ascending : bool=True
         Whether to sort in ascending order. Defaults to True.
-    normalize : bool, optional
-        Whether to normalize the formula before sorting. Defaults to False.
+    normalize : bool=False
+        Whether to normalize the formula before sorting.
 
     Returns
     -------
     str
-        The formula string with elements sorted according to the specified property.
+        The formula string with elements sorted according to the
+        specified property.
 
     Examples
     --------

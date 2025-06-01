@@ -9,7 +9,7 @@ from CAF.features import generator
 @pytest.mark.parametrize(
     "add_extended_features,expected_files",
     [
-        # Test when we only have binary formulas. Expect to generate only binary csv files.
+        # Test when we only have binary formulas. Expect only binary csv files.
         (False, ["binary_only_binary.csv"]),
         (True, ["binary_only_binary_ext.csv", "binary_only_binary.csv"]),
     ],
