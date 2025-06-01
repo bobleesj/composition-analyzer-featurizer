@@ -4,3 +4,4 @@ pandas
 openpyxl
 click
 bobleesj.utils
+cifkit
