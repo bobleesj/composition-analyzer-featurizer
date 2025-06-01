@@ -84,7 +84,7 @@ generates a periodic table heatmap. Optionally, it provides two filtering
 methods: one for removing specific elements and another for categorizing
 compounds into unary, binary, ternary, and quaternary groups.
 
-![periodic talbe heatmap](assets/img/periodic-table-heatmap.png)
+![periodic table heatmap](assets/img/periodic-table-heatmap.png)
 
 **Option 2. Sort** - rearranges a set of chemical formulas in an Excel file
 based on 3 options.
