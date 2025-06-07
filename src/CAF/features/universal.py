@@ -25,7 +25,9 @@ def generate_features(formula: str, db: dict) -> dict:
         "index_norm_min": min([i[1] for i in norm_parsed_formula]),
         "num_element": num_elements,
     }
-    special_properties = [P.UNPARIED_E]
+    special_properties = [
+        P.UNPARIED_E
+    ]
     for prop in special_properties:
         prop = prop.value
         features.update(
