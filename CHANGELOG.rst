@@ -20,4 +20,3 @@ Release notes
 **Removed:**
 
 * Remove the CLI code for running SAF to a separate repository to maintain modularity of CAF.
-
