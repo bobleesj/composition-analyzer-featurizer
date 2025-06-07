@@ -25,12 +25,11 @@ def generate_features(formula: str, db: dict) -> dict:
         "index_norm_min": min([i[1] for i in norm_parsed_formula]),
         "num_element": num_elements,
     }
-    special_properties = [
-        P.UNPARIED_E
-    ]
+    special_properties = [P.UNPARIED_E]
     for prop in special_properties:
         prop = prop.value
-        features.update({
+        features.update(
+            {
                 f"{prop}_avg_weighted_norm": avg_weighted_norm(
                     norm_parsed_formula, prop, db
                 ),
@@ -43,7 +42,8 @@ def generate_features(formula: str, db: dict) -> dict:
                 f"{prop}_last_element": last_element_value(
                     norm_parsed_formula, prop, db
                 ),
-            })
+            }
+        )
     remaining_properties = [
         P.AW,
         P.ATOMIC_NUMBER,
@@ -69,7 +69,8 @@ def generate_features(formula: str, db: dict) -> dict:
     ]
     for prop in remaining_properties:
         prop = prop.value
-        features.update({
+        features.update(
+            {
                 f"{prop}_avg_weighted_norm": avg_weighted_norm(
                     norm_parsed_formula, prop, db
                 ),
@@ -85,6 +86,7 @@ def generate_features(formula: str, db: dict) -> dict:
                 f"{prop}_last_element": last_element_value(
                     norm_parsed_formula, prop, db
                 ),
-            })
+            }
+        )
 
     return features
