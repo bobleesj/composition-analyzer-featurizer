@@ -317,3 +317,4 @@ def test_generate_features(oliynyk_db):
 
     diff = DeepDiff(expected_features, actual_features, significant_digits=3)
     assert diff == {}
+    assert len(actual_features) - 1 == 305
