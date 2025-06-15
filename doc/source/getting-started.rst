@@ -1,79 +1,35 @@
-:tocdepth: -1
-
-.. index:: getting-started
-
-.. _getting-started:
-
-================
 Getting started
-================
+===============
 
-Here are some example templates provided to help you get started with writing your documentation. You can use these templates to create your own documentation.
 
-Reuse ``.rst`` files across multiple pages
-------------------------------------------
-
-Here is how you can reuse a reusable block of ``.rst`` files across multiple pages:
-
-.. include:: snippets/example-table.rst
-
-.. warning::
-
-    Ensure that the ``.rst`` file you are including is not too long. If it is too long, it may be better to split it into multiple files and include them separately.
-
-Refer to a specific section in the documentation
-------------------------------------------------
-
-You can use the ``ref`` tag to refer to a specific section in the documentation. For example, you can refer to the section below using the ``:ref:`` tag as shown :ref:`here <attach-image>`.
-
-.. note::
-
-    Please check the raw ``.rst`` file of this page to see the exact use of the ``:ref:`` tag.
-
-Embed your code snippets in the documentation
----------------------------------------------
-
-Here is how you can write a block of code in the documentation. You can use the ``code-block`` directive to write a block of code in the documentation. For example, you can write a block of code as shown below:
+CAF is primarily used as an interactive application that can automatically detect folders and files. Use the following steps in your command-line interface:
 
 .. code-block:: bash
 
-    # Create a new environment, without build dependencies (pure Python package)
-    conda create -n <package_name>-env python=3.13 \
-        --file requirements/test.txt \
-        --file requirements/conda.txt
+   # Download the code
+   git clone https://github.com/bobleesj/composition-analyzer-featurizer-app.git
 
-    # Create a new environment, with build dependencies (non-pure Python package)
-    conda create -n <package_name>-env python=3.13 \
-        --file requirements/test.txt \
-        --file requirements/conda.txt \
-        --file requirements/build.txt
+   # Navigate to the directory
+   cd composition-analyzer-featurizer-app
 
-    # Activate the environment
-    conda activate <package_name>_env
+   # Install CAF package
+   pip install composition-analyzer-featurizer
 
-    # Install your package locally
-    # `--no-deps` to NOT install packages again from `requirements.pip.txt`
-    pip install -e . --no-deps
+   # Execute the script
+   python main.py
 
-    # Run pytest locally
-    pytest
+Upon running ``python main.py``, you will be prompted to choose from one of the following options:
 
-    # ... run example tutorials
+.. code-block:: text
 
-.. _attach-image:
+   Options:
+   1: Filter chemical formulas and generate periodic table heatmap
+   2: Sort chemical formulas in Excel
+   3: Create compositional features for formulas in Excel
+   4: Match .cif files in a folder against Excel
+   5: Merge two Excel files based on id/entry
+   Please enter the number of the option you want to run: 1
 
-Attach an image to the documentation
-------------------------------------
+.. note::
 
-Here is how you attach an image to the documentation. The ``/doc/source/img/scikit-package-logo-text.png`` example image is provided in the template.
-
-.. image:: ./img/scikit-package-logo-text.png
-    :alt: codecov-in-pr-comment
-    :width: 400px
-    :align: center
-
-
-Other useful directives
------------------------
-
-Here is how you can do menu selection  :menuselection:`Admin --> Settings` and display labels for buttons like :guilabel:`Privacy level`.
+   Are you having trouble running code? Please learn to use conda environments by following the instructions provided `here <https://scikit-package.github.io/scikit-package/tutorials/tutorial-level-1-2-3.html#required-use-conda-environment-to-install-packages-and-run-python-code>`_.
