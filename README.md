@@ -1,26 +1,24 @@
 # Composition Analyzer Featurizer (CAF)
 
 ![PR](https://img.shields.io/badge/PR-Welcome-29ab47ff)
-[![Codecov](https://codecov.io/gh/bobleesj/composition-analyzer-featurizer/branch/main/graph/badge.svg)](https://codecov.io/gh/bobleesj/composition-analyzer-featurizer)
-[![Black](https://img.shields.io/badge/code_style-black-black)](https://github.com/psf/black)
-[![Tracking](https://img.shields.io/badge/issue_tracking-github-blue)](https://github.com/bobleesj/composition-analyzer-featurizer/issues)
+![PyPI](https://img.shields.io/pypi/v/composition-analyzer-featurizer)
+![PythonVersion](https://img.shields.io/pypi/pyversions/composition-analyzer-featurizer)
 
-A Python package for generating compositional features for binary,
-ternary, and quaternary formulas with Oliynyk elemental properties.
+Composition Analyzer/Featurizer (CAF) is a user-interactive Python script that offers tools for generating compositional descriptors of binary, ternary, quaternary compounds from
+Excel or `.cif` files. CAF also offer utility functionality to filter, sort chemical formulas and merge Excel fliles
 
-## Citation
+This Python package is the "engine" of the [CAF inteactive app](https://github.com/bobleesj/composition-analyzer-featurizer-app).
 
-If you use composition-analyzer-featurizer in a scientific publication,
-we would like you to cite the package:
+## Publications
 
-> Digital Discovery, https://doi.org/10.1039/D4DD00332B
+If you use `CAF` in your scientific publication, we would like you to cite the software package
 
-Composition Analyzer/Featurizer (CAF) is a user-interactive Python
-script that offers tools for generating compositional features from
-Excel or `.cif` files.
+> **Digital Discovery**, https://doi.org/10.1039/D4DD00332B
 
-It also provides interactive tools for tasks such as filtering, sorting
-chemical formulas, and merging Excel files.
+as well as the Oliynyk elemental property dataset.
+
+> **Data in Brief**, https://doi.org/10.1016/j.dib.2024.110178
+
 
 ## Motivation
 
@@ -36,9 +34,9 @@ Formulas containing the following elements in blue are supported:
 
 ![Eleemnts supported in CAF](assets/img/elements-supported-in-periodic-table.png)
 
-## Getting started without programming
+## Getting started
 
-To begin using `CAF`, follow these steps in your command-line interface:
+`CAF` is primarily used as an interactive application that can automatically detect folders and files without the need to write any code. Please follow these steps in your command-line interface:
 
 ```bash
 # Download the code
@@ -67,15 +65,13 @@ Options:
 Please enter the number of the option you want to run: 1
 ```
 
+> ⚠️ Are you having trouble running code? Please feel free to learn to use conda environment by following the instructions provided [here](https://scikit-package.github.io/scikit-package/tutorials/tutorial-level-1-2-3.html#required-use-conda-environment-to-install-packages-and-run-python-code).
+
 ## Flow chart
 
-Here is an overview of the 5 options:
+For more information, please check the 5 options below:
 
 ![process diagram](assets/img/process-diagram.png)
-
-## Options
-
-CAF provides 5 interactive options detailed below.
 
 **Option 1. Filter** - offers analysis capabilities for chemical formulas
 already prepared in Excel sheets or a folder containing `.cif` files. It counts
@@ -147,37 +143,13 @@ Excel file and, optionally, a composition-normalized vector using hot encoding.
 The database for the featurziation is based on the Oliynyk (OLED) peer-reviewed
 data ([DOI](https://doi.org/10.1016/j.dib.2024.110178)).
 
-```text
-Options:
-  1: Filter chemical formulas and generate periodic table heatmap.
-  2: Sort chemical formulas in an Excel file
-  3: Create compositional features for formulas in an Excel file.
-  4: Match .cif files in a folder against an Excel file.
-  5: Merge two Excel files based on id/entry.
-Please enter the number of the option you want to run: 3
-
-Available Excel files with a 'Formula' column:
-1. A-B database.xlsx
-2. A-B features.xlsx
-3. binary M-X.xlsx
-4. binary_excel.xlsx
-5. formulas.xlsx
-
-Enter the number corresponding to the Excel file you wish to select: 5
-Selected Excel file: /Users/imac/Downloads/CAF/formulas.xlsx
-```
-
-1. **For binary compounds**, 133 binary features defined in `feature/binary.py`
-   are generated and saved in an Excel file.
-2. **For ternary compounds**, 204 ternary features from `feature/ternary.py` are
-   generated for each formula and stored in an Excel file.
-3. **For all compounds**, regardless of the formula type, a universal set of 112
+1. 133 binary features are defined in `features/binary.py`.
+2. 204 ternary features are defined in `features/ternary.py`.
+2. 305 quaternary features are defined in `features/quaternary.py`.
+4. **For all compounds**, regardless of the formula type, a universal set of 112
    sorted features and 156 unsorted (containing first and last element values)
    generated using `feature/universal.py`
-4. (Optional) Extended features - You can generate an extensive list of features
-   using `feature/universal_long.py`, `feature/binary_long.py`, and
-   `feature/ternary_long.py`. These files include arithmetic operations provided
-   in `feature/operation.py`. Any columns with overflow or undefined values are
+5. (Optional) Extended features - You can generate an extensive list of features. Any columns with overflow or undefined values are
    removed before the data is saved in Excel files. The column lengths can reach
    into the thousands.
 
@@ -206,26 +178,14 @@ another generated using this `CAF` (Composition Analyzer/Featurizer) or `SAF`
 (Structure Analyzer/Featurizer)
 [here](https://github.com/bobleesj/structure-analyzer-featurizer).
 
-## Installation
-
-Without Conda:
-
-```bash
-git clone https://github.com/bobleesj/composition-analyzer-featurizer-app.git
-cd composition-analyzer-featurizer-app
-pip install composition-analyzer-featurizer
-python main.py
-```
-
-## How to ask for help
+## How you can ask for help
 
 `CAF` is also designed for experimental materials scientists and chemists.
 
 - If you would like to generate features for your interest of system, please
-  feel free to reach out via email or
-  [leave an issue](https://github.com/bobleesj/composition-analyzer-featurizer/issues).
+  feel free to reach out via email or [leave an issue](https://github.com/bobleesj/composition-analyzer-featurizer/issues).
 
-## How to contribute
+## How you can contribute to `CAF`
 
 Here is how you can contribute to the `CAF` project if you found it helpful:
 
@@ -240,6 +200,8 @@ Here is how you can contribute to the `CAF` project if you found it helpful:
 
 ## Contributors
 
+The early work of `CAF` has been developed with the support of the following contributors:
+
 - Alex Vtorov - feature
 - Anton Oliynyk - project lead, ideation
 - Danila Shiryaev - sort
@@ -249,5 +211,5 @@ Here is how you can contribute to the `CAF` project if you found it helpful:
 
 ## Acknowledgements
 
-`composition-analyzer-featurizer` is built and maintained with
+`CAF` is built and maintained with
 [scikit-package](https://scikit-package.github.io/scikit-package/).
