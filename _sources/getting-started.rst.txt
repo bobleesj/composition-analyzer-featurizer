@@ -1,79 +1,77 @@
-:tocdepth: -1
-
-.. index:: getting-started
-
-.. _getting-started:
-
-================
 Getting started
-================
+===============
 
-Here are some example templates provided to help you get started with writing your documentation. You can use these templates to create your own documentation.
+There are two ways to generate compositional features. The recommended way is to use the CAF app, a command-line interface (CLI) application that can automatically detect folders and files.
 
-Reuse ``.rst`` files across multiple pages
-------------------------------------------
+The **second** way is to use the Python package directly in your code, which is useful for advanced users who want to integrate CAF into their own workflows in Python scripts or Jupyter notebooks. This method requires some coding knowledge and familiarity with Python packages.
 
-Here is how you can reuse a reusable block of ``.rst`` files across multiple pages:
+.. _CAF-app-installation:
 
-.. include:: snippets/example-table.rst
+Method 1. Using CAF Application
+-------------------------------
 
-.. warning::
-
-    Ensure that the ``.rst`` file you are including is not too long. If it is too long, it may be better to split it into multiple files and include them separately.
-
-Refer to a specific section in the documentation
-------------------------------------------------
-
-You can use the ``ref`` tag to refer to a specific section in the documentation. For example, you can refer to the section below using the ``:ref:`` tag as shown :ref:`here <attach-image>`.
-
-.. note::
-
-    Please check the raw ``.rst`` file of this page to see the exact use of the ``:ref:`` tag.
-
-Embed your code snippets in the documentation
----------------------------------------------
-
-Here is how you can write a block of code in the documentation. You can use the ``code-block`` directive to write a block of code in the documentation. For example, you can write a block of code as shown below:
+First, download the CAF application from the GitHub repository. You can clone (download) the files using the following command:
 
 .. code-block:: bash
 
-    # Create a new environment, without build dependencies (pure Python package)
-    conda create -n <package_name>-env python=3.13 \
-        --file requirements/test.txt \
-        --file requirements/conda.txt
+   git clone https://github.com/bobleesj/composition-analyzer-featurizer-app.git
 
-    # Create a new environment, with build dependencies (non-pure Python package)
-    conda create -n <package_name>-env python=3.13 \
-        --file requirements/test.txt \
-        --file requirements/conda.txt \
-        --file requirements/build.txt
+.. note::
 
-    # Activate the environment
-    conda activate <package_name>_env
+   Alternatively, you can download the ZIP file from the GitHub repository (https://github.com/bobleesj/composition-analyzer-featurizer-app) by clicking the green :guilabel:`Code` button and :guilabel:`Download ZIP`. After downloading, extract the contents of the ZIP file to a directory of your choice.
 
-    # Install your package locally
-    # `--no-deps` to NOT install packages again from `requirements.pip.txt`
-    pip install -e . --no-deps
+Next, navigate to the directory and install the required package using pip:
 
-    # Run pytest locally
-    pytest
+.. code-block:: bash
 
-    # ... run example tutorials
+   cd composition-analyzer-featurizer-app
+   pip install composition-analyzer-featurizer
 
-.. _attach-image:
+You can then run the application by executing the following command:
 
-Attach an image to the documentation
-------------------------------------
+.. code-block:: bash
 
-Here is how you attach an image to the documentation. The ``/doc/source/img/scikit-package-logo-text.png`` example image is provided in the template.
+   python main.py
 
-.. image:: ./img/scikit-package-logo-text.png
-    :alt: codecov-in-pr-comment
-    :width: 400px
-    :align: center
+Upon running ``python main.py``, you will be prompted to choose from one of the following options:
 
+.. code-block:: text
 
-Other useful directives
------------------------
+   Options:
+   1: Filter chemical formulas and generate periodic table heatmap.
+   2: Sort chemical formulas in Excel.
+   3: Create compositional features for formulas in Excel.
+   4: Match .cif files in a folder against Excel.
+   5: Merge two Excel files based on id/entry.
+   Please enter the number of the option you want to run: 3
 
-Here is how you can do menu selection  :menuselection:`Admin --> Settings` and display labels for buttons like :guilabel:`Privacy level`.
+Type ``3`` and press ``Enter`` to generate compositional features for a list of chemical formulas in an Excel file. The application already contains example Excel files. Once the features are generated, you can find the output Excel file in the same directory.
+
+.. note::
+
+   Are you having trouble running code? Learn to use conda environments by following the instructions provided `here <https://scikit-package.github.io/scikit-package/tutorials/tutorial-level-1-2-3.html#required-use-conda-environment-to-install-packages-and-run-python-code>`_.
+
+Method 2. Import CAF in Python file or Jupyter notebook
+-------------------------------------------------------
+
+You might be interested in generating compositional features without using the CAF application. You can generate features by calling the function provided in the ``CAF`` package directly. First, you need to install the package using pip.
+
+.. code-block:: bash
+
+   pip install composition-analyzer-featurizer bobleesj.utils
+
+In your Python module, add the following to generate features for a binary compound:
+
+.. code-block:: python
+
+   from CAF.features import binary, ternary, quaternary
+   from bobleesj.utils.sources.oliynyk import Oliynyk
+
+   # Example binary compound formula
+   formula = "NdSi2"
+   # Get Oliynyk elemental property dataset. Visit https://bobleesj.github.io/bobleesj.utils for more info.
+   oliynyk_db = Oliynyk().db
+   binary_features = binary.generate_features(formula, oliynyk_db)
+   print(binary_features)
+
+For more information, please see the ``src/CAF/features/generator.py`` file and the ``get_composition_features`` function to learn how to generate a list of features for binary, ternary, or quaternary compounds.

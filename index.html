@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>composition-analyzer-featurizer documentation &mdash; composition-analyzer-featurizer 0.0.1 documentation</title>
+  <title>Composition Analyzer/Featurizer (CAF) &mdash; Composition Analyzer/Featurizer 0.0.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
@@ -34,7 +34,7 @@
           
           
           <a href="#" class="icon icon-home">
-            composition-analyzer-featurizer
+            Composition Analyzer/Featurizer
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -44,8 +44,14 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <ul>
+              <p class="caption" role="heading"><span class="caption-text">GUIDES</span></p>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="getting-started.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="app.html">How to use CAF App</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">REFERENCE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="features.html">Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api/CAF.html">Package API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="release.html">Release notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
@@ -57,7 +63,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="#">composition-analyzer-featurizer</a>
+          <a href="#">Composition Analyzer/Featurizer</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -65,7 +71,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="#" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">composition-analyzer-featurizer documentation</li>
+      <li class="breadcrumb-item active">Composition Analyzer/Featurizer (CAF)</li>
       <li class="wy-breadcrumbs-aside">
               <a href="https://github.com/bobleesj/composition-analyzer-featurizer/blob/main/doc/source/index.rst" class="fa fa-github"> Edit on GitHub</a>
       </li>
@@ -76,66 +82,93 @@
            <div itemprop="articleBody">
              
   <section id="title">
-<h1>composition-analyzer-featurizer documentation<a class="headerlink" href="#title" title="Link to this heading"></a></h1>
-<p><code class="docutils literal notranslate"><span class="pre">composition-analyzer-featurizer</span></code> - Python package for generating compositional features for binary, ternary, and quaternary formulas with Oliynyk elemental properties.</p>
+<h1>Composition Analyzer/Featurizer (CAF)<a class="headerlink" href="#title" title="Link to this heading"></a></h1>
+<a class="reference external image-reference" href="https://github.com/bobleesj/composition-analyzer-featurizer/pulls"><img alt="PR Welcome" src="https://img.shields.io/badge/PR-Welcome-29ab47ff" />
+</a>
+<a class="reference external image-reference" href="https://github.com/bobleesj/composition-analyzer-featurizer/issues"><img alt="GitHub issues" src="https://img.shields.io/github/issues/bobleesj/composition-analyzer-featurizer" />
+</a>
+<a class="reference external image-reference" href="https://pypi.org/project/composition-analyzer-featurizer/"><img alt="PyPI" src="https://img.shields.io/pypi/v/composition-analyzer-featurizer" />
+</a>
+<img alt="Python Version" src="https://img.shields.io/pypi/pyversions/composition-analyzer-featurizer" />
 <div class="line-block">
 <div class="line">Software version 0.0.1</div>
-<div class="line">Last updated June 01, 2025.</div>
+<div class="line">Last updated June 15, 2025.</div>
 </div>
+<p>Composition Analyzer/Featurizer (CAF) offers a user-interactive Python script that provides tools for generating compositional descriptors of binary, ternary, and quaternary compounds from Excel or <cite>.cif</cite> files. CAF also offers utility functions to filter, sort chemical formulas, and merge Excel files.</p>
+<section id="publications-and-scientific-utility">
+<h2>Publications and scientific utility<a class="headerlink" href="#publications-and-scientific-utility" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><em>Digital Discovery</em>, <a class="reference external" href="https://doi.org/10.1039/D4DD00332B">https://doi.org/10.1039/D4DD00332B</a></p></li>
+<li><p><em>Data in Brief</em>, <a class="reference external" href="https://doi.org/10.1016/j.dib.2024.110178">https://doi.org/10.1016/j.dib.2024.110178</a></p></li>
+</ul>
+<p>In the above Digital Discovery paper (<a class="reference external" href="https://doi.org/10.1039/D4DD00332B">DOI</a>), we describe the performance of CAF in combination with SAF for generating compositional and structural numerical features for ML applications in crystal classification of binary compounds. The results are shown in Figure 1 below, where we compare the performance of our developments (CAF and SAF) with existing feature generation methods such as JARVIS, MAGPIE, mat2vec, and OLED.</p>
+<img alt="PLS-DA latent value plot using the first two latent value dimensions: (a) JARVIS, (b) MAGPIE, (c) mat2vec, (d) OLED (all sets of features were generated with CBFV), and our developments – (e) CAF and (f) SAF." src="_images/SAF-CAF-performance.png" />
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Figure 1:</strong> PLS-DA latent value plot using the first two latent value dimensions: (a) JARVIS, (b) MAGPIE, (c) mat2vec, (d) OLED (all sets of features were generated with CBFV), and our developments – (e) CAF and (f) SAF.</p>
+</div>
+</section>
+<section id="how-caf-works">
+<h2>How CAF works<a class="headerlink" href="#how-caf-works" title="Link to this heading"></a></h2>
+<p>For a given chemical formula, CAF determines the number of unique elements and categorizes them into binary, ternary, or quaternary compounds. It then generates a set of compositional features based on the chemical formula:</p>
+<ul class="simple">
+<li><p>133 binary features</p></li>
+<li><p>204 ternary features</p></li>
+<li><p>305 quaternary features are generated</p></li>
+</ul>
+<p>The features generated based on the elemental property Oliynyk elemental property dataset (<a class="reference external" href="https://doi.org/10.1016/j.dib.2024.110178">DOI</a>). The full lists of features are provided in the <a class="reference internal" href="features.html#features"><span class="std std-ref">Features</span></a> page.</p>
+</section>
 <section id="getting-started">
 <h2>Getting started<a class="headerlink" href="#getting-started" title="Link to this heading"></a></h2>
-<p>Welcome to the <code class="docutils literal notranslate"><span class="pre">composition-analyzer-featurizer</span></code> documentation!</p>
-<p>To get started, please visit the <a class="reference internal" href="getting-started.html#getting-started"><span class="std std-ref">Getting started</span></a> page.</p>
+<p>You can simply generate compositional features using our application so that you don’t have to write any code. Please visit <span class="xref std std-ref">getting-started</span> to learn how to generate features.</p>
+</section>
+<section id="scope">
+<h2>Scope<a class="headerlink" href="#scope" title="Link to this heading"></a></h2>
+<p>There are two constraints. First, formulas of either <strong>binary</strong>, <strong>ternary</strong>, or <strong>quaternary</strong> compounds are supported. Second, formulas containing the elements in blue below are supported:</p>
+<img alt="Elements supported in CAF" src="_images/elements-supported-in-periodic-table.png" />
+</section>
+<section id="options-provided-in-caf-app">
+<h2>5 Options provided in CAF App<a class="headerlink" href="#options-provided-in-caf-app" title="Link to this heading"></a></h2>
+<p>The recommended way to generate features is using the interactive application. Beyond generating features from a list of formulas listed in an Excel file under the “Formula” column, there are other utility options that can help you filter, sort, and merge Excel files which are used for generating features and handling data.</p>
+<img alt="process diagram" src="_images/process-diagram.png" />
+</section>
+<section id="how-to-ask-for-help">
+<h2>How to ask for help<a class="headerlink" href="#how-to-ask-for-help" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Do you have any feature requests? Please feel free to open an issue on GitHub using the <code class="docutils literal notranslate"><span class="pre">Bug</span> <span class="pre">Report</span> <span class="pre">or</span> <span class="pre">Feature</span> <span class="pre">Request</span></code> template.</p></li>
+<li><p>Do you have any questions about running the code? Please feel free to reach out to Sangjoon Bob Lee at <a class="reference external" href="mailto:bobleesj&#37;&#52;&#48;stanford&#46;edu">bobleesj<span>&#64;</span>stanford<span>&#46;</span>edu</a>.</p></li>
+<li><p>Do you want to learn how to publish scientific software? <code class="docutils literal notranslate"><span class="pre">CAF</span></code> is developed and maintained using the Level 5 package standards provided in <a class="reference external" href="https://scikit-package.github.io/scikit-package/">scikit-package</a>.</p></li>
+</ul>
+</section>
+<section id="how-you-can-contribute-to-caf">
+<h2>How you can contribute to CAF<a class="headerlink" href="#how-you-can-contribute-to-caf" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Did you find CAF helpful? You can show support by starring the <a class="reference external" href="https://github.com/bobleesj/composition-analyzer-featurizer">GitHub repository</a> and recommending it to colleagues.</p></li>
+<li><p>Did you find any bugs? Please feel free to report it by creating a new issue so that we can fix it as soon as possible.-</p></li>
+</ul>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>Do you want to learn how to use GitHub and develop Python package to reuse your code? Please feel free to reach out to Sasngjoon Bob Lee (<a class="reference external" href="mailto:bobleesj&#37;&#52;&#48;stanford&#46;edu">bobleesj<span>&#64;</span>stanford<span>&#46;</span>edu</a>). There are resources you can use to get started such as <a class="reference external" href="https://scikit-package.github.io/scikit-package/">scikit-package</a>.</p>
+</div>
 </section>
 <section id="authors">
 <h2>Authors<a class="headerlink" href="#authors" title="Link to this heading"></a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">composition-analyzer-featurizer</span></code> is developed by Sangjoon Lee, Emil Jaffal, Danila Shiryaev, Nikhil Kumar Barua, Alex Vtorov, Anton Oliynyk. The maintainer for this project is Sangjoon Lee. For a detailed list of contributors see
-<a class="reference external" href="https://github.com/bobleesj/composition-analyzer-featurizer/graphs/contributors">https://github.com/bobleesj/composition-analyzer-featurizer/graphs/contributors</a>.</p>
-</section>
-<section id="installation">
-<h2>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h2>
-<p>See the <a class="reference external" href="https://github.com/bobleesj/composition-analyzer-featurizer#installation">README</a>
-file included with the distribution.</p>
+<ul class="simple">
+<li><p>Sangjoon Bob Lee - development lead, maintainer</p></li>
+<li><p>Anton Oliynyk - development lead, feature design</p></li>
+<li><p>Emil Jaffal - filter</p></li>
+<li><p>Danila Shiryaev - sort</p></li>
+<li><p>Alex Vtorov - feature</p></li>
+<li><p>Nikhil Kumar Barua - feature</p></li>
+</ul>
 </section>
 <section id="acknowledgements">
 <h2>Acknowledgements<a class="headerlink" href="#acknowledgements" title="Link to this heading"></a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">composition-analyzer-featurizer</span></code> is built and maintained with <a class="reference external" href="https://scikit-package.github.io/scikit-package/">scikit-package</a>.</p>
-</section>
-<section id="table-of-contents">
-<h2>Table of contents<a class="headerlink" href="#table-of-contents" title="Link to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">CAF</span></code> is built and maintained with <a class="reference external" href="https://scikit-package.github.io/scikit-package/">scikit-package</a>.</p>
 <div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="getting-started.html">Getting started</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="getting-started.html#reuse-rst-files-across-multiple-pages">Reuse <code class="docutils literal notranslate"><span class="pre">.rst</span></code> files across multiple pages</a></li>
-<li class="toctree-l2"><a class="reference internal" href="getting-started.html#refer-to-a-specific-section-in-the-documentation">Refer to a specific section in the documentation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="getting-started.html#embed-your-code-snippets-in-the-documentation">Embed your code snippets in the documentation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="getting-started.html#attach-an-image-to-the-documentation">Attach an image to the documentation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="getting-started.html#other-useful-directives">Other useful directives</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api/CAF.html">Package API</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="api/CAF.html#subpackages">Subpackages</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api/CAF.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api/CAF.html#module">CAF.example_submodule module</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="release.html">Release notes</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="release.html#id1">0.0.1</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="license.html">License</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="license.html#open-source-license-agreement">OPEN SOURCE LICENSE AGREEMENT</a></li>
-</ul>
-</li>
-</ul>
 </div>
-</section>
-<section id="indices">
-<h2>Indices<a class="headerlink" href="#indices" title="Link to this heading"></a></h2>
-<ul class="simple">
-<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
-<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
-</ul>
+<div class="toctree-wrapper compound">
+</div>
 </section>
 </section>
 
