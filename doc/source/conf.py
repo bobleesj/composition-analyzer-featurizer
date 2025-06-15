@@ -68,7 +68,7 @@ source_suffix = [".rst", ".md"]
 master_doc = "index"
 
 # General information about the project.
-project = "composition-analyzer-featurizer"
+project = "Composition Analyzer/Featurizer"
 copyright = "%Y, Sangjoon Lee"
 
 # The version info for the project you're documenting, acts as replacement for
