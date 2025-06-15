@@ -4,7 +4,6 @@
 ![PyPI](https://img.shields.io/pypi/v/composition-analyzer-featurizer)
 ![PythonVersion](https://img.shields.io/pypi/pyversions/composition-analyzer-featurizer)
 
-
 CAF helps solid-state chemists and materials scientists in generating compositional training data for compounds. Both experimentalists and novices can use this tool with a basic understanding of Python. The codebase is designed for easy customization.
 
 Features:

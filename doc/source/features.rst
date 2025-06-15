@@ -1049,7 +1049,7 @@ Ternary
   * - 206
     - bulk_modulus_avg
     - 61.26666666666667
-  
+
 Quaternary
 ----------
 
@@ -1979,4 +1979,3 @@ Quaternary
   * - 306
     - bulk_modulus_ABCD_avg
     - 56.25
-

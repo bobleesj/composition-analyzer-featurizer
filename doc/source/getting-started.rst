@@ -16,9 +16,9 @@ First, download the CAF application from the GitHub repository. You can clone (d
 
    git clone https://github.com/bobleesj/composition-analyzer-featurizer-app.git
 
-.. note:: 
-   
-   Alternatively, you can download the ZIP file from the GitHub repository (https://github.com/bobleesj/composition-analyzer-featurizer-app) by clicking the green :guilabel:`Code` button and :guilabel:`Download ZIP`. After downloading, extract the contents of the ZIP file to a directory of your choice. 
+.. note::
+
+   Alternatively, you can download the ZIP file from the GitHub repository (https://github.com/bobleesj/composition-analyzer-featurizer-app) by clicking the green :guilabel:`Code` button and :guilabel:`Download ZIP`. After downloading, extract the contents of the ZIP file to a directory of your choice.
 
 Next, navigate to the directory and install the required package using pip:
 

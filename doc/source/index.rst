@@ -44,7 +44,7 @@ For a given chemical formula, CAF determines the number of unique elements and c
 - 204 ternary features
 - 305 quaternary features are generated
 
-The features generated based on the elemental property Oliynyk elemental property dataset (`DOI <https://doi.org/10.1016/j.dib.2024.110178>`_). The full lists of features are provided in the :ref:`features` page. 
+The features generated based on the elemental property Oliynyk elemental property dataset (`DOI <https://doi.org/10.1016/j.dib.2024.110178>`_). The full lists of features are provided in the :ref:`features` page.
 
 
 Getting started
@@ -79,10 +79,10 @@ How you can contribute to CAF
 =============================
 
 - Did you find CAF helpful? You can show support by starring the `GitHub repository <https://github.com/bobleesj/composition-analyzer-featurizer>`_ and recommending it to colleagues.
-- Did you find any bugs? Please feel free to report it by creating a new issue so that we can fix it as soon as possible.- 
+- Did you find any bugs? Please feel free to report it by creating a new issue so that we can fix it as soon as possible.-
 
 .. seealso::
-   
+
    Do you want to learn how to use GitHub and develop Python pacakge to resue your code? Please feel free to reach out to Sasngjoon Bob Lee (bobleesj@stanford.edu). There are resources you can use to get started such as `scikit-package <https://scikit-package.github.io/scikit-package/>`_.
 
 Authors
