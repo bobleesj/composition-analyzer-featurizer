@@ -73,7 +73,7 @@ How to ask for help
 
 - Do you have any feature requests? Please feel free to open an issue on GitHub using the ``Bug Report or Feature Request`` template.
 - Do you have any questions about running the code? Please feel free to reach out to Sangjoon Bob Lee at bobleesj@stanford.edu.
-- Do you want to learn how to publish scientific software? ``CAF`` is developed and maintained using the Level 5 pacakge standards provided in `scikit-package <https://scikit-package.github.io/scikit-package/>`_.
+- Do you want to learn how to publish scientific software? ``CAF`` is developed and maintained using the Level 5 package standards provided in `scikit-package <https://scikit-package.github.io/scikit-package/>`_.
 
 How you can contribute to CAF
 =============================
@@ -83,7 +83,7 @@ How you can contribute to CAF
 
 .. seealso::
 
-   Do you want to learn how to use GitHub and develop Python pacakge to resue your code? Please feel free to reach out to Sasngjoon Bob Lee (bobleesj@stanford.edu). There are resources you can use to get started such as `scikit-package <https://scikit-package.github.io/scikit-package/>`_.
+   Do you want to learn how to use GitHub and develop Python package to reuse your code? Please feel free to reach out to Sasngjoon Bob Lee (bobleesj@stanford.edu). There are resources you can use to get started such as `scikit-package <https://scikit-package.github.io/scikit-package/>`_.
 
 Authors
 =======

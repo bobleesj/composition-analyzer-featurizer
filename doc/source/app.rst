@@ -5,7 +5,7 @@ The CAF App (`GitHub <https://github.com/bobleesj/composition-analyzer-featurize
 
 .. note::
 
-   The insatllation guide is provided in :ref:`CAF-app-installation`.
+   The installation guide is provided in :ref:`CAF-app-installation`.
 
 **Option 1. Filter** - analyze chemical formulas in Excel or a folder of ``.cif`` files. Counts unique elements, detects errors, generates a periodic table heatmap, and provides filtering methods.
 
