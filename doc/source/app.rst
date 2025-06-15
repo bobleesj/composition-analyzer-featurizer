@@ -1,12 +1,18 @@
-Application
-===========
+How to use CAF App
+==================
 
-**Option 1. Filter** - Analyze chemical formulas in Excel or a folder of ``.cif`` files. Counts unique elements, detects errors, generates a periodic table heatmap, and provides filtering methods.
+The CAF App (`GitHub <https://github.com/bobleesj/composition-analyzer-featurizer-app>`_) offers a total of 5 options to help you analyze and manipulate chemical formulas. These options are designed to prepare a dataset for ML applications.
+
+.. note::
+
+   The insatllation guide is provided in :ref:`CAF-app-installation`.
+
+**Option 1. Filter** - analyze chemical formulas in Excel or a folder of ``.cif`` files. Counts unique elements, detects errors, generates a periodic table heatmap, and provides filtering methods.
 
 .. image:: img/periodic-table-heatmap.png
    :alt: periodic table heatmap
 
-**Option 2. Sort** - Rearranges chemical formulas in Excel by:
+**Option 2. Sort** - rearrange chemical formulas in Excel by:
 
 1. **Label** (pre-configured for binary/ternary compounds, editable in ``data/sort/custom-labels.xlsx``)
 2. **Index** (stoichiometric ratio, then Mendeleev number)
@@ -44,7 +50,7 @@ Available columns for sorting:
    26. HHI reserve
    27. cost, pure ($/100g)
 
-**Option 3. Features** - Generates compositional features for formulas in Excel, including a composition-normalized vector using hot encoding. The database is based on the Oliynyk (OLED) data (`DOI <https://doi.org/10.1016/j.dib.2024.110178>`_).
+**Option 3. Features** - generate compositional features for formulas in Excel, including a composition-normalized vector using hot encoding. The database is based on the Oliynyk (OLED) data (`DOI <https://doi.org/10.1016/j.dib.2024.110178>`_).
 
 - 133 binary features (``features/binary.py``)
 - 204 ternary features (``features/ternary.py``)
@@ -64,6 +70,6 @@ Example of ``feature_binary.xlsx``:
 | Sn5Co2  | 5       | 2       | 0.714              | 0.286              | 5             | 2              | 3.5       | 593.55                       |
 +---------+---------+---------+--------------------+--------------------+---------------+----------------+-----------+------------------------------+
 
-**Option 4. Match** - Matches ``.cif`` files in a folder against an Excel file by the "Entry" column.
+**Option 4. Match** - match ``.cif`` files in a folder against an Excel file by the "Entry" column.
 
-**Option 5. Merge** - Combines two Excel files based on the "Entry" column.
+**Option 5. Merge** - combine two Excel files based on the "Entry" column.

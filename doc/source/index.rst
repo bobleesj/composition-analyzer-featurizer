@@ -2,7 +2,7 @@
 |title|
 #######
 
-.. |title| replace:: CAF (Composition Analyzer/Featurizer)
+.. |title| replace:: Composition Analyzer/Featurizer (CAF)
 
 .. image:: https://img.shields.io/badge/PR-Welcome-29ab47ff
    :alt: PR Welcome
@@ -60,8 +60,8 @@ There are two constraints. First, formulas of either **binary**, **ternary**, or
 .. image:: img/elements-supported-in-periodic-table.png
    :alt: Elements supported in CAF
 
-Flow chart
-==========
+5 Options provided in CAF App
+=============================
 
 The recommended way to generate features is using the interactive application. Beyond generating features from a list of formulas listed in an Excel file under the "Formula" column, there are other utility options that can help you filter, sort, and merge Excel files which are used for generating features and handling data.
 
@@ -106,7 +106,7 @@ Acknowledgements
    :hidden:
 
    getting-started
-   cli
+   app
 
 .. toctree::
    :maxdepth: 2

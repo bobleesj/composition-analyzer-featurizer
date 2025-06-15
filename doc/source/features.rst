@@ -3,6 +3,8 @@
 Features
 ========
 
+Here are lists of features generated for binary, ternary, and quaternary formulas. To learn more about the elemental properties, please read our paper at https://doi.org/10.1016/j.dib.2024.110178.
+
 Binary
 -------
 
