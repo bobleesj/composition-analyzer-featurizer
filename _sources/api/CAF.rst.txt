@@ -1,30 +1,18 @@
-:tocdepth: -1
-
-|title|
-=======
-
-.. |title| replace:: composition-analyzer-featurizer package
-
-.. automodule:: CAF
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
-Subpackages
------------
-
-.. toctree::
-   CAF.example_package
+CAF package
+===========
 
 Submodules
 ----------
 
-|module|
---------
+.. toctree::
+   :maxdepth: 4
 
-.. |module| replace:: CAF.example_submodule module
+   CAF.version
 
-.. automodule:: CAF.example_submodule
-    :members:
-    :undoc-members:
-    :show-inheritance:
+Module contents
+---------------
+
+.. automodule:: CAF
+   :members:
+   :show-inheritance:
+   :undoc-members:
