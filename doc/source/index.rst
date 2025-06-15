@@ -78,7 +78,7 @@ Here is a list of publications using ``SAF`` for materials analysis and data-dri
    .. [6] K. Li, T. Du, R. Zhou, Q. Fan. Multi-Objective optimization of material properties for enhanced battery performance using artificial Intelligence. *Expert Systems with Applications*. **288**, 128179 (2025).
       `doi.org/10.1016/j.eswa.2025.128179 <https://doi.org/10.1016/j.eswa.2025.128179>`_
 
-   .. note:: 
+   .. note::
 
       The Oliynyk elemental property dataset can be easily easily accessed through ``bobleesj.utils`` in https://bobleesj.github.io/bobleesj.utils/notebooks/Oliynyk.html.
 
