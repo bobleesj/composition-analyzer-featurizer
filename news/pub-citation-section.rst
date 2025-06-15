@@ -1,5 +1,6 @@
 **Added:**
 
+* Add sphinx automatic API doc building when rendered.
 * Add publication DOIs using OLED or CAF in index.rst of the documentation.
 
 **Changed:**
