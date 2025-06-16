@@ -54,7 +54,6 @@ For a given chemical formula, CAF determines the number of unique elements and c
 
 The features generated based on the elemental property Oliynyk elemental property dataset (`DOI <https://doi.org/10.1016/j.dib.2024.110178>`_). The full lists of features are provided in the :ref:`features` page.
 
-
 Publications using CAF or Oliynyk elemental property
 ====================================================
 
@@ -107,7 +106,7 @@ The recommended way to generate features is using the interactive application. B
 How to ask for help
 ===================
 
-- Do you have any feature requests? Please feel free to open an issue on GitHub using the ``Bug Report or Feature Request`` template.
+- Do you have any feature requests? Please feel free to open an `issue <hhttps://github.com/bobleesj/composition-analyzer-featurizer/issues/>`_ on GitHub using the ``Bug Report or Feature Request`` template.
 - Do you have any questions about running the code? Please feel free to reach out to Sangjoon Bob Lee at bobleesj@gmail.com.
 - Do you want to learn how to publish scientific software? ``CAF`` is developed and maintained using the Level 5 package standards provided in `scikit-package <https://scikit-package.github.io/scikit-package/>`_.
 
@@ -130,10 +129,10 @@ How you can contribute to CAF
 Authors
 =======
 
-- Sangjoon Bob Lee - development lead, maintainer
-- Anton Oliynyk - development lead, feature design
-- Emil Jaffal - filter
-- Danila Shiryaev - sort
+- `Sangjoon Bob Lee <https://github.com/bobleesj>`_ - development lead, maintainer
+- `Anton Oliynyk <https://github.com/OliynykLab>`_ - development lead, feature design
+- `Emil Jaffal <https://github.com/EmilJaffal>`_ - filter
+- `Danila Shiryaev <https://github.com/dshirya>`_ - sort
 - Alex Vtorov - feature
 - Nikhil Kumar Barua - feature
 
