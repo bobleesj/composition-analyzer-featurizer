@@ -1,6 +1,6 @@
 **Added:**
 
-* <news item>
+* Add GitHub URLs to authors (Bob, Emil, Danilla, Oliynyk) in the documentation.
 
 **Changed:**
 
