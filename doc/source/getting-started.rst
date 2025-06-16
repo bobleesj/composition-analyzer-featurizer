@@ -76,4 +76,4 @@ In your Python module, add the following to generate features for a binary compo
    binary_features = binary.generate_features(formula, oliynyk_db)
    print(binary_features)
 
-For more information, please see the ``src/CAF/features/generator.py`` file and the ``get_composition_features`` function to learn how to generate a list of features for binary, ternary, or quaternary compounds.
+For more information, please see the ``src/CAF/features/generator.py`` file and the ``get_composition_features`` function to learn how to generate a list of features for binary, ternary, or quaternary compounds. The source code can be found in the `GitHub repository <https://github.com/bobleesj/composition-analyzer-featurizer/tree/main/src/CAF>`_.

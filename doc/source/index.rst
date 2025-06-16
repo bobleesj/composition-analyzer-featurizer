@@ -57,7 +57,7 @@ The features generated based on the elemental property Oliynyk elemental propert
 Publications using CAF or Oliynyk elemental property
 ====================================================
 
-Here is a list of publications using ``SAF`` for materials analysis and data-driven materials synthesis:
+Here is a list of publications using ``CAF`` for materials analysis and data-driven materials synthesis:
 
    .. [1] K. P. McGuinness, A. O. Oliynyk, S. Lee, B. Molero-Sanchez, P. K. Addo. Machine-learning prediction of thermal expansion coefficient for perovskite oxides with experimental validation. *Physical Chemistry Chemical Physics*. **25**, 32123-32131 (2023).
       `doi.org/10.1039/D3CP04017H <DOI	https://doi.org/10.1039/D3CP04017H>`_
