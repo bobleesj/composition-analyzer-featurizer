@@ -92,7 +92,7 @@ Scope
 
 There are two constraints. First, formulas of either **binary**, **ternary**, or **quaternary** compounds are supported. Second, formulas containing the elements in blue below are supported:
 
-.. image:: img/elements-supported-in-periodic-table.png
+.. image:: img/CAF-supported-elements-table.png
    :alt: Elements supported in CAF
 
 5 Options provided in CAF App
