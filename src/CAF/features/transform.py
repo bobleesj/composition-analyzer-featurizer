@@ -2,7 +2,8 @@ import numpy as np
 
 
 def apply_transformations_to_features(features):
-    """Apply various mathematical transformations to each feature value."""
+    """Apply various mathematical transformations to each feature
+    value."""
     transformed_data = {}
     for feature_name, value in features.items():
         transformed_features = _transform_value(feature_name, value)

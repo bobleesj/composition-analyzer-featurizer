@@ -18,8 +18,8 @@ from CAF.features import (
 def get_composition_features(
     formulas, extended_features=False, save_dir="./", file_prefix="features"
 ) -> tuple[list[str], list[str]]:
-    """Generate composition-based features for a list of chemical formulas
-    using the Oliynyk elemental property dataset.
+    """Generate composition-based features for a list of chemical
+    formulas using the Oliynyk elemental property dataset.
 
     This function processes the provided chemical formulas, filters out
     unsupported ones, and computes core and optional extended features for

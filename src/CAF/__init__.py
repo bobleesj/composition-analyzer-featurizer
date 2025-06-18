@@ -12,8 +12,8 @@
 # See LICENSE.rst for license information.
 #
 ##############################################################################
-"""Python package for generating compositional features for binary, ternary,
-and quaternary formulas with Oliynyk elemental properties."""
+"""Python package for generating compositional features for binary,
+ternary, and quaternary formulas with Oliynyk elemental properties."""
 
 # package version
 # from CAF.version import __version__

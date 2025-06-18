@@ -8,7 +8,8 @@ def sort(
     ascending=True,
     normalize=False,
 ) -> str:
-    """Sort the elements in the chemical formula based on their composition.
+    """Sort the elements in the chemical formula based on their
+    composition.
 
     When there are more than one element with the same compsition, the
     Mendeleev number is used to break the tie. During the tie, the Mendeleev

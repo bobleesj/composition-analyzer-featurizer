@@ -7,8 +7,8 @@ def sort(
     custom_labels: dict,
     normalize: bool = False,
 ) -> str:
-    """Sort elements in a chemical formula using a precomputed element order
-    map.
+    """Sort elements in a chemical formula using a precomputed element
+    order map.
 
     Parameters
     ----------
@@ -63,7 +63,8 @@ def sort(
 
 
 def _convert_custom_labels_to_order_map(custom_labels: dict) -> dict:
-    """Convert a nested custom_labels dictionary into an element order mapping.
+    """Convert a nested custom_labels dictionary into an element order
+    mapping.
 
     This function is used for the sorting of elements in the sort formula as
     a part of the sorted function above.
