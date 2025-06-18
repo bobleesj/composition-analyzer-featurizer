@@ -106,7 +106,9 @@ def _collect(formulas, feature_module, db) -> dict[str, dict]:
     if not formulas:
         return {}
     feature_dict = {}
-    for formula in formulas:
+    for idx, formula in enumerate(formulas):
         features = feature_module.generate_features(formula, db)
-        feature_dict[formula] = features
+        unique_key = f"{formula}__{idx}"
+        feature_dict[unique_key] = features
+
     return feature_dict

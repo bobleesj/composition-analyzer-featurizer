@@ -16,6 +16,7 @@
 
 **Fixed:**
 
+* Fix duplicates dropping during feature generation.
 * Update CAF supported elements table in the documentation.
 
 **Security:**
