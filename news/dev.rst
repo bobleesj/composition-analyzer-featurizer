@@ -16,7 +16,7 @@
 
 **Fixed:**
 
-* Table with CAF supported elements updated in documentation
+* Table with CAF supported elements updated in documentation.
 
 **Security:**
 
