@@ -130,9 +130,9 @@ Authors
 =======
 
 - `Sangjoon Bob Lee <https://github.com/bobleesj>`_ - development lead, maintainer
-- `Anton Oliynyk <https://github.com/OliynykLab>`_ - development lead, feature design
+- `Danila Shiryaev <https://github.com/dshirya>`_ - CAF application, maintenance, sort
+- `Anton Oliynyk <https://github.com/OliynykLab>`_ - feature design, architecture
 - `Emil Jaffal <https://github.com/EmilJaffal>`_ - filter
-- `Danila Shiryaev <https://github.com/dshirya>`_ - sort
 - Alex Vtorov - feature
 - Nikhil Kumar Barua - feature
 
