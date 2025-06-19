@@ -25,7 +25,7 @@ as well as the Oliynyk elemental property dataset:
 
 ## Getting started
 
-To learn more, please read the official documentation at https://bobleesj.github.io/CAF.
+To learn more, please read the official documentation at https://github.com/bobleesj/composition-analyzer-featurizer.
 
 ## Acknowledgements
 
