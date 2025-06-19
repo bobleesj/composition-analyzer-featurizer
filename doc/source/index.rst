@@ -85,7 +85,7 @@ Here is a list of publications using ``CAF`` for materials analysis and data-dri
 Getting started
 ===============
 
-You can simply generate compositional features using our application so that you don't have to write any code. Please visit :ref:`getting-started` to learn how to generate features.
+You can generate compositional features without writing any code. Please visit :ref:`getting-started` to learn how to generate features.
 
 Scope
 =====
@@ -98,7 +98,7 @@ There are two constraints. First, formulas of either **binary**, **ternary**, or
 5 Options provided in CAF App
 =============================
 
-The recommended way to generate features is using the interactive application. Beyond generating features from a list of formulas listed in an Excel file under the "Formula" column, there are other utility options that can help you filter, sort, and merge Excel files which are used for generating features and handling data.
+The recommended way to generate features is using the `CAF interactive application <http://github.com/bobleesj/composition-analyzer-featurizer-app>`_. Beyond generating features from a list of formulas listed in an Excel file under the "Formula" column, there are other utility options that can help you filter, sort, and merge Excel files which are used for generating features and handling data.
 
 .. image:: img/process-diagram.png
    :alt: process diagram
@@ -130,9 +130,9 @@ Authors
 =======
 
 - `Sangjoon Bob Lee <https://github.com/bobleesj>`_ - development lead, maintainer
-- `Anton Oliynyk <https://github.com/OliynykLab>`_ - development lead, feature design
+- `Danila Shiryaev <https://github.com/dshirya>`_ - CAF application, maintenance, sort
+- `Anton Oliynyk <https://github.com/OliynykLab>`_ - feature design, architecture
 - `Emil Jaffal <https://github.com/EmilJaffal>`_ - filter
-- `Danila Shiryaev <https://github.com/dshirya>`_ - sort
 - Alex Vtorov - feature
 - Nikhil Kumar Barua - feature
 
