@@ -12,7 +12,7 @@
 
 **Removed:**
 
-* <news item>
+* Remove sort by custom label features since it is migrated to bobleesj.utils.
 
 **Fixed:**
 

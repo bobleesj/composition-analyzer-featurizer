@@ -12,7 +12,7 @@ def oliynyk_obj():
 def oliynyk_db(oliynyk_obj):
     return oliynyk_obj.db
 
+
 @pytest.fixture
 def cif_PCD_file():
     return Cif("tests/data/cifs/PCD_250117.cif")
-
