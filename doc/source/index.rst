@@ -35,13 +35,25 @@ as well as the Oliynyk elemental property dataset (OLED) used in ``CAF``:
 Publications and scientific utility
 ===================================
 
-In the above Digital Discovery paper (`DOI <https://doi.org/10.1039/D4DD00332B>`_), we describe the performance of CAF in combination with SAF for generating compositional and structural numerical features for ML applications in crystal classification of binary compounds. The results are shown in Figure 1 below, where we compare the performance of our developments (CAF and SAF) with existing feature generation methods such as JARVIS, MAGPIE, mat2vec, and OLED.
+In the above `Digital Discovery <https://doi.org/10.1039/D4DD00332B>`_ paper, we describe the performance of ``CAF`` in **combination with** ``SAF`` for generating compositional and structural numerical features for ML applications in **crystal classification of binary compounds**. The results are shown in Figures 1 and 2 below, we compare the performance of our developments (CAF and SAF) with existing feature generation methods such as JARVIS, MAGPIE, mat2vec, and OLED.
 
 .. image:: img/SAF-CAF-performance.png
    :alt: PLS-DA latent value plot using the first two latent value dimensions: (a) JARVIS, (b) MAGPIE, (c) mat2vec, (d) OLED (all sets of features were generated with CBFV), and our developments – (e) CAF and (f) SAF.
 
 .. note::
    **Figure 1:** PLS-DA latent value plot using the first two latent value dimensions: (a) JARVIS, (b) MAGPIE, (c) mat2vec, (d) OLED (all sets of features were generated with CBFV), and our developments – (e) CAF and (f) SAF.
+
+
+.. image:: img/SAF-CAF-binary-crystal-classification-performance.png
+   :alt: PLS-DA latent value plot using the first two latent value dimensions: (a) JARVIS, (b) MAGPIE, (c) mat2vec, (d) OLED (all sets of features were generated with CBFV), and our developments – (e) CAF and (f) SAF.
+
+.. note::
+   **Figure 2:** SAF + CAF PLS-DA plot.
+
+.. seealso::
+
+   What's the differecne between ``CAF`` and ``SAF``? ``CAF`` generates compositional features based on chemical formulas, while ``SAF`` generates structural features based on crystal structures (CIF files). You can learn more about ``SAF`` in https://bobleesj.github.io/structure-analyzer-featurizer/.
+
 
 How CAF works
 =============
