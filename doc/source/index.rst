@@ -46,13 +46,17 @@ In the above Digital Discovery paper (`DOI <https://doi.org/10.1039/D4DD00332B>`
 How CAF works
 =============
 
-For a given chemical formula, CAF determines the number of unique elements and categorizes them into binary, ternary, or quaternary compounds. It then generates a set of compositional features based on the chemical formula:
+For a given chemical formula, ``CAF`` determines the number of unique elements and categorizes them into binary, ternary, or quaternary compounds. It then generates a set of compositional features based on the chemical formula:
 
 - 133 binary features
 - 204 ternary features
-- 305 quaternary features are generated
+- 305 quaternary features
 
-The features generated based on the elemental property Oliynyk elemental property dataset (`DOI <https://doi.org/10.1016/j.dib.2024.110178>`_). The full lists of features are provided in the :ref:`features` page.
+The full lists of ``CAF`` features are provided in the :ref:`features` page.
+
+   .. seealso::
+
+      The ``CAF`` features are based on the `Oliynyk elemental property dataset <https://doi.org/10.1016/j.dib.2024.110178>`_ (OLED). OLED can be accessed through the ``bobleesj.utils`` `Python package <https://bobleesj.github.io/bobleesj.utils/notebooks/Oliynyk.html>`_. You can also download the Excel file from `GitHub <https://github.com/bobleesj/bobleesj.utils/blob/main/src/bobleesj/utils/data/db/oliynyk-elemental-property-list.xlsx>`_. Click :guilabel:`Download raw file` button to download the Excel file.
 
 Publications using CAF or Oliynyk elemental property
 ====================================================
@@ -85,11 +89,6 @@ Here is a list of publications using ``CAF`` for materials analysis and data-dri
 
    .. [9] M. Alghadeer, N. D. Aisyah, M. Hezam, S. M. Alqahtani, A. A. B. Baloch, F. H. Alharbi. Machine learning prediction of materials properties from chemical composition: Status and prospects. *Chemical Physics Reviews*. **5**, 041313 (2024).
       `doi.org/10.1063/5.0235541 <https://doi.org/10.1063/5.0235541>`_
-
-
-   .. note::
-
-      The Oliynyk elemental property dataset can be easily easily accessed through ``bobleesj.utils`` in https://bobleesj.github.io/bobleesj.utils/notebooks/Oliynyk.html.
 
 
 Getting started
