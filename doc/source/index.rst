@@ -77,6 +77,16 @@ Here is a list of publications using ``CAF`` for materials analysis and data-dri
    .. [6] K. Li, T. Du, R. Zhou, Q. Fan. Multi-Objective optimization of material properties for enhanced battery performance using artificial Intelligence. *Expert Systems with Applications*. **288**, 128179 (2025).
       `doi.org/10.1016/j.eswa.2025.128179 <https://doi.org/10.1016/j.eswa.2025.128179>`_
 
+   .. [7] W. He, L. Wang. Design and Implementation of Sintered NdFeB Performance Prediction System Based on Machine Learning. *2024 6th International Symposium on Robotics & Intelligent Manufacturing Technology* (2024).
+      `doi.org/10.1109/ISRIMT63979.2024.10875235 <https://doi.org/10.1109/ISRIMT63979.2024.10875235>`_
+
+   .. [8] M. A. Plata, J. S. Smith, R. E.. Baumbach, A. M. Strydom, G. T. McCandless, J. Y. Chan*. Predicting Quantum Criticality in Single-Crystalline Ce2Ru3Ge5. *Inorganic Chemistry*. **TBD**, TBD (2025).
+      `doi.org/10.1021/acs.inorgchem.5c01691 <https://doi.org/10.1021/acs.inorgchem.5c01691>`_
+
+   .. [9] M. Alghadeer, N. D. Aisyah, M. Hezam, S. M. Alqahtani, A. A. B. Baloch, F. H. Alharbi. Machine learning prediction of materials properties from chemical composition: Status and prospects. *Chemical Physics Reviews*. **5**, 041313 (2024).
+      `doi.org/10.1063/5.0235541 <https://doi.org/10.1063/5.0235541>`_
+
+
    .. note::
 
       The Oliynyk elemental property dataset can be easily easily accessed through ``bobleesj.utils`` in https://bobleesj.github.io/bobleesj.utils/notebooks/Oliynyk.html.
