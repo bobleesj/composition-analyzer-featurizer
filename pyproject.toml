@@ -7,9 +7,14 @@ name = "composition-analyzer-featurizer"
 dynamic=['version', 'dependencies']
 authors = [
   { name="Sangjoon Lee", email="bobleesj@gmail.com" },
+  { name="Danila Shiryaev", email="danila.shiryaev44@myhunter.cuny.edu " },
+  { name="Emil Jaffal", email="ejaffal@gradcenter.cuny.edu" },
+  { name="Anton Oliynyk", email="bobleesj@gmail.com" },
 ]
 maintainers = [
   { name="Sangjoon Lee", email="bobleesj@gmail.com" },
+  { name="Danila Shiryaev", email="danila.shiryaev44@myhunter.cuny.edu " },
+  { name="Emil Jaffal", email="ejaffal@gradcenter.cuny.edu" },
 ]
 description = "Python package for generating compositional features for binary, ternary, and quaternary formulas with Oliynyk elemental properties."
 keywords = ['inorganics', 'materials-infomatics', 'materials-chemistry', 'machine-learning', 'composition', 'chemical-formula']
