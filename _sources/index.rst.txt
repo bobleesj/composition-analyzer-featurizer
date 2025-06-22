@@ -35,7 +35,7 @@ as well as the Oliynyk elemental property dataset (OLED) used in ``CAF``:
 Publications and scientific utility
 ===================================
 
-In the above Digital Discovery paper (`DOI <https://doi.org/10.1039/D4DD00332B>`_), we describe the performance of CAF in combination with SAF for generating compositional and structural numerical features for ML applications in crystal classification of binary compounds. The results are shown in Figure 1 below, where we compare the performance of our developments (CAF and SAF) with existing feature generation methods such as JARVIS, MAGPIE, mat2vec, and OLED.
+In the above `Digital Discovery <https://doi.org/10.1039/D4DD00332B>`_ paper, we describe the performance of ``CAF`` in **combination with** ``SAF`` for generating compositional and structural numerical features for ML applications in **crystal classification of binary compounds**. The results are shown in Figures 1 and 2 below, we compare the performance of our developments (CAF and SAF) with existing feature generation methods such as JARVIS, MAGPIE, mat2vec, and OLED.
 
 .. image:: img/SAF-CAF-performance.png
    :alt: PLS-DA latent value plot using the first two latent value dimensions: (a) JARVIS, (b) MAGPIE, (c) mat2vec, (d) OLED (all sets of features were generated with CBFV), and our developments – (e) CAF and (f) SAF.
@@ -43,16 +43,32 @@ In the above Digital Discovery paper (`DOI <https://doi.org/10.1039/D4DD00332B>`
 .. note::
    **Figure 1:** PLS-DA latent value plot using the first two latent value dimensions: (a) JARVIS, (b) MAGPIE, (c) mat2vec, (d) OLED (all sets of features were generated with CBFV), and our developments – (e) CAF and (f) SAF.
 
+
+.. image:: img/SAF-CAF-binary-crystal-classification-performance.png
+   :alt: PLS-DA latent value plot using the first two latent value dimensions: (a) JARVIS, (b) MAGPIE, (c) mat2vec, (d) OLED (all sets of features were generated with CBFV), and our developments – (e) CAF and (f) SAF.
+
+.. note::
+   **Figure 2:** SAF + CAF PLS-DA plot.
+
+.. seealso::
+
+   What's the differecne between ``CAF`` and ``SAF``? ``CAF`` generates compositional features based on chemical formulas, while ``SAF`` generates structural features based on crystal structures (CIF files). You can learn more about ``SAF`` in https://bobleesj.github.io/structure-analyzer-featurizer/.
+
+
 How CAF works
 =============
 
-For a given chemical formula, CAF determines the number of unique elements and categorizes them into binary, ternary, or quaternary compounds. It then generates a set of compositional features based on the chemical formula:
+For a given chemical formula, ``CAF`` determines the number of unique elements and categorizes them into binary, ternary, or quaternary compounds. It then generates a set of compositional features based on the chemical formula:
 
 - 133 binary features
 - 204 ternary features
-- 305 quaternary features are generated
+- 305 quaternary features
 
-The features generated based on the elemental property Oliynyk elemental property dataset (`DOI <https://doi.org/10.1016/j.dib.2024.110178>`_). The full lists of features are provided in the :ref:`features` page.
+The full lists of ``CAF`` features are provided in the :ref:`features` page.
+
+   .. seealso::
+
+      The ``CAF`` features are based on the `Oliynyk elemental property dataset <https://doi.org/10.1016/j.dib.2024.110178>`_ (OLED). OLED can be accessed through the ``bobleesj.utils`` `Python package <https://bobleesj.github.io/bobleesj.utils/notebooks/Oliynyk.html>`_. You can also download the Excel file from `GitHub <https://github.com/bobleesj/bobleesj.utils/blob/main/src/bobleesj/utils/data/db/oliynyk-elemental-property-list.xlsx>`_. Click :guilabel:`Download raw file` button to download the Excel file.
 
 Publications using CAF or Oliynyk elemental property
 ====================================================
@@ -85,11 +101,6 @@ Here is a list of publications using ``CAF`` for materials analysis and data-dri
 
    .. [9] M. Alghadeer, N. D. Aisyah, M. Hezam, S. M. Alqahtani, A. A. B. Baloch, F. H. Alharbi. Machine learning prediction of materials properties from chemical composition: Status and prospects. *Chemical Physics Reviews*. **5**, 041313 (2024).
       `doi.org/10.1063/5.0235541 <https://doi.org/10.1063/5.0235541>`_
-
-
-   .. note::
-
-      The Oliynyk elemental property dataset can be easily easily accessed through ``bobleesj.utils`` in https://bobleesj.github.io/bobleesj.utils/notebooks/Oliynyk.html.
 
 
 Getting started

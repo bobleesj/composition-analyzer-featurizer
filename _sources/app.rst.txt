@@ -72,4 +72,6 @@ Example of ``feature_binary.xlsx``:
 
 **Option 4. Match** - match ``.cif`` files in a folder against an Excel file by the "Entry" column.
 
-**Option 5. Merge** - combine two Excel files based on the "Entry" column.
+**Option 5. Merge** - combine two Excel/CSV files based on the "Entry" column.
+
+This is useful when you want to enrich composition-based features from the CAF App output with structure-based features from the `SAF App <https://github.com/bobleesj/structure-analyzer-featurizer-app>`_.

@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Composition Analyzer/Featurizer (CAF) &mdash; Composition Analyzer/Featurizer (CAF) 0.0.1 documentation</title>
+  <title>Composition Analyzer/Featurizer (CAF) &mdash; Composition Analyzer/Featurizer (CAF) 0.0.2rc0 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
@@ -14,7 +14,7 @@
   
       <script src="_static/jquery.js?v=5d32c60e"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="_static/documentation_options.js?v=f539c95a"></script>
+      <script src="_static/documentation_options.js?v=8cdf6e22"></script>
       <script src="_static/doctools.js?v=9bcbadda"></script>
       <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="_static/clipboard.min.js?v=a7894cd8"></script>
@@ -91,8 +91,8 @@
 </a>
 <img alt="Python Version" src="https://img.shields.io/pypi/pyversions/composition-analyzer-featurizer" />
 <div class="line-block">
-<div class="line">Software version 0.0.1</div>
-<div class="line">Last updated June 21, 2025.</div>
+<div class="line">Software version 0.0.2rc0</div>
+<div class="line">Last updated June 22, 2025.</div>
 </div>
 <p>Composition Analyzer/Featurizer (CAF) offers a user-interactive Python script that provides tools for generating compositional descriptors of binary, ternary, and quaternary compounds from Excel or <cite>.cif</cite> files. CAF also offers utility functions to filter, sort chemical formulas, and merge Excel files.</p>
 <section id="citation">
@@ -108,78 +108,89 @@
 </section>
 <section id="publications-and-scientific-utility">
 <h2>Publications and scientific utility<a class="headerlink" href="#publications-and-scientific-utility" title="Link to this heading"></a></h2>
-<p>In the above Digital Discovery paper (<a class="reference external" href="https://doi.org/10.1039/D4DD00332B">DOI</a>), we describe the performance of CAF in combination with SAF for generating compositional and structural numerical features for ML applications in crystal classification of binary compounds. The results are shown in Figure 1 below, where we compare the performance of our developments (CAF and SAF) with existing feature generation methods such as JARVIS, MAGPIE, mat2vec, and OLED.</p>
+<p>In the above <a class="reference external" href="https://doi.org/10.1039/D4DD00332B">Digital Discovery</a> paper, we describe the performance of <code class="docutils literal notranslate"><span class="pre">CAF</span></code> in <strong>combination with</strong> <code class="docutils literal notranslate"><span class="pre">SAF</span></code> for generating compositional and structural numerical features for ML applications in <strong>crystal classification of binary compounds</strong>. The results are shown in Figures 1 and 2 below, we compare the performance of our developments (CAF and SAF) with existing feature generation methods such as JARVIS, MAGPIE, mat2vec, and OLED.</p>
 <img alt="PLS-DA latent value plot using the first two latent value dimensions: (a) JARVIS, (b) MAGPIE, (c) mat2vec, (d) OLED (all sets of features were generated with CBFV), and our developments – (e) CAF and (f) SAF." src="_images/SAF-CAF-performance.png" />
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p><strong>Figure 1:</strong> PLS-DA latent value plot using the first two latent value dimensions: (a) JARVIS, (b) MAGPIE, (c) mat2vec, (d) OLED (all sets of features were generated with CBFV), and our developments – (e) CAF and (f) SAF.</p>
 </div>
+<img alt="PLS-DA latent value plot using the first two latent value dimensions: (a) JARVIS, (b) MAGPIE, (c) mat2vec, (d) OLED (all sets of features were generated with CBFV), and our developments – (e) CAF and (f) SAF." src="_images/SAF-CAF-binary-crystal-classification-performance.png" />
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Figure 2:</strong> SAF + CAF PLS-DA plot.</p>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>What’s the differecne between <code class="docutils literal notranslate"><span class="pre">CAF</span></code> and <code class="docutils literal notranslate"><span class="pre">SAF</span></code>? <code class="docutils literal notranslate"><span class="pre">CAF</span></code> generates compositional features based on chemical formulas, while <code class="docutils literal notranslate"><span class="pre">SAF</span></code> generates structural features based on crystal structures (CIF files). You can learn more about <code class="docutils literal notranslate"><span class="pre">SAF</span></code> in <a class="reference external" href="https://bobleesj.github.io/structure-analyzer-featurizer/">https://bobleesj.github.io/structure-analyzer-featurizer/</a>.</p>
+</div>
 </section>
 <section id="how-caf-works">
 <h2>How CAF works<a class="headerlink" href="#how-caf-works" title="Link to this heading"></a></h2>
-<p>For a given chemical formula, CAF determines the number of unique elements and categorizes them into binary, ternary, or quaternary compounds. It then generates a set of compositional features based on the chemical formula:</p>
+<p>For a given chemical formula, <code class="docutils literal notranslate"><span class="pre">CAF</span></code> determines the number of unique elements and categorizes them into binary, ternary, or quaternary compounds. It then generates a set of compositional features based on the chemical formula:</p>
 <ul class="simple">
 <li><p>133 binary features</p></li>
 <li><p>204 ternary features</p></li>
-<li><p>305 quaternary features are generated</p></li>
+<li><p>305 quaternary features</p></li>
 </ul>
-<p>The features generated based on the elemental property Oliynyk elemental property dataset (<a class="reference external" href="https://doi.org/10.1016/j.dib.2024.110178">DOI</a>). The full lists of features are provided in the <a class="reference internal" href="features.html#features"><span class="std std-ref">Features</span></a> page.</p>
+<p>The full lists of <code class="docutils literal notranslate"><span class="pre">CAF</span></code> features are provided in the <a class="reference internal" href="features.html#features"><span class="std std-ref">Features</span></a> page.</p>
+<blockquote>
+<div><div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">CAF</span></code> features are based on the <a class="reference external" href="https://doi.org/10.1016/j.dib.2024.110178">Oliynyk elemental property dataset</a> (OLED). OLED can be accessed through the <code class="docutils literal notranslate"><span class="pre">bobleesj.utils</span></code> <a class="reference external" href="https://bobleesj.github.io/bobleesj.utils/notebooks/Oliynyk.html">Python package</a>. You can also download the Excel file from <a class="reference external" href="https://github.com/bobleesj/bobleesj.utils/blob/main/src/bobleesj/utils/data/db/oliynyk-elemental-property-list.xlsx">GitHub</a>. Click <span class="guilabel">Download raw file</span> button to download the Excel file.</p>
+</div>
+</div></blockquote>
 </section>
 <section id="publications-using-caf-or-oliynyk-elemental-property">
 <h2>Publications using CAF or Oliynyk elemental property<a class="headerlink" href="#publications-using-caf-or-oliynyk-elemental-property" title="Link to this heading"></a></h2>
 <p>Here is a list of publications using <code class="docutils literal notranslate"><span class="pre">CAF</span></code> for materials analysis and data-driven materials synthesis:</p>
 <blockquote>
 <div><aside class="footnote-list brackets">
-<aside class="footnote brackets" id="id2" role="doc-footnote">
+<aside class="footnote brackets" id="id1" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></span>
 <p>K. P. McGuinness, A. O. Oliynyk, S. Lee, B. Molero-Sanchez, P. K. Addo. Machine-learning prediction of thermal expansion coefficient for perovskite oxides with experimental validation. <em>Physical Chemistry Chemical Physics</em>. <strong>25</strong>, 32123-32131 (2023).
 <a class="reference external" href="DOIhttps://doi.org/10.1039/D3CP04017H">doi.org/10.1039/D3CP04017H</a></p>
 </aside>
-<aside class="footnote brackets" id="id3" role="doc-footnote">
+<aside class="footnote brackets" id="id2" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></span>
 <p>N. K. Barua, S. Lee, A. O. Oliynyk, H. Kleinke. Thermoelectric Material Performance (zT) Predictions with Machine Learning. <em>ACS Applied Materials &amp; Interfaces</em>. <strong>4</strong>, 548-560 (2024).
 <a class="reference external" href="https://doi.org/10.1016/j.jallcom.2023.173241">doi.org/10.1016/j.jallcom.2023.173241</a></p>
 </aside>
-<aside class="footnote brackets" id="id4" role="doc-footnote">
+<aside class="footnote brackets" id="id3" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></span>
 <p>S. S. Sethi, A. Dutta, E. I. Jaffal, N. Yadav, D. Shiryaev, B. Hoang, A. Machathi, S. Lee, K. Das, P. P. Jana, A. O. Oliynyk. Unsupervised Machine Learning Prediction of a Novel 1:3 Intermetallic Phase with the Synthesis of TbIr3 (PuNi3-type) as Experimental Validation. <em>Journal of the American Chemical Society</em>. <strong>17</strong>, 1662-1673 (2025).
 <a class="reference external" href="https://doi.org/10.1021/jacs.5c03510">doi.org/10.1021/jacs.5c03510</a></p>
 </aside>
-<aside class="footnote brackets" id="id5" role="doc-footnote">
+<aside class="footnote brackets" id="id4" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></span>
 <p>J S. V. Buskirk G. G. C. Peterson, D. C. Fredrickson. Machine Learning-Based Investigation of Atomic Packing Effects: Chemical Pressures at the Extremes of Intermetallic Complexity. <em>Journal of the American Chemical Society</em>. <strong>17</strong>, 1662-1673 (2024).
 <a class="reference external" href="https://doi.org/10.1021/jacs.4c10479">doi.org/10.1021/jacs.4c10479</a></p>
 </aside>
-<aside class="footnote brackets" id="id6" role="doc-footnote">
+<aside class="footnote brackets" id="id5" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span>5<span class="fn-bracket">]</span></span>
 <p>A. Sundar, X. Tan, S. Hu, M. C. Gao. CALPHAD-based Bayesian optimization to accelerate alloy discovery for high-temperature applications. <em>Journal of Materials Research</em>. <strong>40</strong>, 112–122 (2025).
 <a class="reference external" href="https://doi.org/10.1557/s43578-024-01489-0">doi.org/10.1557/s43578-024-01489-0</a></p>
 </aside>
-<aside class="footnote brackets" id="id7" role="doc-footnote">
+<aside class="footnote brackets" id="id6" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span>6<span class="fn-bracket">]</span></span>
 <p>K. Li, T. Du, R. Zhou, Q. Fan. Multi-Objective optimization of material properties for enhanced battery performance using artificial Intelligence. <em>Expert Systems with Applications</em>. <strong>288</strong>, 128179 (2025).
 <a class="reference external" href="https://doi.org/10.1016/j.eswa.2025.128179">doi.org/10.1016/j.eswa.2025.128179</a></p>
 </aside>
-<aside class="footnote brackets" id="id8" role="doc-footnote">
+<aside class="footnote brackets" id="id7" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span>7<span class="fn-bracket">]</span></span>
 <p>W. He, L. Wang. Design and Implementation of Sintered NdFeB Performance Prediction System Based on Machine Learning. <em>2024 6th International Symposium on Robotics &amp; Intelligent Manufacturing Technology</em> (2024).
 <a class="reference external" href="https://doi.org/10.1109/ISRIMT63979.2024.10875235">doi.org/10.1109/ISRIMT63979.2024.10875235</a></p>
 </aside>
-<aside class="footnote brackets" id="id9" role="doc-footnote">
+<aside class="footnote brackets" id="id8" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span>8<span class="fn-bracket">]</span></span>
 <p>M. A. Plata, J. S. Smith, R. E.. Baumbach, A. M. Strydom, G. T. McCandless, J. Y. Chan*. Predicting Quantum Criticality in Single-Crystalline Ce2Ru3Ge5. <em>Inorganic Chemistry</em>. <strong>TBD</strong>, TBD (2025).
 <a class="reference external" href="https://doi.org/10.1021/acs.inorgchem.5c01691">doi.org/10.1021/acs.inorgchem.5c01691</a></p>
 </aside>
-<aside class="footnote brackets" id="id10" role="doc-footnote">
+<aside class="footnote brackets" id="id9" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span>9<span class="fn-bracket">]</span></span>
 <p>M. Alghadeer, N. D. Aisyah, M. Hezam, S. M. Alqahtani, A. A. B. Baloch, F. H. Alharbi. Machine learning prediction of materials properties from chemical composition: Status and prospects. <em>Chemical Physics Reviews</em>. <strong>5</strong>, 041313 (2024).
 <a class="reference external" href="https://doi.org/10.1063/5.0235541">doi.org/10.1063/5.0235541</a></p>
 </aside>
 </aside>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The Oliynyk elemental property dataset can be easily easily accessed through <code class="docutils literal notranslate"><span class="pre">bobleesj.utils</span></code> in <a class="reference external" href="https://bobleesj.github.io/bobleesj.utils/notebooks/Oliynyk.html">https://bobleesj.github.io/bobleesj.utils/notebooks/Oliynyk.html</a>.</p>
-</div>
 </div></blockquote>
 </section>
 <section id="getting-started">
