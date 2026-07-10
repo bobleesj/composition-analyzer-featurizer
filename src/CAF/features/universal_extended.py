@@ -1,6 +1,6 @@
-from bobleesj.utils import numbers
-from bobleesj.utils.parsers.formula import Formula
-from bobleesj.utils.sources.oliynyk import Property as P
+from cifkit import numbers
+from cifkit.parsers.formula import Formula
+from cifkit.sources.oliynyk import Property as P
 from numpy import average
 
 from CAF.features import transform

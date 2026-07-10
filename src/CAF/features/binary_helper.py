@@ -1,4 +1,4 @@
-from bobleesj.utils.parsers.formula import Formula
+from cifkit.parsers.formula import Formula
 
 
 def prepare_binary_formula(formula: str):

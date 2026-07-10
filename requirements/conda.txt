@@ -3,5 +3,4 @@ matplotlib
 pandas
 openpyxl
 click
-bobleesj.utils
-cifkit
+cifkit>=1.2.0

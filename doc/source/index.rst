@@ -68,7 +68,7 @@ The full lists of ``CAF`` features are provided in the :ref:`features` page.
 
    .. seealso::
 
-      The ``CAF`` features are based on the `Oliynyk elemental property dataset <https://doi.org/10.1016/j.dib.2024.110178>`_ (OLED). OLED can be accessed through the ``bobleesj.utils`` `Python package <https://bobleesj.github.io/bobleesj.utils/notebooks/Oliynyk.html>`_. You can also download the Excel file from `GitHub <https://github.com/bobleesj/bobleesj.utils/blob/main/src/bobleesj/utils/data/db/oliynyk-elemental-property-list.xlsx>`_. Click :guilabel:`Download raw file` button to download the Excel file.
+      The ``CAF`` features are based on the `Oliynyk elemental property dataset <https://doi.org/10.1016/j.dib.2024.110178>`_ (OLED). OLED can be accessed through the ``cifkit`` `Python package <https://bobleesj.github.io/cifkit>`_. You can also download the Excel file from `GitHub <https://github.com/bobleesj/cifkit/blob/main/src/cifkit/data/db/oliynyk-elemental-property-list.xlsx>`_. Click :guilabel:`Download raw file` button to download the Excel file.
 
 Publications using CAF or Oliynyk elemental property
 ====================================================

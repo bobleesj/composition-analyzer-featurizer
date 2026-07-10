@@ -1,5 +1,5 @@
 import pytest
-from bobleesj.utils.sources.oliynyk import Oliynyk
+from cifkit.sources.oliynyk import Oliynyk
 from cifkit import Cif
 
 

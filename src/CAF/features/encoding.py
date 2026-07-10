@@ -1,4 +1,4 @@
-from bobleesj.utils.parsers.formula import Formula
+from cifkit.parsers.formula import Formula
 
 
 def generate_features(formula, elements: list[str]) -> dict[str, float]:
