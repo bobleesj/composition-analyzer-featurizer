@@ -60,18 +60,18 @@ You might be interested in generating compositional features without using the C
 
 .. code-block:: bash
 
-   pip install composition-analyzer-featurizer bobleesj.utils
+   pip install composition-analyzer-featurizer
 
 In your Python module, add the following to generate features for a binary compound:
 
 .. code-block:: python
 
    from CAF.features import binary, ternary, quaternary
-   from bobleesj.utils.sources.oliynyk import Oliynyk
+   from cifkit.sources.oliynyk import Oliynyk
 
    # Example binary compound formula
    formula = "NdSi2"
-   # Get Oliynyk elemental property dataset. Visit https://bobleesj.github.io/bobleesj.utils for more info.
+   # Get Oliynyk elemental property dataset. Visit https://bobleesj.github.io/cifkit for more info.
    oliynyk_db = Oliynyk().db
    binary_features = binary.generate_features(formula, oliynyk_db)
    print(binary_features)

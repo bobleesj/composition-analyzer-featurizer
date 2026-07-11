@@ -1,5 +1,5 @@
-from bobleesj.utils.parsers.formula import Formula
-from bobleesj.utils.sources.oliynyk import Property as P
+from cifkit.parsers.formula import Formula
+from cifkit.sources.oliynyk import Property as P
 
 from CAF.features import quaternary_helper as helper
 

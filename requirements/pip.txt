@@ -1,7 +1,6 @@
 numpy
 matplotlib
 pandas
-bobleesj.utils
+cifkit>=1.2.0
 openpyxl
 click
-cifkit

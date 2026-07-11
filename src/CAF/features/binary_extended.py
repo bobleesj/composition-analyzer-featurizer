@@ -1,5 +1,5 @@
-from bobleesj.utils import numbers
-from bobleesj.utils.sources.oliynyk import Property as P
+from cifkit import numbers
+from cifkit.sources.oliynyk import Property as P
 
 from CAF.features import binary_helper as bi_helper
 from CAF.features import transform

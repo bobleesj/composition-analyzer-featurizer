@@ -1,8 +1,8 @@
 import os
 
 import pandas as pd
-from bobleesj.utils.parsers.formula import Formula
-from bobleesj.utils.sources.oliynyk import Oliynyk
+from cifkit.parsers.formula import Formula
+from cifkit.sources.oliynyk import Oliynyk
 
 from CAF.features import (
     binary,

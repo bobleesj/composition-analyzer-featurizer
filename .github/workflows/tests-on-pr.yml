@@ -11,5 +11,10 @@ jobs:
       project: composition-analyzer-featurizer
       c_extension: false
       headless: false
+      # cifkit>=1.2.0 is on PyPI only (conda-forge still at 1.1.1).
+      # --ignore-requires-python: PyPI 1.2.1 declares <3.14; we target 3.12-3.14
+      # until a newer cifkit release ships updated metadata.
+      run: |
+        pip install --ignore-requires-python 'cifkit>=1.2.0'
     secrets:
       CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}

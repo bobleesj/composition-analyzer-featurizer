@@ -1,5 +1,5 @@
-from bobleesj.utils import numbers
-from bobleesj.utils.sources.oliynyk import Property as P
+from cifkit import numbers
+from cifkit.sources.oliynyk import Property as P
 from numpy import mean
 
 from CAF.features import ternary_helper as ter_helper

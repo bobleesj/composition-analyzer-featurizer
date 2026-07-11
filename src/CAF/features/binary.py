@@ -1,5 +1,5 @@
-from bobleesj.utils.parsers.formula import Formula
-from bobleesj.utils.sources.oliynyk import Property as P
+from cifkit.parsers.formula import Formula
+from cifkit.sources.oliynyk import Property as P
 
 from CAF.features.binary_helper import (
     A_by_B,
