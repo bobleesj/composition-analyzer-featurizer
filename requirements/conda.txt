@@ -3,4 +3,3 @@ matplotlib
 pandas
 openpyxl
 click
-cifkit>=1.2.0
